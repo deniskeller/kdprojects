@@ -257,7 +257,7 @@ const Navbar: React.FC<Props> = ({ fixed }) => {
 
 						<div className={s.Drawer_Navbar_Actions}>
 							<BaseButton
-								title='Войти'
+								title='Войти1111'
 								className={s.Drawer_Navbar_Actions_Login}
 							/>
 
