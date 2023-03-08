@@ -1,0 +1,17 @@
+.Wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	min-height: 100vh;
+	height: 100%;
+	overflow-y: auto;
+	position: relative;
+}
+
+.Content {
+	display: flex;
+	flex: 1 0 auto;
+	overflow: auto;
+	flex-direction: column;
+	position: relative;
+}
