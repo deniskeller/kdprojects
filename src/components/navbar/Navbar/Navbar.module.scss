@@ -156,7 +156,6 @@
 		width: 0;
 		height: 100%;
 		width: em(316px);
-		padding-top: em(60px);
 		transition: left 0.5s cubic-bezier(0.82, 0.085, 0.395, 0.895);
 		background: $white;
 		box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.04),
@@ -177,12 +176,36 @@
 			}
 		}
 
+		&_Wrapper {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			height: 100%;
+		}
+
+		&_Header {
+			display: flex;
+			flex: 0;
+			flex-direction: row;
+			justify-content: flex-end;
+			align-items: center;
+			padding: 0 em(25px);
+			min-height: em(60px);
+		}
+
+		&_Body {
+			flex: 1;
+			min-width: 0;
+			min-height: 0;
+			overflow: auto;
+		}
+
 		&_Burger {
 			width: em(25px);
 			cursor: pointer;
-			position: absolute;
-			top: em(38px);
-			right: em(25px);
+			// position: absolute;
+			// top: em(38px);
+			// right: em(25px);
 
 			@include iftablet {
 				top: em(28px);
@@ -225,8 +248,8 @@
 		&_Navbar {
 			display: flex;
 			flex-direction: column;
-			overflow: auto;
-			height: 100%;
+			// overflow: auto;
+			// height: 100%;
 
 			&_List {
 				list-style: none;
@@ -297,9 +320,4 @@
 			}
 		}
 	}
-}
-
-.Wrapper {
-	display: grid;
-	min-height: 100%;
 }
