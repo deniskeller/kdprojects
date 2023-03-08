@@ -123,13 +123,13 @@ const Navbar: React.FC<Props> = ({ fixed }) => {
 				className={`${s.Drawer} ${visible ? s.Drawer_Visible : ''}`}
 				ref={thisDrawer}
 			>
-				<div className={s.Drawer_Burger} onClick={() => setVisible(false)}>
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
-
 				<div className={s.Wrapper}>
+					<div className={s.Drawer_Burger} onClick={() => setVisible(false)}>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+
 					<div className={s.Drawer_Navbar}>
 						<ul className={s.Drawer_Navbar_List}>
 							{links.map((link, index) => {
