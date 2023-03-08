@@ -23,6 +23,10 @@
 		padding-top: em(20px);
 		position: relative;
 
+		@include iflaptop {
+			padding-top: em(12px);
+		}
+
 		@include iftablet {
 			padding-top: em(12px);
 		}
@@ -133,12 +137,20 @@
 			&_Login {
 				margin-right: em(8px);
 
+				@include iflaptop {
+					height: em(36px);
+				}
+
 				@include iftablet {
 					height: em(36px);
 				}
 			}
 
 			&_SignUp {
+				@include iflaptop {
+					height: em(36px);
+				}
+
 				@include iftablet {
 					height: em(36px);
 				}
@@ -201,11 +213,10 @@
 		}
 
 		&_Burger {
-			width: em(25px);
+			width: em(24px);
+			height: em(24px);
 			cursor: pointer;
-			// position: absolute;
-			// top: em(38px);
-			// right: em(25px);
+			display: grid;
 
 			@include iftablet {
 				top: em(28px);
@@ -231,7 +242,7 @@
 			}
 
 			span:nth-child(1) {
-				top: em(5px);
+				top: em(12px);
 				transform: rotate(45deg);
 			}
 
@@ -240,7 +251,7 @@
 			}
 
 			span:nth-child(3) {
-				bottom: em(0px);
+				bottom: em(2px);
 				transform: rotate(135deg);
 			}
 		}

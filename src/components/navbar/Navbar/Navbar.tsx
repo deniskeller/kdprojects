@@ -261,7 +261,7 @@ const Navbar: React.FC<Props> = ({ fixed }) => {
 
 							<div className={s.Drawer_Navbar_Actions}>
 								<BaseButton
-									title='Войти33'
+									title='Войти'
 									className={s.Drawer_Navbar_Actions_Login}
 								/>
 
@@ -272,13 +272,13 @@ const Navbar: React.FC<Props> = ({ fixed }) => {
 							</div>
 
 							<div className={s.Drawer_Navbar_Footer}>
-								<Link href='' className={s.Drawer_Navbar_Footer_Link}>
+								<Link href='/' className={s.Drawer_Navbar_Footer_Link}>
 									IT-проекты Калининграда, 2023
 								</Link>
-								<Link href='' className={s.Drawer_Navbar_Footer_Link}>
+								<Link href='/' className={s.Drawer_Navbar_Footer_Link}>
 									Политика конфиденциальности
 								</Link>
-								<Link href='' className={s.Drawer_Navbar_Footer_Link}>
+								<Link href='/' className={s.Drawer_Navbar_Footer_Link}>
 									IT омбудсмен Калининграда
 								</Link>
 							</div>
