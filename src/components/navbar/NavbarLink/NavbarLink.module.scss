@@ -1,0 +1,17 @@
+.Link {
+	a {
+		font-size: em(16px);
+		font-weight: 500;
+		white-space: nowrap;
+		color: $grey;
+		&:hover {
+			color: $blue-500;
+		}
+	}
+}
+
+.Active {
+	a {
+		color: $blue-500;
+	}
+}

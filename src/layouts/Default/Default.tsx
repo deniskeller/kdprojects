@@ -1,5 +1,5 @@
 // import { Footer } from 'components/landing/footer';
-// import { Navbar } from 'components/landing/navbar';
+import { Navbar } from 'components/navbar';
 import React, { useEffect, useState } from 'react';
 import styles from './Default.module.scss';
 
@@ -32,7 +32,7 @@ const Default: React.FC<Props> = ({ children }) => {
 
 	return (
 		<div className={styles.Wrapper}>
-			{/* <Navbar fixed={isVisible} /> */}
+			<Navbar fixed={isVisible} />
 
 			<div className={styles.Content}>{children}</div>
 

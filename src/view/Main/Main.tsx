@@ -1,4 +1,4 @@
-import { About } from 'components/content/pages/Main';
+import { About } from '@pages/Main';
 
 const Main = () => {
 	return (

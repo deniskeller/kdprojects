@@ -12,7 +12,7 @@ interface Props {
 
 const BaseButton: React.FC<Props> = ({
 	title = '',
-	type = 'empty',
+	type = 'white',
 	disabled = false,
 	className = '',
 	style,
