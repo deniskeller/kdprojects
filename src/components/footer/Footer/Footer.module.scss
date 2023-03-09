@@ -1,0 +1,21 @@
+.Container {
+	border-top: 1px solid #bae5fd;
+	margin-top: auto;
+
+	@include ifmobile {
+		display: none;
+	}
+}
+
+.Footer {
+	padding: em(28px) 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	&_Link {
+		font-weight: 400;
+		font-size: em(12px);
+		line-height: 133%;
+		color: $blue-800;
+	}
+}

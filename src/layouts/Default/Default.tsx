@@ -1,4 +1,4 @@
-// import { Footer } from 'components/landing/footer';
+import { Footer } from 'components/footer';
 import { Navbar } from 'components/navbar';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
@@ -41,7 +41,7 @@ const Default: React.FC<Props> = ({ children }) => {
 
 			<div className={s.Content}>{children}</div>
 
-			{/* <Footer /> */}
+			<Footer />
 		</div>
 	);
 };
