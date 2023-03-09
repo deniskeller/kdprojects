@@ -140,7 +140,7 @@ const Navbar2: React.FC<Props> = ({ fixed }) => {
 											key={index}
 										>
 											<Link href={link.href}>
-												{link.href == '/' ? (
+												{link.title == 'Главная' ? (
 													<svg
 														width='24'
 														height='24'
@@ -156,7 +156,7 @@ const Navbar2: React.FC<Props> = ({ fixed }) => {
 															strokeLinejoin='round'
 														/>
 													</svg>
-												) : link.href == '/press' ? (
+												) : link.title == 'Пресса' ? (
 													<svg
 														width='24'
 														height='24'
@@ -172,7 +172,7 @@ const Navbar2: React.FC<Props> = ({ fixed }) => {
 															strokeLinejoin='round'
 														/>
 													</svg>
-												) : link.href == '/video' ? (
+												) : link.title == 'Видео' ? (
 													<svg
 														width='24'
 														height='24'
@@ -188,7 +188,7 @@ const Navbar2: React.FC<Props> = ({ fixed }) => {
 															strokeLinejoin='round'
 														/>
 													</svg>
-												) : link.href == '/demo-day' ? (
+												) : link.title == 'Демо-день' ? (
 													<svg
 														width='24'
 														height='24'
@@ -211,7 +211,7 @@ const Navbar2: React.FC<Props> = ({ fixed }) => {
 															strokeLinejoin='round'
 														/>
 													</svg>
-												) : link.href == '/projects' ? (
+												) : link.title == 'Проекты' ? (
 													<svg
 														width='24'
 														height='24'
@@ -225,7 +225,7 @@ const Navbar2: React.FC<Props> = ({ fixed }) => {
 															fillOpacity='0.6'
 														/>
 													</svg>
-												) : link.href == '/users' ? (
+												) : link.title == 'Пользователи' ? (
 													<svg
 														width='24'
 														height='24'
