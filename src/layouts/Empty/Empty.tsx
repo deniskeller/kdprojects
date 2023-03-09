@@ -1,5 +1,5 @@
 import { Footer } from 'components/footer';
-import { Navbar } from 'components/navbar';
+import { Navbar2 } from 'components/navbar';
 import React, { useEffect, useState } from 'react';
 import s from './Empty.module.scss';
 
@@ -32,7 +32,7 @@ const Empty: React.FC<Props> = ({ children }) => {
 
 	return (
 		<div className={s.Wrapper}>
-			<Navbar />
+			<Navbar2 />
 
 			<div className={s.Content}>{children}</div>
 

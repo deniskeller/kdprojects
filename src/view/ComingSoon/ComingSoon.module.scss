@@ -1,0 +1,48 @@
+.ComingSoon {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	@extend %center;
+	flex-direction: column;
+	flex: 1;
+	min-height: 100%;
+	padding: em(50px) 0;
+	overflow: hidden;
+
+	&_Image {
+		width: em(461px);
+		height: em(378.11px);
+		margin-bottom: em(20px);
+		svg {
+			width: auto;
+		}
+
+		@include ifmobile {
+			width: em(374.3px);
+			height: em(307px);
+		}
+	}
+
+	&_Title {
+		margin-bottom: em(10px);
+		p {
+			font-weight: 600;
+			font-size: em(24px);
+			line-height: 142%;
+			color: rgba(26, 26, 26, 0.8);
+		}
+	}
+
+	&_Subtitle {
+		margin-bottom: em(36px);
+		@include ifmobile {
+			text-align: center;
+		}
+		p {
+			font-weight: 400;
+			font-size: em(20px);
+			line-height: 160%;
+			color: rgba(26, 26, 26, 0.8);
+		}
+	}
+}

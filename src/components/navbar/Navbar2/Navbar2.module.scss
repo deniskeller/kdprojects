@@ -1,0 +1,343 @@
+.Container {
+	width: 100%;
+	padding: 0 em(32px);
+	position: relative;
+	z-index: 20;
+	background: $white;
+
+	@include iflaptop {
+		padding: 0 em(16px);
+	}
+
+	@include iftablet {
+		padding: 0 em(16px);
+	}
+
+	@include ifmobile {
+		background: $white;
+		padding: 0 em(16px);
+		z-index: 100;
+	}
+
+	.Navbar {
+		width: 100%;
+		max-width: em(1376px);
+		margin: 0 auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding: em(23px) 0;
+		position: relative;
+
+		@include iflaptop {
+			padding: em(12px) 0;
+			justify-content: flex-start;
+		}
+
+		@include iftablet {
+			padding: em(12px) 0;
+			justify-content: flex-start;
+		}
+
+		@include ifmobile {
+			justify-content: space-between;
+			flex-direction: row-reverse;
+			padding: em(10px) 0;
+		}
+
+		&_Burger {
+			width: em(20px);
+			cursor: pointer;
+
+			@include ifdesktop {
+				display: none;
+			}
+
+			span {
+				display: block;
+				width: 100%;
+				border-radius: em(10px);
+				height: em(1px);
+				background: #1a1a1a;
+			}
+
+			span + span {
+				margin-top: em(5px);
+			}
+
+			&_Active span:nth-child(1) {
+				animation: ease 0.7s top forwards;
+			}
+
+			&_NotActive span:nth-child(1) {
+				animation: ease 0.7s top-2 forwards;
+			}
+
+			&_Active span:nth-child(2) {
+				animation: ease 0.7s scaled forwards;
+			}
+
+			&_NotActive span:nth-child(2) {
+				animation: ease 0.7s scaled-2 forwards;
+			}
+
+			&_Active span:nth-child(3) {
+				width: 100%;
+				animation: ease 0.7s bottom forwards;
+			}
+
+			&_NotActive span:nth-child(3) {
+				animation: ease 0.7s bottom-2 forwards;
+			}
+		}
+
+		&_Logo {
+			width: em(133.33px);
+			height: em(39px);
+			@include iflaptop {
+				margin-left: em(34px);
+			}
+
+			@include iftablet {
+				margin-left: em(34px);
+			}
+		}
+
+		&_List {
+			display: none;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+
+			@include ifdesktop {
+				display: flex;
+			}
+			&_Item {
+				@include ifdesktop {
+					margin-right: em(50px);
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+				@include iftablet {
+					margin-bottom: em(54px);
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+
+		&_Actions {
+			display: flex;
+			flex-direction: row;
+
+			@include iflaptop {
+				margin-left: auto;
+			}
+
+			@include iftablet {
+				margin-left: auto;
+			}
+
+			@include ifmobile {
+				display: none;
+			}
+			&_Login {
+				margin-right: em(8px);
+
+				@include iflaptop {
+					height: em(36px);
+				}
+
+				@include iftablet {
+					height: em(36px);
+				}
+			}
+
+			&_SignUp {
+				@include iflaptop {
+					height: em(36px);
+				}
+
+				@include iftablet {
+					height: em(36px);
+				}
+			}
+		}
+	}
+
+	.Drawer {
+		display: flex;
+		flex-direction: column;
+		position: fixed;
+		z-index: 1000;
+		top: 0;
+		left: -100%;
+		width: 0;
+		height: 100%;
+		width: em(316px);
+		transition: left 0.5s cubic-bezier(0.82, 0.085, 0.395, 0.895);
+		background: $white;
+		box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.04),
+			0px 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+		@include ifmobile {
+			width: em(240px);
+			right: -100%;
+			transition: right 0.5s cubic-bezier(0.82, 0.085, 0.395, 0.895);
+			left: auto;
+		}
+
+		&_Visible {
+			left: 0;
+			@include ifmobile {
+				right: 0;
+				left: auto;
+			}
+		}
+
+		&_Wrapper {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			height: 100%;
+		}
+
+		&_Header {
+			display: flex;
+			flex: 0;
+			flex-direction: row;
+			justify-content: flex-end;
+			align-items: center;
+			padding: 0 em(25px);
+			min-height: em(60px);
+		}
+
+		&_Body {
+			flex: 1;
+			min-width: 0;
+			min-height: 0;
+			overflow: auto;
+		}
+
+		&_Burger {
+			width: em(24px);
+			height: em(24px);
+			cursor: pointer;
+			display: grid;
+
+			@include iftablet {
+				top: em(28px);
+			}
+
+			@include ifmobile {
+				top: em(26px);
+				right: em(14px);
+			}
+
+			span {
+				display: block;
+				width: 100%;
+				border-radius: em(10px);
+				height: em(1px);
+				background: $black;
+				transition: all 0.3s;
+				position: relative;
+			}
+
+			span + span {
+				margin-top: em(4px);
+			}
+
+			span:nth-child(1) {
+				top: em(12px);
+				transform: rotate(45deg);
+			}
+
+			span:nth-child(2) {
+				display: none;
+			}
+
+			span:nth-child(3) {
+				bottom: em(2px);
+				transform: rotate(135deg);
+			}
+		}
+
+		&_Navbar {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+
+			&_List {
+				list-style: none;
+				margin-bottom: em(40px);
+
+				&_Item {
+					cursor: pointer;
+
+					&:hover {
+						background: $body;
+					}
+
+					&_Active {
+						background: $body;
+					}
+					svg {
+						width: em(24px);
+						height: em(24px);
+						margin-right: em(12px);
+					}
+
+					a {
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						width: 100%;
+						height: em(44px);
+						padding: 0 em(24px);
+						font-weight: 500;
+						font-size: em(16px);
+						color: rgba(26, 26, 26, 0.7);
+					}
+				}
+			}
+
+			&_Actions {
+				display: flex;
+				flex-direction: column;
+				padding: 0 em(24px);
+				margin-bottom: em(40px);
+
+				&_Login,
+				&_SignUp {
+					height: em(40px);
+				}
+
+				&_Login {
+					margin-bottom: em(16px);
+				}
+			}
+
+			&_Footer {
+				display: flex;
+				flex-direction: column;
+				margin-top: auto;
+				border-top: 1px solid #bedbfe;
+				padding: em(16px);
+				&_Link {
+					font-weight: 400;
+					font-size: em(12px);
+					line-height: 133%;
+					color: $blue-800;
+					margin-bottom: em(14px);
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+}
