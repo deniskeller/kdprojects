@@ -1,9 +1,10 @@
-import { About } from '@pages/Main';
+import { About, Projects } from '@pages/Main';
 
 const Main = () => {
 	return (
 		<>
 			<About />
+			<Projects />
 		</>
 	);
 };

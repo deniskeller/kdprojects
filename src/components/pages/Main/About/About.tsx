@@ -40,14 +40,14 @@ const About: React.FC<Props> = () => {
 					<div className={s.About_Achievements}>
 						<div className={s.About_Achievements_Item}>
 							<div className={s.About_Achievements_Item_Name}>
-								Проектов к инвестированию
+								<span>Проектов к инвестированию</span>
 							</div>
 							<div className={s.About_Achievements_Item_Value}>76</div>
 						</div>
 
 						<div className={s.About_Achievements_Item}>
 							<div className={s.About_Achievements_Item_Name}>
-								Доступно к инвестированию
+								<span>Доступно к инвестированию</span>
 							</div>
 							<div className={s.About_Achievements_Item_Value}>
 								150 000 000 ₽
@@ -55,13 +55,15 @@ const About: React.FC<Props> = () => {
 						</div>
 
 						<div className={s.About_Achievements_Item}>
-							<div className={s.About_Achievements_Item_Name}>Стартапы</div>
+							<div className={s.About_Achievements_Item_Name}>
+								<span>Стартапы</span>
+							</div>
 							<div className={s.About_Achievements_Item_Value}>12</div>
 						</div>
 
 						<div className={s.About_Achievements_Item}>
 							<div className={s.About_Achievements_Item_Name}>
-								Существующие проекты
+								<span>Существующие проекты</span>
 							</div>
 							<div className={s.About_Achievements_Item_Value}>7</div>
 						</div>
