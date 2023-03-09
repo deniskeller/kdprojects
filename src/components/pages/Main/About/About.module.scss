@@ -1,3 +1,101 @@
 .About {
-	height: 1000px;
+	padding-top: em(62px);
+	padding-bottom: em(40px);
+
+	@include iflaptop {
+		padding-bottom: em(20px);
+	}
+	@include iftablet {
+		padding-bottom: em(20px);
+	}
+	@include ifmobile {
+		padding-bottom: em(15px);
+	}
+
+	&_Logo {
+		width: em(327px);
+		height: em(97px);
+		margin-bottom: em(61px);
+		pointer-events: none;
+	}
+
+	&_Description {
+		max-width: em(792px);
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: em(24px) 0;
+		margin-bottom: em(48px);
+
+		@include iflaptop {
+			max-width: em(612px);
+		}
+
+		@include iftablet {
+			max-width: em(612px);
+		}
+
+		@include ifmobile {
+			margin-bottom: em(30px);
+		}
+
+		p {
+			color: $black;
+			font-weight: 400;
+			font-size: em(16px);
+			line-height: 150%;
+			&:first-child {
+				font-weight: 500;
+				font-size: em(18px);
+				line-height: 167%;
+			}
+		}
+	}
+
+	&_Button {
+		height: em(58px);
+		margin-bottom: em(81px);
+
+		@include iflaptop {
+			margin-bottom: em(42px);
+		}
+		@include iftablet {
+			margin-bottom: em(42px);
+		}
+
+		@include ifmobile {
+			width: 100%;
+			margin-bottom: em(30px);
+		}
+	}
+
+	&_Achievements {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: em(24px);
+		max-width: em(815px);
+		@include iflaptop {
+			max-width: em(724px);
+		}
+
+		@include iftablet {
+			max-width: 100%;
+		}
+
+		@include ifmobile {
+			grid-template-columns: 1fr;
+			gap: em(16px) 0;
+		}
+
+		&_Item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			min-height: em(120px);
+			background: $white;
+			box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.06),
+				0px 4px 6px -1px rgba(0, 0, 0, 0.08);
+			border-radius: em(8px);
+		}
+	}
 }

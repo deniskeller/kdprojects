@@ -1,7 +1,8 @@
 // import { Footer } from 'components/landing/footer';
 import { Navbar } from 'components/navbar';
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import styles from './Default.module.scss';
+import s from './Default.module.scss';
 
 interface Props {
 	children: JSX.Element;
@@ -31,10 +32,14 @@ const Default: React.FC<Props> = ({ children }) => {
 	}, [scrollTop]);
 
 	return (
-		<div className={styles.Wrapper}>
+		<div className={s.Wrapper}>
+			<div className={s.Image}>
+				<Image src='/images/image/main-bg.png' priority fill alt={'Image'} />
+			</div>
+
 			<Navbar fixed={isVisible} />
 
-			<div className={styles.Content}>{children}</div>
+			<div className={s.Content}>{children}</div>
 
 			{/* <Footer /> */}
 		</div>

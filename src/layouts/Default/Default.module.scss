@@ -4,6 +4,7 @@
 	width: 100%;
 	min-height: 100vh;
 	height: 100%;
+	overflow: hidden;
 	overflow-y: auto;
 	position: relative;
 }
@@ -14,4 +15,31 @@
 	overflow: auto;
 	flex-direction: column;
 	position: relative;
+}
+
+.Image {
+	position: absolute;
+	top: em(-76px);
+	right: em(-217px);
+	width: em(1219px);
+	height: em(1154px);
+
+	@include iflaptop {
+		top: em(-80px);
+		right: em(-459px);
+		width: em(1191px);
+		height: em(1127px);
+	}
+	@include iftablet {
+		top: em(-50px);
+		right: em(-392px);
+		width: em(880px);
+		height: em(833px);
+	}
+	@include ifmobile {
+		top: em(-10px);
+		right: em(-235px);
+		width: em(436px);
+		height: em(413px);
+	}
 }
