@@ -37,7 +37,7 @@ const Default: React.FC<Props> = ({ children }) => {
 				<Image src='/images/image/main-bg.png' priority fill alt={'Image'} />
 			</div>
 
-			<Navbar fixed={isVisible} />
+			<Navbar />
 
 			<div className={s.Content}>{children}</div>
 

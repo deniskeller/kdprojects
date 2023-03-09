@@ -15,10 +15,12 @@
 	overflow: auto;
 	flex-direction: column;
 	position: relative;
+	z-index: 10;
 }
 
 .Image {
 	position: absolute;
+	z-index: 9;
 	top: em(-76px);
 	right: em(-217px);
 	width: em(1219px);

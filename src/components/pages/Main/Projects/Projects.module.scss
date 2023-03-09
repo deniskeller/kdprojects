@@ -1,0 +1,85 @@
+.Projects {
+	padding-top: em(40px);
+	padding-bottom: em(40px);
+
+	@include iflaptop {
+		padding-top: em(20px);
+	}
+	@include iftablet {
+		padding-top: em(20px);
+	}
+	@include ifmobile {
+		padding-top: em(15px);
+	}
+
+	&_Title {
+		margin-bottom: em(24px);
+
+		span {
+			font-size: em(24px);
+			font-weight: 600;
+			line-height: 142%;
+			color: $black;
+		}
+	}
+
+	&_Sorting {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin-bottom: em(38px);
+
+		@include iftablet {
+			margin-bottom: em(28px);
+		}
+		@include ifmobile {
+			margin-bottom: em(28px);
+		}
+
+		&_Item {
+			display: flex;
+			justify-content: center;
+			min-width: em(70px);
+			padding: em(6px) em(12px);
+			margin-right: em(8px);
+			margin-bottom: em(8px);
+			background: $white;
+			border: 1px solid rgba(26, 26, 26, 0.1);
+			box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+			border-radius: em(100px);
+			cursor: pointer;
+			span {
+				font-weight: 500;
+				font-size: em(16px);
+				line-height: 150%;
+				color: #1a1a1a;
+				white-space: nowrap;
+			}
+
+			&:hover {
+				background: #f1f5f9;
+			}
+
+			&_Active {
+				background: #f1f5f9;
+				pointer-events: none;
+			}
+		}
+	}
+
+	&_Cards {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: em(20px) em(30px);
+		margin-bottom: em(30px);
+
+		@include ifmobile {
+			grid-template-columns: 1fr;
+			gap: em(30px) 0;
+		}
+	}
+
+	&_Button {
+		margin: 0 auto;
+	}
+}

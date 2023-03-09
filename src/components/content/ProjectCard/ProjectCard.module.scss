@@ -1,0 +1,271 @@
+.ProjectCard {
+	background: $white;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+	border-radius: em(8px);
+	width: 100%;
+	min-height: em(297px);
+	padding: em(20px);
+	position: relative;
+
+	&_Header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		max-width: em(458px);
+		margin-left: auto;
+		margin-bottom: em(12px);
+
+		@include iflaptop {
+			max-width: em(298px);
+		}
+		@include iftablet {
+			max-width: em(458px);
+		}
+
+		@include ifmobile {
+			max-width: 100%;
+			margin-bottom: em(8px);
+		}
+
+		&_Name {
+			font-size: em(20px);
+			color: $black;
+			font-weight: 500;
+			line-height: 160%;
+		}
+
+		&_Status {
+			background: #fef9c3;
+			border: 1px solid #fddf49;
+			border-radius: 2px;
+			padding: em(5px) em(12px);
+			span {
+				font-weight: 500;
+				font-size: em(14px);
+				line-height: 143%;
+			}
+		}
+
+		.Moderation {
+			background: #fef9c3;
+			border: 1px solid #fddf49;
+			span {
+				color: #864e0e;
+			}
+		}
+		.Available {
+			background: #ffedd6;
+			border: 1px solid #fed6a9;
+			span {
+				color: #7d2d12;
+			}
+		}
+		.Refinement {
+			background: #d1fae5;
+			border: 1px solid #6ee7b7;
+			span {
+				color: #064c39;
+			}
+		}
+	}
+
+	&_About {
+		max-width: em(458px);
+		margin-left: auto;
+		margin-bottom: em(12px);
+		@include ifdesktop {
+			margin-bottom: em(25px);
+		}
+
+		@include iflaptop {
+			max-width: em(298px);
+		}
+
+		@include iftablet {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			max-width: 100%;
+			position: relative;
+		}
+
+		@include ifmobile {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			max-width: 100%;
+			position: relative;
+			margin-bottom: em(8px);
+		}
+
+		&_Text {
+			@include iftablet {
+				max-width: em(197px);
+			}
+			@include ifmobile {
+				max-width: em(197px);
+			}
+			p {
+				font-weight: 400;
+				font-size: em(14px);
+				line-height: 143%;
+				@include iftablet {
+					font-size: em(12px);
+				}
+				@include ifmobile {
+					font-size: em(12px);
+				}
+			}
+		}
+
+		&_Image {
+			position: absolute;
+			top: em(20px);
+			left: em(20px);
+			border: 1px solid rgba(26, 26, 26, 0.05);
+			border-radius: em(4px);
+			background: grey;
+			width: em(145px);
+			height: em(145px);
+
+			@include iflaptop {
+				width: em(105px);
+				height: em(105px);
+			}
+			@include iftablet {
+				position: sticky;
+				width: em(62px);
+				height: em(62px);
+			}
+			@include ifmobile {
+				position: sticky;
+				width: em(62px);
+				height: em(62px);
+			}
+		}
+	}
+
+	&_Info {
+		max-width: em(458px);
+		margin-left: auto;
+		margin-bottom: em(24px);
+		padding-top: em(12px);
+		border-top: 1px solid rgba(26, 26, 26, 0.05);
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		@include iflaptop {
+			max-width: 100%;
+			flex-wrap: wrap;
+		}
+		@include iftablet {
+			max-width: 100%;
+			flex-wrap: wrap;
+		}
+
+		@include ifmobile {
+			max-width: 100%;
+			flex-wrap: wrap;
+		}
+
+		&_Item {
+			display: flex;
+			flex-direction: row;
+			align-items: baseline;
+			@include iflaptop {
+				width: 100%;
+				&:first-child {
+					margin-bottom: em(8px);
+				}
+			}
+
+			&_Name {
+				margin-right: em(5px);
+				span {
+					font-size: em(12px);
+					font-weight: 500;
+					line-height: 133%;
+					color: rgba(26, 26, 26, 0.7);
+				}
+			}
+			&_Value {
+				font-weight: 600;
+				font-size: em(14px);
+				line-height: 143%;
+				color: rgba(26, 26, 26, 0.8);
+			}
+		}
+	}
+
+	&_Tags {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin-bottom: em(22px);
+		&_Item {
+			display: flex;
+			justify-content: center;
+			min-width: em(70px);
+			padding: em(6px) em(12px);
+			margin-right: em(8px);
+			margin-bottom: em(8px);
+			background: #f0f9ff;
+			border-radius: em(17px);
+			span {
+				display: flex;
+				font-weight: 500;
+				font-size: em(12px);
+				// line-height: 100%;
+				color: #1a1a1a;
+				white-space: nowrap;
+			}
+		}
+	}
+
+	&_Actions {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+
+		&_Details {
+			cursor: pointer;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			span {
+				font-size: em(14px);
+				font-weight: 600;
+				line-height: 143%;
+				color: $blue-600;
+			}
+			svg {
+				width: em(20px);
+				height: em(20px);
+				margin-left: em(10px);
+			}
+
+			@include iftablet {
+				margin-bottom: em(8px);
+			}
+			@include ifmobile {
+				margin-bottom: em(8px);
+			}
+		}
+
+		&_Buttons {
+			display: flex;
+			flex-direction: row;
+
+			.Button {
+				height: em(36px);
+				&:first-child {
+					margin-right: em(16px);
+				}
+			}
+		}
+	}
+}

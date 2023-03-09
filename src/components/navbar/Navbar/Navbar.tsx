@@ -85,7 +85,7 @@ const Navbar: React.FC<Props> = ({ fixed }) => {
 	}, [visible]);
 
 	return (
-		<div className={`${s.Container} ${fixed ? s.Fixed : ''}`}>
+		<div className={s.Container}>
 			<div className={s.Navbar}>
 				<div className={s.Navbar_Burger} onClick={() => setVisible(true)}>
 					<span></span>

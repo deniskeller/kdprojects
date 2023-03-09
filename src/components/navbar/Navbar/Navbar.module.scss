@@ -1,6 +1,8 @@
 .Container {
 	width: 100%;
 	padding: 0 em(32px);
+	position: relative;
+	z-index: 20;
 
 	@include iflaptop {
 		padding: 0 em(16px);
