@@ -1,14 +1,14 @@
 import { BaseButton } from '@base/index';
 import useOnClickOutside from '@hooks/useOnClickOutside';
-import { Logo } from 'components/content';
+import { Logo, Notifications } from 'components/content';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavbarLink from '../NavbarLink/NavbarLink';
 import s from './Navbar2.module.scss';
 
 interface Props {
-	fixed?: boolean;
+	auth?: boolean;
 }
 
 interface Links {
@@ -34,7 +34,7 @@ const links: Links[] = [
 	},
 ];
 
-const Navbar2: React.FC<Props> = ({ fixed }) => {
+const Navbar2: React.FC<Props> = ({ auth }) => {
 	const [visible, setVisible] = React.useState(false);
 	const thisDrawer = React.useRef<HTMLDivElement>(null);
 	const router = useRouter();
@@ -76,6 +76,17 @@ const Navbar2: React.FC<Props> = ({ fixed }) => {
 		};
 	}, [visible]);
 
+	//уведомления юзера
+	const [isNotifications, setIsNotifications] = React.useState(false);
+	const [showDropdown, setShowDropdown] = useState(false);
+
+	const thisDropdown = React.useRef<HTMLDivElement>(null);
+
+	const clickOutsideHandler2 = () => {
+		setShowDropdown(false);
+	};
+	useOnClickOutside(thisDropdown, clickOutsideHandler2);
+
 	return (
 		<div className={s.Container}>
 			<div className={s.Navbar}>
@@ -101,17 +112,178 @@ const Navbar2: React.FC<Props> = ({ fixed }) => {
 					})}
 				</ul>
 
-				<div className={s.Navbar_Actions}>
-					<BaseButton title='Войти' className={s.Navbar_Actions_Login} />
+				{!auth ? (
+					<>
+						<div className={s.Navbar_Actions}>
+							<BaseButton title='Войти' className={s.Navbar_Actions_Login} />
 
-					<BaseButton
-						title='Зарегистрироваться'
-						type='blue'
-						className={s.Navbar_Actions_SignUp}
-					/>
-				</div>
+							<BaseButton
+								title='Зарегистрироваться'
+								type='blue'
+								className={s.Navbar_Actions_SignUp}
+							/>
+						</div>
+					</>
+				) : (
+					<>
+						<div className={s.Navbar_IsAuth}>
+							<div className={s.Navbar_IsAuth_Notifications}>
+								<svg
+									width='18'
+									height='20'
+									viewBox='0 0 18 20'
+									fill='none'
+									xmlns='http://www.w3.org/2000/svg'
+									className={s.Navbar_IsAuth_Notifications_Icon}
+									onClick={() => setIsNotifications(!isNotifications)}
+								>
+									<path
+										d='M12 15H17L15.5951 13.5951C15.2141 13.2141 15 12.6973 15 12.1585V9C15 6.38757 13.3304 4.16509 11 3.34142V3C11 1.89543 10.1046 1 9 1C7.89543 1 7 1.89543 7 3V3.34142C4.66962 4.16509 3 6.38757 3 9V12.1585C3 12.6973 2.78595 13.2141 2.40493 13.5951L1 15H6M12 15V16C12 17.6569 10.6569 19 9 19C7.34315 19 6 17.6569 6 16V15M12 15H6'
+										stroke='#0D1026'
+										strokeLinecap='round'
+										strokeLinejoin='round'
+									/>
+								</svg>
+
+								<div
+									className={s.Navbar_IsAuth_Notifications_Counter}
+									onClick={() => setIsNotifications(!isNotifications)}
+								>
+									<span>8</span>
+								</div>
+
+								<Notifications
+									isNotifications={isNotifications}
+									setIsNotifications={setIsNotifications}
+								/>
+							</div>
+
+							<div className={s.Navbar_IsAuth_Profile} ref={thisDropdown}>
+								<div
+									className={s.Navbar_IsAuth_Profile_User}
+									onClick={() => setShowDropdown(!showDropdown)}
+								>
+									<div className={s.Navbar_IsAuth_Profile_User_Name}>
+										<span>Константин Иванов</span>
+									</div>
+
+									<svg
+										width='24'
+										height='24'
+										viewBox='0 0 24 24'
+										fill='none'
+										xmlns='http://www.w3.org/2000/svg'
+										className={s.Navbar_IsAuth_Profile_User_IconCheveron}
+										style={{ transform: showDropdown ? 'rotate(180deg)' : '' }}
+									>
+										<path
+											d='M19 9L12 16L5 9'
+											stroke='#111827'
+											stroke-linecap='round'
+											stroke-linejoin='round'
+										/>
+									</svg>
+								</div>
+								{showDropdown ? (
+									<>
+										<div className={s.Navbar_IsAuth_Profile_Dropdown}>
+											<ul className={s.Navbar_IsAuth_Profile_Dropdown_List}>
+												<li
+													className={s.Navbar_IsAuth_Profile_Dropdown_List_Item}
+												>
+													<span
+														className={
+															s.Navbar_IsAuth_Profile_Dropdown_List_Item_Title
+														}
+													>
+														Профиль
+													</span>
+
+													<svg
+														width='24'
+														height='24'
+														viewBox='0 0 24 24'
+														fill='none'
+														xmlns='http://www.w3.org/2000/svg'
+													>
+														<path
+															d='M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z'
+															stroke='#9CA3B0'
+															stroke-linecap='round'
+															stroke-linejoin='round'
+														/>
+														<path
+															d='M12 14C8.81933 14 6.13414 16.1214 5.28208 19.0264C4.9712 20.0863 5.89543 21 7 21H17C18.1046 21 19.0288 20.0863 18.7179 19.0264C17.8659 16.1214 15.1807 14 12 14Z'
+															stroke='#9CA3B0'
+															stroke-linecap='round'
+															stroke-linejoin='round'
+														/>
+													</svg>
+												</li>
+
+												<li
+													className={s.Navbar_IsAuth_Profile_Dropdown_List_Item}
+												>
+													<span
+														className={
+															s.Navbar_IsAuth_Profile_Dropdown_List_Item_Title
+														}
+													>
+														Мои проекты
+													</span>
+
+													<svg
+														width='24'
+														height='24'
+														viewBox='0 0 24 24'
+														fill='none'
+														xmlns='http://www.w3.org/2000/svg'
+													>
+														<path
+															d='M5 19C3.89543 19 3 18.1046 3 17V7C3 5.89543 3.89543 5 5 5H9L11 7H15C16.1046 7 17 7.89543 17 9V10M5 19H19C20.1046 19 21 18.1046 21 17V12C21 10.8954 20.1046 10 19 10H9C7.89543 10 7 10.8954 7 12V17C7 18.1046 6.10457 19 5 19Z'
+															stroke='#9CA3B0'
+															stroke-linecap='round'
+														/>
+													</svg>
+												</li>
+
+												<li
+													className={s.Navbar_IsAuth_Profile_Dropdown_List_Item}
+												>
+													<span
+														className={
+															s.Navbar_IsAuth_Profile_Dropdown_List_Item_Title
+														}
+													>
+														Выход
+													</span>
+
+													<svg
+														width='24'
+														height='24'
+														viewBox='0 0 24 24'
+														fill='none'
+														xmlns='http://www.w3.org/2000/svg'
+													>
+														<path
+															d='M17 16L21 12M21 12L17 8M21 12L7 12M13 16V17C13 18.6569 11.6569 20 10 20H6C4.34315 20 3 18.6569 3 17V7C3 5.34315 4.34315 4 6 4H10C11.6569 4 13 5.34315 13 7V8'
+															stroke='#9CA3B0'
+															stroke-linecap='round'
+															stroke-linejoin='round'
+														/>
+													</svg>
+												</li>
+											</ul>
+										</div>
+									</>
+								) : null}
+							</div>
+						</div>
+					</>
+				)}
 			</div>
 
+			{/* Drawer */}
 			<div
 				className={`${s.Drawer} ${visible ? s.Drawer_Visible : ''}`}
 				ref={thisDrawer}
@@ -127,6 +299,139 @@ const Navbar2: React.FC<Props> = ({ fixed }) => {
 
 					<div className={s.Drawer_Body}>
 						<div className={s.Drawer_Navbar}>
+							{auth ? (
+								<>
+									<div className={s.Drawer_Navbar_Profile} ref={thisDropdown}>
+										<div
+											className={s.Drawer_Navbar_Profile_User}
+											onClick={() => setShowDropdown(!showDropdown)}
+										>
+											<div className={s.Drawer_Navbar_Profile_User_Name}>
+												<span>Константин Иванов</span>
+											</div>
+
+											<svg
+												width='24'
+												height='24'
+												viewBox='0 0 24 24'
+												fill='none'
+												xmlns='http://www.w3.org/2000/svg'
+												className={s.Drawer_Navbar_Profile_User_IconCheveron}
+												style={{
+													transform: showDropdown ? 'rotate(180deg)' : '',
+												}}
+											>
+												<path
+													d='M19 9L12 16L5 9'
+													stroke='#111827'
+													stroke-linecap='round'
+													stroke-linejoin='round'
+												/>
+											</svg>
+										</div>
+										{showDropdown ? (
+											<>
+												<div className={s.Drawer_Navbar_Profile_Dropdown}>
+													<ul className={s.Drawer_Navbar_Profile_Dropdown_List}>
+														<li
+															className={
+																s.Drawer_Navbar_Profile_Dropdown_List_Item
+															}
+														>
+															<span
+																className={
+																	s.Drawer_Navbar_Profile_Dropdown_List_Item_Title
+																}
+															>
+																Профиль
+															</span>
+
+															<svg
+																width='24'
+																height='24'
+																viewBox='0 0 24 24'
+																fill='none'
+																xmlns='http://www.w3.org/2000/svg'
+															>
+																<path
+																	d='M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z'
+																	stroke='#9CA3B0'
+																	stroke-linecap='round'
+																	stroke-linejoin='round'
+																/>
+																<path
+																	d='M12 14C8.81933 14 6.13414 16.1214 5.28208 19.0264C4.9712 20.0863 5.89543 21 7 21H17C18.1046 21 19.0288 20.0863 18.7179 19.0264C17.8659 16.1214 15.1807 14 12 14Z'
+																	stroke='#9CA3B0'
+																	stroke-linecap='round'
+																	stroke-linejoin='round'
+																/>
+															</svg>
+														</li>
+
+														<li
+															className={
+																s.Drawer_Navbar_Profile_Dropdown_List_Item
+															}
+														>
+															<span
+																className={
+																	s.Drawer_Navbar_Profile_Dropdown_List_Item_Title
+																}
+															>
+																Мои проекты
+															</span>
+
+															<svg
+																width='24'
+																height='24'
+																viewBox='0 0 24 24'
+																fill='none'
+																xmlns='http://www.w3.org/2000/svg'
+															>
+																<path
+																	d='M5 19C3.89543 19 3 18.1046 3 17V7C3 5.89543 3.89543 5 5 5H9L11 7H15C16.1046 7 17 7.89543 17 9V10M5 19H19C20.1046 19 21 18.1046 21 17V12C21 10.8954 20.1046 10 19 10H9C7.89543 10 7 10.8954 7 12V17C7 18.1046 6.10457 19 5 19Z'
+																	stroke='#9CA3B0'
+																	stroke-linecap='round'
+																/>
+															</svg>
+														</li>
+
+														<li
+															className={
+																s.Drawer_Navbar_Profile_Dropdown_List_Item
+															}
+														>
+															<span
+																className={
+																	s.Drawer_Navbar_Profile_Dropdown_List_Item_Title
+																}
+															>
+																Выход
+															</span>
+
+															<svg
+																width='24'
+																height='24'
+																viewBox='0 0 24 24'
+																fill='none'
+																xmlns='http://www.w3.org/2000/svg'
+															>
+																<path
+																	d='M17 16L21 12M21 12L17 8M21 12L7 12M13 16V17C13 18.6569 11.6569 20 10 20H6C4.34315 20 3 18.6569 3 17V7C3 5.34315 4.34315 4 6 4H10C11.6569 4 13 5.34315 13 7V8'
+																	stroke='#9CA3B0'
+																	stroke-linecap='round'
+																	stroke-linejoin='round'
+																/>
+															</svg>
+														</li>
+													</ul>
+												</div>
+											</>
+										) : null}
+									</div>
+								</>
+							) : null}
+
 							<ul className={s.Drawer_Navbar_List}>
 								{links.map((link, index) => {
 									return (
@@ -252,18 +557,22 @@ const Navbar2: React.FC<Props> = ({ fixed }) => {
 								})}
 							</ul>
 
-							<div className={s.Drawer_Navbar_Actions}>
-								<BaseButton
-									title='Войти'
-									className={s.Drawer_Navbar_Actions_Login}
-								/>
+							{!auth ? (
+								<>
+									<div className={s.Drawer_Navbar_Actions}>
+										<BaseButton
+											title='Войти'
+											className={s.Drawer_Navbar_Actions_Login}
+										/>
 
-								<BaseButton
-									title='Зарегистрироваться'
-									type='blue'
-									className={s.Drawer_Navbar_Actions_SignUp}
-								/>
-							</div>
+										<BaseButton
+											title='Зарегистрироваться'
+											type='blue'
+											className={s.Drawer_Navbar_Actions_SignUp}
+										/>
+									</div>
+								</>
+							) : null}
 
 							<div className={s.Drawer_Navbar_Footer}>
 								<Link href='/' className={s.Drawer_Navbar_Footer_Link}>

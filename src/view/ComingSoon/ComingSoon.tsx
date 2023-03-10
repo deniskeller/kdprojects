@@ -144,14 +144,14 @@ const ComingSoon: React.FC = () => {
 						<path
 							d='M276.341 111.395L119.945 146.933C117.436 147.503 116.024 149.435 116.79 151.248L162.089 258.379C162.855 260.192 165.51 261.199 168.019 260.629L324.415 225.091C326.924 224.521 328.336 222.589 327.57 220.776L282.271 113.645C281.505 111.832 278.85 110.825 276.341 111.395Z'
 							stroke='#0B88C7'
-							stroke-width='2.13247'
-							stroke-miterlimit='10'
+							strokeWidth='2.13247'
+							strokeMiterlimit='10'
 						/>
 						<path
 							d='M504.648 116.462L348.251 152.001C345.743 152.571 344.33 154.503 345.097 156.316L390.395 263.446C391.162 265.259 393.817 266.267 396.326 265.697L552.722 230.158C555.231 229.588 556.643 227.657 555.876 225.844L510.578 118.713C509.811 116.9 507.156 115.892 504.648 116.462Z'
 							stroke='#0B88C7'
-							stroke-width='2.13247'
-							stroke-miterlimit='10'
+							strokeWidth='2.13247'
+							strokeMiterlimit='10'
 						/>
 						<path
 							d='M136.977 158.545C138.875 158.114 139.943 156.652 139.363 155.281C138.783 153.909 136.774 153.147 134.876 153.578C132.978 154.009 131.91 155.471 132.49 156.843C133.07 158.214 135.079 158.977 136.977 158.545Z'
@@ -323,9 +323,9 @@ const ComingSoon: React.FC = () => {
 						width='240.375'
 						height='162.23'
 						filterUnits='userSpaceOnUse'
-						color-interpolation-filters='sRGB'
+						colorInterpolationFilters='sRGB'
 					>
-						<feFlood flood-opacity='0' result='BackgroundImageFix' />
+						<feFlood floodOpacity='0' result='BackgroundImageFix' />
 						<feColorMatrix
 							in='SourceAlpha'
 							type='matrix'

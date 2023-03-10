@@ -1,3 +1,4 @@
+import { NotificationsPopup } from '@modals/index';
 import { Footer } from 'components/footer';
 import { Navbar2 } from 'components/navbar';
 import React, { useEffect, useState } from 'react';
@@ -30,14 +31,21 @@ const Empty: React.FC<Props> = ({ children }) => {
 		};
 	}, [scrollTop]);
 
+	//моковая авторизация
+	const [auth, setAuth] = useState(true);
+
 	return (
-		<div className={s.Wrapper}>
-			<Navbar2 />
+		<>
+			<div className={s.Wrapper}>
+				<Navbar2 auth={auth} />
 
-			<div className={s.Content}>{children}</div>
+				<div className={s.Content}>{children}</div>
 
-			<Footer />
-		</div>
+				<Footer />
+			</div>
+
+			<NotificationsPopup className='NotificationsPopup' />
+		</>
 	);
 };
 

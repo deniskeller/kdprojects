@@ -88,8 +88,8 @@ const ProjectCard: React.FC<Props> = ({ className }) => {
 						<path
 							d='M14.1667 6.66602L17.5 9.99935M17.5 9.99935L14.1667 13.3327M17.5 9.99935L2.5 9.99935'
 							stroke='#0284C5'
-							stroke-linecap='round'
-							stroke-linejoin='round'
+							strokeLinecap='round'
+							strokeLinejoin='round'
 						/>
 					</svg>
 				</div>

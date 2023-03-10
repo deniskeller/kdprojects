@@ -1,0 +1,27 @@
+.Title {
+  font-style: normal;
+  line-height: 120%;
+  font-weight: 500;
+
+  &_h1 {
+    font-size: em(32px);
+    text-transform: uppercase;
+    @include ifmobile {
+      font-size: em(24px);
+    }
+  }
+  &_h2 {
+    font-size: em(24px);
+    line-height: 133%;
+    @include ifmobile {
+      font-size: em(18px);
+    }
+  }
+
+  &_app {
+    font-size: em(20px);
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #1a1a1a !important;
+  }
+}
