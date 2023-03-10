@@ -179,8 +179,8 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 										<path
 											d='M19 9L12 16L5 9'
 											stroke='#111827'
-											stroke-linecap='round'
-											stroke-linejoin='round'
+											strokeLinecap='round'
+											strokeLinejoin='round'
 										/>
 									</svg>
 								</div>
@@ -209,14 +209,14 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 														<path
 															d='M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z'
 															stroke='#9CA3B0'
-															stroke-linecap='round'
-															stroke-linejoin='round'
+															strokeLinecap='round'
+															strokeLinejoin='round'
 														/>
 														<path
 															d='M12 14C8.81933 14 6.13414 16.1214 5.28208 19.0264C4.9712 20.0863 5.89543 21 7 21H17C18.1046 21 19.0288 20.0863 18.7179 19.0264C17.8659 16.1214 15.1807 14 12 14Z'
 															stroke='#9CA3B0'
-															stroke-linecap='round'
-															stroke-linejoin='round'
+															strokeLinecap='round'
+															strokeLinejoin='round'
 														/>
 													</svg>
 												</li>
@@ -242,7 +242,7 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 														<path
 															d='M5 19C3.89543 19 3 18.1046 3 17V7C3 5.89543 3.89543 5 5 5H9L11 7H15C16.1046 7 17 7.89543 17 9V10M5 19H19C20.1046 19 21 18.1046 21 17V12C21 10.8954 20.1046 10 19 10H9C7.89543 10 7 10.8954 7 12V17C7 18.1046 6.10457 19 5 19Z'
 															stroke='#9CA3B0'
-															stroke-linecap='round'
+															strokeLinecap='round'
 														/>
 													</svg>
 												</li>
@@ -268,8 +268,8 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 														<path
 															d='M17 16L21 12M21 12L17 8M21 12L7 12M13 16V17C13 18.6569 11.6569 20 10 20H6C4.34315 20 3 18.6569 3 17V7C3 5.34315 4.34315 4 6 4H10C11.6569 4 13 5.34315 13 7V8'
 															stroke='#9CA3B0'
-															stroke-linecap='round'
-															stroke-linejoin='round'
+															strokeLinecap='round'
+															strokeLinejoin='round'
 														/>
 													</svg>
 												</li>
@@ -324,8 +324,8 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 												<path
 													d='M19 9L12 16L5 9'
 													stroke='#111827'
-													stroke-linecap='round'
-													stroke-linejoin='round'
+													strokeLinecap='round'
+													strokeLinejoin='round'
 												/>
 											</svg>
 										</div>
@@ -356,14 +356,14 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 																<path
 																	d='M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z'
 																	stroke='#9CA3B0'
-																	stroke-linecap='round'
-																	stroke-linejoin='round'
+																	strokeLinecap='round'
+																	strokeLinejoin='round'
 																/>
 																<path
 																	d='M12 14C8.81933 14 6.13414 16.1214 5.28208 19.0264C4.9712 20.0863 5.89543 21 7 21H17C18.1046 21 19.0288 20.0863 18.7179 19.0264C17.8659 16.1214 15.1807 14 12 14Z'
 																	stroke='#9CA3B0'
-																	stroke-linecap='round'
-																	stroke-linejoin='round'
+																	strokeLinecap='round'
+																	strokeLinejoin='round'
 																/>
 															</svg>
 														</li>
@@ -391,7 +391,7 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 																<path
 																	d='M5 19C3.89543 19 3 18.1046 3 17V7C3 5.89543 3.89543 5 5 5H9L11 7H15C16.1046 7 17 7.89543 17 9V10M5 19H19C20.1046 19 21 18.1046 21 17V12C21 10.8954 20.1046 10 19 10H9C7.89543 10 7 10.8954 7 12V17C7 18.1046 6.10457 19 5 19Z'
 																	stroke='#9CA3B0'
-																	stroke-linecap='round'
+																	strokeLinecap='round'
 																/>
 															</svg>
 														</li>
@@ -419,8 +419,8 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 																<path
 																	d='M17 16L21 12M21 12L17 8M21 12L7 12M13 16V17C13 18.6569 11.6569 20 10 20H6C4.34315 20 3 18.6569 3 17V7C3 5.34315 4.34315 4 6 4H10C11.6569 4 13 5.34315 13 7V8'
 																	stroke='#9CA3B0'
-																	stroke-linecap='round'
-																	stroke-linejoin='round'
+																	strokeLinecap='round'
+																	strokeLinejoin='round'
 																/>
 															</svg>
 														</li>
