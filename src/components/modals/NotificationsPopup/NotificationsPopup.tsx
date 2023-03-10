@@ -5,7 +5,9 @@ import { mock_notifications } from '@services/index';
 import { modalSlice } from '@store/modals/reducer';
 import { NotificationItem } from 'components/content';
 import React, { useState } from 'react';
-import styles from './NotificationsPopup.module.scss';
+import s from './NotificationsPopup.module.scss';
+
+import ReactPaginate from 'react-paginate';
 
 interface Props {
 	className: string;
@@ -25,21 +27,21 @@ const NotificationsPopup: React.FC<Props> = ({ className }) => {
 
 	return (
 		<BasePopupApp className={className} type='large'>
-			<div className={styles.Header}>
-				<BaseTitle type='app'>notifications</BaseTitle>
+			<div className={s.Header}>
+				<BaseTitle type='app'>Уведомления</BaseTitle>
 
-				<div className={styles.Header_ClearAll} onClick={deletAllHandler}>
-					<div className={styles.Header_ClearAll_Title}>Очистить всё</div>
+				<div className={s.Header_ClearAll} onClick={deletAllHandler}>
+					<div className={s.Header_ClearAll_Title}>Очистить всё</div>
 
 					<BaseIcon
 						icon={ALL_ICONS.DELETE}
 						viewBox='0 0 20 20'
-						className={styles.Header_ClearAll_Icon}
+						className={s.Header_ClearAll_Icon}
 					/>
 				</div>
 			</div>
 
-			<div className={styles.Content}>
+			<div className={s.Content}>
 				{mock_notifications?.map((item, index) => {
 					return (
 						<NotificationItem
@@ -54,7 +56,33 @@ const NotificationsPopup: React.FC<Props> = ({ className }) => {
 				})}
 			</div>
 
-			<div className={styles.Pagination}>{/* сделать логику пагинации */}</div>
+			<div className={s.Pagination}>
+				{/* убрать в стилях overflow: hidden; и сдлеать логику пагинации */}
+
+				<ReactPaginate
+					breakLabel='...'
+					nextLabel={
+						<BaseIcon
+							icon={ALL_ICONS.CHEVERON}
+							viewBox='0 0 24 24'
+							className={s.NextIcon}
+						/>
+					}
+					onPageChange={(page) => {
+						setPage(page);
+					}}
+					pageRangeDisplayed={1}
+					pageCount={Math.ceil(mock_notifications.length / 10)}
+					previousLabel={
+						<BaseIcon
+							icon={ALL_ICONS.CHEVERON}
+							viewBox='0 0 24 24'
+							className={s.PrevIcon}
+						/>
+					}
+					// renderOnZeroPageCount={null}
+				/>
+			</div>
 		</BasePopupApp>
 	);
 };

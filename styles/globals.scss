@@ -1,1 +1,8 @@
 @import './../src/assets/scss/core.scss';
+
+.selected {
+	background: #eceef9;
+	a {
+		font-weight: 600 !important;
+	}
+}
