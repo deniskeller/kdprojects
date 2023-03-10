@@ -36,7 +36,7 @@ const Notifications: React.FC<Props> = ({
 			ref={thisNotifications}
 		>
 			<div className={styles.Notifications_Header}>
-				<div className={styles.Notifications_Header_Title}>Notifications</div>
+				<div className={styles.Notifications_Header_Title}>Уведомления</div>
 
 				<div
 					className={styles.Notifications_Header_ClearAll}
@@ -44,12 +44,12 @@ const Notifications: React.FC<Props> = ({
 						dispatch(setPopup({ popup: 'DeleteAllNotificationsPopup' }))
 					}
 				>
-					Clear all
+					Очистить всё
 				</div>
 
 				<BaseIcon
 					icon={ALL_ICONS.CLOSE_POPUP}
-					viewBox='0 0 14 14'
+					viewBox='0 0 16 16'
 					className={styles.Notifications_Header_Close}
 					onClick={() => setIsNotifications(false)}
 				/>
@@ -75,7 +75,7 @@ const Notifications: React.FC<Props> = ({
 					className={styles.Notifications_Footer}
 					onClick={() => dispatch(setPopup({ popup: 'NotificationsPopup' }))}
 				>
-					<span>View all</span>
+					<span>Смотреть все</span>
 				</div>
 			) : null}
 		</div>

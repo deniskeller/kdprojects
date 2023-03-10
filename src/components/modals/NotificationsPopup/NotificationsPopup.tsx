@@ -29,10 +29,10 @@ const NotificationsPopup: React.FC<Props> = ({ className }) => {
 				<BaseTitle type='app'>notifications</BaseTitle>
 
 				<div className={styles.Header_ClearAll} onClick={deletAllHandler}>
-					<div className={styles.Header_ClearAll_Title}>Clear all</div>
+					<div className={styles.Header_ClearAll_Title}>Очистить всё</div>
 
 					<BaseIcon
-						icon={ALL_ICONS.CLOSE_POPUP}
+						icon={ALL_ICONS.DELETE}
 						viewBox='0 0 20 20'
 						className={styles.Header_ClearAll_Icon}
 					/>

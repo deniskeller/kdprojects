@@ -84,7 +84,7 @@ const BasePopupApp: React.FC<Props> = ({
 				ref={thisPopup}
 			>
 				<BaseIcon
-					icon={ALL_ICONS.DELETE}
+					icon={ALL_ICONS.CLOSE_POPUP}
 					viewBox='0 0 16 16'
 					className={styles.Popup_Close}
 					onClick={hidePopup}
