@@ -32,7 +32,7 @@ const NotificationsPopup: React.FC<Props> = ({ className }) => {
 					<div className={styles.Header_ClearAll_Title}>Clear all</div>
 
 					<BaseIcon
-						icon={ALL_ICONS.DELETE}
+						icon={ALL_ICONS.CLOSE_POPUP}
 						viewBox='0 0 20 20'
 						className={styles.Header_ClearAll_Icon}
 					/>
