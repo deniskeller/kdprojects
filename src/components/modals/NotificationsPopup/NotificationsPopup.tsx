@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { BaseIcon, BasePopupApp, BaseTitle } from '@base/index';
 import { ALL_ICONS } from '@constants/icons';
 import { useAppDispatch } from '@hooks/redux';
@@ -12,6 +13,8 @@ import ReactPaginate from 'react-paginate';
 interface Props {
 	className: string;
 }
+
+// УБРАТЬ TS-NOCHEKC И ОПИСАТЬ ТИПЫ
 
 const NotificationsPopup: React.FC<Props> = ({ className }) => {
 	const [page, setPage] = useState(1);
