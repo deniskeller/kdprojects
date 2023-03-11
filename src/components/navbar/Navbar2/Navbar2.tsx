@@ -80,13 +80,20 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 	//уведомления юзера
 	const [isNotifications, setIsNotifications] = React.useState(false);
 	const [showDropdown, setShowDropdown] = useState(false);
+	const [showDropdown2, setShowDropdown2] = useState(false);
 
 	const thisDropdown = React.useRef<HTMLDivElement>(null);
+	const thisDropdown2 = React.useRef<HTMLDivElement>(null);
 
 	const clickOutsideHandler2 = () => {
 		setShowDropdown(false);
 	};
 	useOnClickOutside(thisDropdown, clickOutsideHandler2);
+
+	const clickOutsideHandler3 = () => {
+		setShowDropdown2(false);
+	};
+	useOnClickOutside(thisDropdown2, clickOutsideHandler3);
 
 	return (
 		<div className={s.Container}>
@@ -116,12 +123,17 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 				{!auth ? (
 					<>
 						<div className={s.Navbar_Actions}>
-							<BaseButton title='Войти' className={s.Navbar_Actions_Login} />
+							<BaseButton
+								title='Войти'
+								className={s.Navbar_Actions_Login}
+								onClick={() => router.push('/authorization')}
+							/>
 
 							<BaseButton
 								title='Зарегистрироваться'
 								type='blue'
 								className={s.Navbar_Actions_SignUp}
+								onClick={() => router.push('/registration')}
 							/>
 						</div>
 					</>
@@ -293,10 +305,10 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 						<div className={s.Drawer_Navbar}>
 							{auth ? (
 								<>
-									<div className={s.Drawer_Navbar_Profile} ref={thisDropdown}>
+									<div className={s.Drawer_Navbar_Profile} ref={thisDropdown2}>
 										<div
 											className={s.Drawer_Navbar_Profile_User}
-											onClick={() => setShowDropdown(!showDropdown)}
+											onClick={() => setShowDropdown2(!showDropdown2)}
 										>
 											<div className={s.Drawer_Navbar_Profile_User_Name}>
 												<span>Константин Иванов</span>
@@ -307,10 +319,10 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 												viewBox='0 0 24 24'
 												className={`${
 													s.Drawer_Navbar_Profile_User_IconCheveron
-												} ${showDropdown ? s.Rotate : ''}`}
+												} ${showDropdown2 ? s.Rotate : ''}`}
 											/>
 										</div>
-										{showDropdown ? (
+										{showDropdown2 ? (
 											<>
 												<div className={s.Drawer_Navbar_Profile_Dropdown}>
 													<ul className={s.Drawer_Navbar_Profile_Dropdown_List}>
@@ -544,12 +556,14 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 										<BaseButton
 											title='Войти'
 											className={s.Drawer_Navbar_Actions_Login}
+											onClick={() => router.push('/authorization')}
 										/>
 
 										<BaseButton
 											title='Зарегистрироваться'
 											type='blue'
 											className={s.Drawer_Navbar_Actions_SignUp}
+											onClick={() => router.push('/registration')}
 										/>
 									</div>
 								</>

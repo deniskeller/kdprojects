@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { BaseIcon, BasePopupApp, BaseTitle } from '@base/index';
+import { BaseIcon, BasePopup, BaseTitle } from '@base/index';
 import { ALL_ICONS } from '@constants/icons';
 import { useAppDispatch } from '@hooks/redux';
 import { mock_notifications } from '@services/index';
@@ -29,7 +29,7 @@ const NotificationsPopup: React.FC<Props> = ({ className }) => {
 	};
 
 	return (
-		<BasePopupApp className={className} type='large'>
+		<BasePopup className={className} type='large'>
 			<div className={s.Header}>
 				<BaseTitle type='app'>Уведомления</BaseTitle>
 
@@ -86,7 +86,7 @@ const NotificationsPopup: React.FC<Props> = ({ className }) => {
 					// renderOnZeroPageCount={null}
 				/>
 			</div>
-		</BasePopupApp>
+		</BasePopup>
 	);
 };
 

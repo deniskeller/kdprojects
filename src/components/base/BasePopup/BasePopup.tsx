@@ -4,7 +4,7 @@ import useOnClickOutside from '@hooks/useOnClickOutside';
 import { modalSlice } from '@store/modals/reducer';
 import React, { ReactNode, useCallback, useEffect, useState } from 'react';
 import { BaseIcon } from '..';
-import styles from './BasePopupApp.module.scss';
+import styles from './BasePopup.module.scss';
 
 interface Props {
 	children: ReactNode | ReactNode[];
@@ -12,7 +12,7 @@ interface Props {
 	type?: string;
 }
 
-const BasePopupApp: React.FC<Props> = ({
+const BasePopup: React.FC<Props> = ({
 	children,
 	className,
 	type = 'large',
@@ -96,4 +96,4 @@ const BasePopupApp: React.FC<Props> = ({
 	);
 };
 
-export default BasePopupApp;
+export default BasePopup;

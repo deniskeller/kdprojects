@@ -1,4 +1,5 @@
-import { BaseButton } from '@base/index';
+import { BaseButton, BaseIcon } from '@base/index';
+import { ALL_ICONS } from '@constants/icons';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import s from './ProjectCard.module.scss';
@@ -78,20 +79,11 @@ const ProjectCard: React.FC<Props> = ({ className }) => {
 				<div className={s.ProjectCard_Actions_Details}>
 					<span>Детали проекта</span>
 
-					<svg
-						width='20'
-						height='20'
+					<BaseIcon
 						viewBox='0 0 20 20'
-						fill='none'
-						xmlns='http://www.w3.org/2000/svg'
-					>
-						<path
-							d='M14.1667 6.66602L17.5 9.99935M17.5 9.99935L14.1667 13.3327M17.5 9.99935L2.5 9.99935'
-							stroke='#0284C5'
-							strokeLinecap='round'
-							strokeLinejoin='round'
-						/>
-					</svg>
+						icon={ALL_ICONS.TO_DETAILS}
+						className={s.Icon}
+					/>
 				</div>
 
 				<div className={s.ProjectCard_Actions_Buttons}>

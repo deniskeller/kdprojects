@@ -66,6 +66,16 @@
 	.Title {
 		color: $white;
 	}
+
+	.Icon {
+		width: em(20px);
+		height: em(20px);
+		margin-left: em(12px);
+		path {
+			stroke: $white;
+		}
+	}
+
 	&:hover {
 		background: $blue-500;
 		border-color: $blue-500;

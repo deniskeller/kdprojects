@@ -1,0 +1,51 @@
+.Wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	min-height: 100vh;
+	height: 100%;
+	overflow: hidden;
+	overflow-y: auto;
+	position: relative;
+	background: url('/images/image/main-bg.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+
+.Content {
+	display: flex;
+	flex: 1 0 auto;
+	overflow: auto;
+	flex-direction: column;
+	position: relative;
+	z-index: 10;
+}
+
+.Image {
+	position: absolute;
+	z-index: 9;
+	top: 0;
+	right: 0;
+	width: em(1082px);
+	height: em(1024px);
+
+	// @include iflaptop {
+	// 	top: em(-80px);
+	// 	right: em(-459px);
+	// 	width: em(1191px);
+	// 	height: em(1127px);
+	// }
+	// @include iftablet {
+	// 	top: em(-50px);
+	// 	right: em(-392px);
+	// 	width: em(880px);
+	// 	height: em(833px);
+	// }
+	// @include ifmobile {
+	// 	top: em(-10px);
+	// 	right: em(-235px);
+	// 	width: em(436px);
+	// 	height: em(413px);
+	// }
+}

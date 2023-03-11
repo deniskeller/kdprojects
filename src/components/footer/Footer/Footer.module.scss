@@ -1,9 +1,26 @@
-.Container {
+.Wrapper {
 	border-top: 1px solid #bae5fd;
 	margin-top: auto;
+	flex: 0 1 auto;
+	position: relative;
+	z-index: 100;
 
 	@include ifmobile {
 		display: none;
+	}
+}
+
+.Container {
+	width: 100%;
+	max-width: em(1200px);
+	margin: 0 auto;
+
+	@include iflaptop {
+		max-width: em(863px);
+	}
+
+	@include iftablet {
+		max-width: em(735px);
 	}
 }
 

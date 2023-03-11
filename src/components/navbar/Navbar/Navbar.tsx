@@ -110,11 +110,16 @@ const Navbar: React.FC<Props> = ({ fixed }) => {
 				</ul>
 
 				<div className={s.Navbar_Actions}>
-					<BaseButton title='Войти' className={s.Navbar_Actions_Login} />
+					<BaseButton
+						title='Войти'
+						className={s.Navbar_Actions_Login}
+						onClick={() => router.push('/authorization')}
+					/>
 
 					<BaseButton
 						title='Зарегистрироваться'
 						className={s.Navbar_Actions_SignUp}
+						onClick={() => router.push('/registration')}
 					/>
 				</div>
 			</div>
@@ -263,11 +268,13 @@ const Navbar: React.FC<Props> = ({ fixed }) => {
 								<BaseButton
 									title='Войти'
 									className={s.Drawer_Navbar_Actions_Login}
+									onClick={() => router.push('/authorization')}
 								/>
 
 								<BaseButton
 									title='Зарегистрироваться'
 									className={s.Drawer_Navbar_Actions_SignUp}
+									onClick={() => router.push('/registration')}
 								/>
 							</div>
 
