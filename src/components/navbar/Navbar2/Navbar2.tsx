@@ -1,4 +1,5 @@
-import { BaseButton } from '@base/index';
+import { BaseButton, BaseIcon } from '@base/index';
+import { ALL_ICONS } from '@constants/icons';
 import useOnClickOutside from '@hooks/useOnClickOutside';
 import { Logo, Notifications } from 'components/content';
 import Link from 'next/link';
@@ -167,22 +168,13 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 										<span>Константин Иванов</span>
 									</div>
 
-									<svg
-										width='24'
-										height='24'
+									<BaseIcon
+										icon={ALL_ICONS.CHEVERON}
 										viewBox='0 0 24 24'
-										fill='none'
-										xmlns='http://www.w3.org/2000/svg'
-										className={s.Navbar_IsAuth_Profile_User_IconCheveron}
-										style={{ transform: showDropdown ? 'rotate(180deg)' : '' }}
-									>
-										<path
-											d='M19 9L12 16L5 9'
-											stroke='#111827'
-											strokeLinecap='round'
-											strokeLinejoin='round'
-										/>
-									</svg>
+										className={`${s.Navbar_IsAuth_Profile_User_IconCheveron} ${
+											showDropdown ? s.Rotate : ''
+										}`}
+									/>
 								</div>
 								{showDropdown ? (
 									<>
@@ -310,24 +302,13 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 												<span>Константин Иванов</span>
 											</div>
 
-											<svg
-												width='24'
-												height='24'
+											<BaseIcon
+												icon={ALL_ICONS.CHEVERON}
 												viewBox='0 0 24 24'
-												fill='none'
-												xmlns='http://www.w3.org/2000/svg'
-												className={s.Drawer_Navbar_Profile_User_IconCheveron}
-												style={{
-													transform: showDropdown ? 'rotate(180deg)' : '',
-												}}
-											>
-												<path
-													d='M19 9L12 16L5 9'
-													stroke='#111827'
-													strokeLinecap='round'
-													strokeLinejoin='round'
-												/>
-											</svg>
+												className={`${
+													s.Drawer_Navbar_Profile_User_IconCheveron
+												} ${showDropdown ? s.Rotate : ''}`}
+											/>
 										</div>
 										{showDropdown ? (
 											<>
