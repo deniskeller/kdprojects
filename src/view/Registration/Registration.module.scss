@@ -55,14 +55,13 @@
 
 	&_Input {
 		width: 100%;
-		margin-bottom: em(16px);
+		margin-bottom: em(12px);
 	}
 
 	&_Register {
 		display: flex;
 		flex-direction: row;
 		align-items: baseline;
-		margin-bottom: em(20px);
 
 		@include ifmobile {
 			justify-content: center;
@@ -93,6 +92,52 @@
 	}
 
 	&_Button {
+		width: 100%;
+		margin-bottom: em(20px);
+	}
+
+	&_PasswordCheck {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: baseline;
+		margin-bottom: em(20px);
+		width: 100%;
+
+		&_VerificationItem {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			margin-right: em(16px);
+			&:last-child {
+				margin-right: 0;
+			}
+
+			&_Icon {
+				width: em(14px);
+				height: em(10px);
+				margin-right: em(4px);
+				path {
+					fill-opacity: 0.2;
+				}
+			}
+			.Match {
+				path {
+					fill: $green;
+					fill-opacity: 1;
+				}
+			}
+
+			&_Parameter {
+				font-size: em(14px);
+				font-weight: 400;
+				line-height: 143%;
+				color: $grey;
+			}
+		}
+	}
+
+	&_Checkbox {
 		width: 100%;
 		margin-bottom: em(20px);
 	}

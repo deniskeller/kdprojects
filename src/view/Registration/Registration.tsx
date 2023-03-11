@@ -1,7 +1,14 @@
-import { BaseButton, BaseContainer, BaseInput } from '@base/index';
+import {
+	BaseButton,
+	BaseCheckbox,
+	BaseContainer,
+	BaseIcon,
+	BaseInput,
+} from '@base/index';
+import { ALL_ICONS } from '@constants/icons';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect } from 'react';
 import s from './Registration.module.scss';
 
 interface IValue {
@@ -29,10 +36,24 @@ const Registration: React.FC = () => {
 		setValue((prev) => ({ ...prev, [key]: val }));
 	};
 
+	const [isChecked, setIsChecked] = React.useState<boolean>(false);
+
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		console.log('Вы зарегистрировались');
 	};
+
+	//валидация формы
+	const [isDisabled, setIsDisabled] = React.useState<boolean>(true);
+
+	useEffect(() => {
+		if (value.password.length >= 8 && isChecked) {
+			setIsDisabled(false);
+		}
+		return () => {
+			setIsDisabled(true);
+		};
+	}, [value.password, isChecked]);
 
 	return (
 		<BaseContainer>
@@ -91,6 +112,46 @@ const Registration: React.FC = () => {
 						autocomplete='new-password'
 					/>
 
+					<div className={s.Form_PasswordCheck}>
+						<div className={s.Form_PasswordCheck_VerificationItem}>
+							<BaseIcon
+								viewBox='0 0 16 13'
+								icon={ALL_ICONS.CHECKBOX_TICK}
+								className={`${s.Form_PasswordCheck_VerificationItem_Icon} ${
+									value.password.length >= 8 ? s.Match : ''
+								}`}
+							/>
+
+							<div className={s.Form_PasswordCheck_VerificationItem_Parameter}>
+								8+ символов
+							</div>
+						</div>
+
+						<div className={s.Form_PasswordCheck_VerificationItem}>
+							<BaseIcon
+								viewBox='0 0 16 13'
+								icon={ALL_ICONS.CHECKBOX_TICK}
+								className={s.Form_PasswordCheck_VerificationItem_Icon}
+							/>
+
+							<div className={s.Form_PasswordCheck_VerificationItem_Parameter}>
+								Цифры
+							</div>
+						</div>
+
+						<div className={s.Form_PasswordCheck_VerificationItem}>
+							<BaseIcon
+								viewBox='0 0 16 13'
+								icon={ALL_ICONS.CHECKBOX_TICK}
+								className={s.Form_PasswordCheck_VerificationItem_Icon}
+							/>
+
+							<div className={s.Form_PasswordCheck_VerificationItem_Parameter}>
+								Буквы
+							</div>
+						</div>
+					</div>
+
 					<BaseInput
 						name='confirm_password'
 						placeholder='Повторите пароль'
@@ -104,7 +165,32 @@ const Registration: React.FC = () => {
 						autocomplete='new-password'
 					/>
 
+					<div className={s.Form_PasswordCheck}>
+						<div className={s.Form_PasswordCheck_VerificationItem}>
+							<BaseIcon
+								viewBox='0 0 16 13'
+								icon={ALL_ICONS.CHECKBOX_TICK}
+								className={`${s.Form_PasswordCheck_VerificationItem_Icon} ${
+									value.password === value.confirm_password ? s.Match : ''
+								}`}
+							/>
+
+							<div className={s.Form_PasswordCheck_VerificationItem_Parameter}>
+								Пароли совпадают
+							</div>
+						</div>
+					</div>
+
+					<BaseCheckbox
+						checked={isChecked}
+						onChange={() => setIsChecked(!isChecked)}
+						className={s.Form_Checkbox}
+					>
+						Соглашаюсь с Политикой конфиденциальности
+					</BaseCheckbox>
+
 					<BaseButton
+						disabled={isDisabled}
 						title='Зарегистрироваться'
 						type='blue'
 						className={s.Form_Button}

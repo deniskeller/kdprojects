@@ -1,6 +1,7 @@
 export enum OthersIcons {
 	LOGO = 'LOGO',
 	CHEVERON = 'CHEVERON',
+	CHECKBOX_TICK = 'CHECKBOX_TICK',
 }
 
 export const othersIcons = {
@@ -26,6 +27,17 @@ export const othersIcons = {
 				stroke='#111827'
 				strokeLinecap='round'
 				strokeLinejoin='round'
+			/>
+		</>
+	),
+
+	[OthersIcons.CHECKBOX_TICK]: (
+		<>
+			<path
+				fillRule='evenodd'
+				clipRule='evenodd'
+				d='M13.3851 0.496566C13.9392 -0.119199 14.8877 -0.169117 15.5034 0.385072C16.1192 0.93926 16.1691 1.88769 15.6149 2.50346L6.61494 12.5035C6.04003 13.1422 5.04703 13.1684 4.43934 12.5607L0.43934 8.56067C-0.146447 7.97489 -0.146447 7.02514 0.43934 6.43935C1.02513 5.85357 1.97487 5.85357 2.56066 6.43935L5.44271 9.3214L13.3851 0.496566Z'
+				fill='#1A1A1A'
 			/>
 		</>
 	),

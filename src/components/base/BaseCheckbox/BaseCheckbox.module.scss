@@ -1,0 +1,105 @@
+.BaseCheckbox {
+	position: relative;
+	user-select: none;
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+	cursor: pointer;
+	font-size: 100%;
+
+	&:hover {
+		.BaseCheckboxCheck {
+			border-color: #6575cd;
+		}
+		.BaseCheckboxCheck.isActive {
+			background: #263173;
+			border-color: #263173;
+		}
+	}
+
+	.BaseCheckboxLabel {
+		margin-left: em(10px);
+		span {
+			font-size: em(14px);
+			font-weight: 400;
+			line-height: 100%;
+			color: rgba(26, 26, 26, 0.5);
+		}
+	}
+
+	.BaseCheckboxInput {
+		position: absolute;
+		visibility: hidden;
+		font-size: 0;
+		width: 0;
+		height: 0;
+		padding: 0;
+		border: 0;
+		outline: 0;
+	}
+
+	.BaseCheckboxCheck {
+		box-sizing: border-box;
+		width: em(18px);
+		height: em(18px);
+		position: relative;
+		border-radius: 2px;
+		background: #f8fafc;
+		border: 1.5px solid #94a3b8;
+	}
+
+	.BaseCheckboxTick {
+		width: em(13px);
+		height: em(10px);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		visibility: hidden;
+	}
+
+	.isError {
+		border: 1.5px solid red;
+	}
+
+	.isActive {
+		background: $blue-500;
+		border: 1.5px solid $blue-500;
+		.BaseCheckboxTick {
+			visibility: visible;
+		}
+	}
+}
+
+.BaseCheckbox.isDisabled {
+	cursor: not-allowed;
+	&:hover {
+		.BaseCheckboxCheck {
+			border: none;
+		}
+		.BaseCheckboxCheck.isActive {
+			background: rgba(26, 26, 26, 0.1);
+			border: none;
+		}
+	}
+
+	.isActive {
+		background-color: rgba(26, 26, 26, 0.1);
+		border: none;
+		.BaseCheckboxTick {
+			path {
+				stroke: rgba(26, 26, 26, 0.1);
+			}
+		}
+	}
+	.BaseCheckboxCheck {
+		border: none;
+		background: rgba(26, 26, 26, 0.1);
+	}
+
+	.BaseCheckboxLabel {
+		span {
+			color: rgba(26, 26, 26, 0.1);
+		}
+	}
+}
