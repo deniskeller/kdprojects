@@ -41,6 +41,7 @@ const Registration: React.FC = () => {
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		console.log('Вы зарегистрировались');
+		router.push('/successful-auth');
 	};
 
 	//валидация формы
