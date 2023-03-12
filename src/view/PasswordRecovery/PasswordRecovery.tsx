@@ -126,23 +126,23 @@ const PasswordRecovery: React.FC = () => {
 								/>
 								<g opacity='0.5'>
 									<path
-										fill-rule='evenodd'
-										clip-rule='evenodd'
+										fillRule='evenodd'
+										clipRule='evenodd'
 										d='M34.1966 85.3557C-24.6609 185.525 132.344 211.547 138.863 132.184C142.319 90.1131 192.715 57.8082 192.715 57.8082'
 										fill='black'
-										fill-opacity='0.01'
+										fillOpacity='0.01'
 									/>
 									<path
 										d='M34.1966 85.3557C-24.6609 185.525 132.344 211.547 138.863 132.184C142.319 90.1131 192.715 57.8082 192.715 57.8082'
 										stroke='#8CA4D4'
-										stroke-width='2.50424'
-										stroke-linecap='round'
-										stroke-dasharray='2.5 10.02'
+										strokeWidth='2.50424'
+										strokeLinecap='round'
+										strokeDasharray='2.5 10.02'
 									/>
 								</g>
 								<path
-									fill-rule='evenodd'
-									clip-rule='evenodd'
+									fillRule='evenodd'
+									clipRule='evenodd'
 									d='M201.594 65.7371L190.382 62.4588L200.571 52.2671L183.109 59.9834L172.863 56.0576L207.885 46.7542L201.594 65.7371Z'
 									fill='#41C1F8'
 								/>
