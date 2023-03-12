@@ -9,6 +9,7 @@ interface Props {
 	to_details?: boolean;
 	disabled?: boolean;
 	className?: string;
+	icon_position?: string;
 	style?: object;
 	onClick?: (ev: React.MouseEvent<HTMLButtonElement>) => void;
 }
@@ -16,6 +17,7 @@ interface Props {
 const BaseButton: React.FC<Props> = ({
 	title = '',
 	type = 'white',
+	icon_position = 'right',
 	disabled = false,
 	to_details = false,
 	className = '',
@@ -29,9 +31,17 @@ const BaseButton: React.FC<Props> = ({
 			className={`${className} ${s.Button} ${s['Button_' + type]}`}
 			style={style}
 		>
+			{to_details && icon_position == 'left' ? (
+				<BaseIcon
+					viewBox='0 0 20 20'
+					icon={ALL_ICONS.TO_DETAILS}
+					className={`${s.Icon} ${s.Icon_Left}`}
+				/>
+			) : null}
+
 			<div className={s.Title}>{title}</div>
 
-			{to_details ? (
+			{to_details && icon_position == 'right' ? (
 				<BaseIcon
 					viewBox='0 0 20 20'
 					icon={ALL_ICONS.TO_DETAILS}

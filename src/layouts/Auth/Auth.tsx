@@ -1,3 +1,4 @@
+import { NotificationsPopup } from '@modals/index';
 import { Footer } from 'components/footer';
 import { Navbar2 } from 'components/navbar';
 import React, { useEffect, useState } from 'react';
@@ -32,17 +33,20 @@ const Auth: React.FC<Props> = ({ children, auth = false }) => {
 	}, [scrollTop]);
 
 	return (
-		<div className={s.Wrapper}>
-			{/* <div className={s.Image}>
+		<>
+			<div className={s.Wrapper}>
+				{/* <div className={s.Image}>
 				<Image src='/images/image/main-bg.png' priority fill alt={'Image'} />
 			</div> */}
 
-			<Navbar2 auth={auth} />
+				<Navbar2 auth={auth} />
 
-			<div className={s.Content}>{children}</div>
+				<div className={s.Content}>{children}</div>
 
-			<Footer />
-		</div>
+				<Footer />
+			</div>
+			<NotificationsPopup className='NotificationsPopup' />
+		</>
 	);
 };
 

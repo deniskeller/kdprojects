@@ -73,15 +73,6 @@
 		color: $white;
 	}
 
-	.Icon {
-		width: em(20px);
-		height: em(20px);
-		margin-left: em(12px);
-		path {
-			stroke: $white;
-		}
-	}
-
 	&:hover {
 		background: $blue-500;
 		border-color: $blue-500;
@@ -109,5 +100,22 @@
 	&:active {
 		background: #fee1e1;
 		border: 1px solid #dc2828;
+	}
+}
+
+.Icon {
+	width: em(20px);
+	height: em(20px);
+	margin-left: em(12px);
+	path {
+		stroke: $white;
+	}
+
+	&_Left {
+		transform: rotate(180deg);
+		margin-right: em(12px);
+		path {
+			stroke: $blue-500;
+		}
 	}
 }

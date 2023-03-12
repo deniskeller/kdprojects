@@ -22,6 +22,8 @@ const SuccessfulAuth: React.FC = () => {
 
 					<BaseButton
 						title='Все проекты'
+						icon_position='left'
+						to_details
 						className={`${s.Form_Button} ${s.Form_Button1}`}
 					/>
 
