@@ -1,6 +1,6 @@
 import { About, Projects } from '@pages/Main';
 
-const Main = () => {
+const Main: React.FC = () => {
 	return (
 		<>
 			<About />

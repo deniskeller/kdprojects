@@ -119,3 +119,11 @@
 		}
 	}
 }
+
+.Delete {
+	width: em(24px);
+	height: em(24px);
+	path {
+		stroke: $grey;
+	}
+}

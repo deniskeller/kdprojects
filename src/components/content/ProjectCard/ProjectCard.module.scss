@@ -121,6 +121,7 @@
 
 		&_Image {
 			position: absolute;
+			overflow: hidden;
 			top: em(20px);
 			left: em(20px);
 			border: 1px solid rgba(26, 26, 26, 0.05);

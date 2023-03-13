@@ -11,12 +11,14 @@ interface Props {
 	className?: string;
 	icon_position?: string;
 	style?: object;
+	icon?: string;
 	onClick?: (ev: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const BaseButton: React.FC<Props> = ({
 	title = '',
 	type = 'white',
+	icon = '',
 	icon_position = 'right',
 	disabled = false,
 	to_details = false,
@@ -36,6 +38,14 @@ const BaseButton: React.FC<Props> = ({
 					viewBox='0 0 20 20'
 					icon={ALL_ICONS.TO_DETAILS}
 					className={`${s.Icon} ${s.Icon_Left}`}
+				/>
+			) : null}
+
+			{icon === 'delete' ? (
+				<BaseIcon
+					icon={ALL_ICONS.DELETE}
+					viewBox='0 0 20 20'
+					className={s.Delete}
 				/>
 			) : null}
 

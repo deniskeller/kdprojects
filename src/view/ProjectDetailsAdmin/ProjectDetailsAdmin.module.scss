@@ -1,0 +1,677 @@
+.BaseContainer {
+	max-width: em(1110px);
+	padding-top: em(40px);
+	padding-bottom: em(40px);
+}
+
+.ProjectDetails {
+	display: flex;
+	flex-direction: column;
+
+	&_Header {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		width: 100%;
+		margin-bottom: em(30px);
+
+		&_Title {
+			font-weight: 400;
+			font-size: em(20px);
+			line-height: 160%;
+			color: $black;
+			text-transform: uppercase;
+		}
+
+		&_Actions {
+			display: flex;
+			flex-direction: row;
+			@include ifmobile {
+				flex-wrap: wrap;
+				margin-top: em(30px);
+			}
+
+			&_Delete {
+				padding-left: em(12px);
+				padding-right: em(12px);
+				margin-right: em(16px);
+				@include ifmobile {
+					order: -1;
+				}
+			}
+
+			&_Back {
+				margin-right: em(16px);
+				@include ifmobile {
+					width: 100%;
+					order: 1;
+					margin-top: em(16px);
+					margin-right: 0;
+				}
+			}
+
+			&_Complete {
+				@include ifmobile {
+					flex: 1;
+				}
+			}
+		}
+	}
+
+	&_Content {
+		background: $white;
+		box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+		border-radius: em(8px);
+		padding: em(24px) em(20px) em(40px);
+		margin-bottom: em(20px);
+
+		@include ifmobile {
+			padding: em(10px) em(10px) em(20px);
+		}
+
+		&_Header {
+			display: grid;
+			grid-template-columns: em(145px) 1fr;
+			gap: 0 em(40px);
+			background: #f9fafa;
+			border-radius: em(4px);
+			padding: em(24px) em(20px);
+			margin-bottom: em(25px);
+
+			@include iflaptop {
+				gap: 0 em(20px);
+			}
+			@include iftablet {
+				gap: 0 em(20px);
+			}
+
+			@include ifmobile {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				width: 100%;
+				padding: em(10px);
+			}
+
+			&_Image {
+				width: em(145px);
+				height: em(145px);
+				overflow: hidden;
+				position: relative;
+				background: $white;
+				border: 1px solid #e5e7eb;
+				border-radius: em(4px);
+				margin-right: em(40px);
+
+				@include ifmobile {
+					display: none;
+				}
+			}
+
+			&_Parameters {
+				width: 100%;
+
+				.Header {
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+					margin-bottom: em(20px);
+
+					@include ifmobile {
+						margin-bottom: em(12px);
+					}
+
+					&_Name {
+						@include ifmobile {
+							height: 100%;
+							margin-top: auto;
+						}
+						&_Title {
+							font-weight: 600;
+							font-size: em(20px);
+							color: $black;
+							line-height: 160%;
+							text-transform: uppercase;
+							@include ifmobile {
+								text-transform: initial;
+							}
+						}
+
+						&_Date {
+							padding: em(4px) em(8px);
+							border: 1px solid #7ed4fc;
+							border-radius: em(4px);
+							margin-top: em(5px);
+							span {
+								font-weight: 500;
+								font-size: em(14px);
+								line-height: 143%;
+								color: $blue-600;
+							}
+						}
+					}
+
+					&_Status {
+						&_Name {
+							background: #fef9c3;
+							border: 1px solid #fddf49;
+							border-radius: 2px;
+							padding: em(5px) em(12px);
+
+							@include ifmobile {
+								margin-bottom: em(14px);
+							}
+							span {
+								font-weight: 500;
+								font-size: em(14px);
+								line-height: 143%;
+							}
+						}
+
+						.Moderation {
+							background: #fef9c3;
+							border: 1px solid #fddf49;
+							span {
+								color: #864e0e;
+							}
+						}
+
+						.Available {
+							background: #ffedd6;
+							border: 1px solid #fed6a9;
+							span {
+								color: #7d2d12;
+							}
+						}
+
+						.Refinement {
+							background: #d1fae5;
+							border: 1px solid #6ee7b7;
+							span {
+								color: #064c39;
+							}
+						}
+
+						&_Image {
+							width: em(68px);
+							height: em(68px);
+							overflow: hidden;
+							position: relative;
+							background: $white;
+							border: 1px solid #e5e7eb;
+							border-radius: em(4px);
+							display: none;
+							@include ifmobile {
+								display: block;
+								margin-left: auto;
+							}
+						}
+					}
+				}
+
+				.Content {
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+					flex-wrap: wrap;
+					row-gap: em(20px);
+					@include iftablet {
+						display: grid;
+						grid-template-columns: auto 1fr;
+						gap: em(20px) em(40px);
+					}
+
+					@include ifmobile {
+						border-top: 1px solid rgba(26, 26, 26, 0.05);
+						padding-top: em(12px);
+					}
+
+					&_Item {
+						&_Label {
+							margin-bottom: em(10px);
+							@include ifmobile {
+								margin-bottom: em(4px);
+							}
+							span {
+								font-weight: 400;
+								font-size: em(14px);
+								line-height: 143%;
+								color: $grey;
+								@include ifmobile {
+									font-size: em(12px);
+								}
+							}
+						}
+
+						&_Value {
+							display: flex;
+							flex-direction: row;
+							align-items: center;
+							span {
+								font-weight: 500;
+								font-size: em(20px);
+								line-height: 160%;
+								color: rgba(26, 26, 26, 0.8);
+
+								@include iftablet {
+									font-size: em(18px);
+								}
+								@include ifmobile {
+									font-size: em(16px);
+								}
+							}
+
+							.Tooltip {
+								display: flex;
+								align-items: center;
+								height: em(16px);
+								position: relative;
+								margin-left: em(12px);
+
+								&_Icon {
+									width: em(16px);
+									height: em(16px);
+									cursor: pointer;
+									&:hover + .Tooltip_Tooltip {
+										opacity: 1;
+									}
+								}
+
+								&_Tooltip {
+									width: max-content;
+									position: absolute;
+									top: em(-35px);
+									left: 50%;
+									transform: translate(-50%, -50%);
+									padding: em(8px) em(12px);
+									background: #fdfdfd;
+									border: 1px solid #d4d4d8;
+									border-radius: em(4px);
+									filter: drop-shadow(0px 1px 1px rgba(18, 18, 18, 0.3));
+									pointer-events: none;
+									opacity: 0;
+									transition: ease-in $speed;
+
+									&::after {
+										content: '';
+										display: flex;
+										border: 1px solid #cccc;
+										border-bottom: none;
+										border-right: none;
+										height: em(8px);
+										width: em(8px);
+										position: absolute;
+										top: 100%;
+										right: calc(50% - em(4px));
+										transform: translatey(em(-3.3px)) rotate(225deg);
+										background-color: #fff;
+									}
+									p {
+										font-weight: 500;
+										font-size: em(12px);
+										line-height: 133%;
+										color: $black;
+										text-align: center;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&_Body {
+			display: grid;
+			grid-template-columns: em(440px) 1fr;
+			padding: 0 em(20px);
+
+			@include iflaptop {
+				grid-template-columns: 1fr 1fr;
+			}
+			@include iftablet {
+				grid-template-columns: 1fr 1fr;
+			}
+
+			@include ifmobile {
+				grid-template-columns: 1fr;
+				padding: 0;
+			}
+
+			.AboutProject {
+				border-right: 1px solid rgba(26, 26, 26, 0.05);
+				padding-right: em(40px);
+				display: flex;
+				flex-direction: column;
+
+				@include iftablet {
+					padding-right: em(8px);
+				}
+
+				@include ifmobile {
+					padding-right: 0;
+					border-right: none;
+					border-bottom: 1px solid rgba(26, 26, 26, 0.05);
+					padding-bottom: em(22px);
+					margin-bottom: em(12px);
+				}
+
+				&_Header {
+					margin-bottom: em(16px);
+					span {
+						font-weight: 500;
+						font-size: em(18px);
+						line-height: 167%;
+						color: $black;
+					}
+				}
+
+				&_Title {
+					margin-bottom: em(16px);
+					span {
+						font-weight: 500;
+						font-size: em(16px);
+						line-height: 150%;
+						color: rgba(26, 26, 26, 0.8);
+					}
+				}
+				&_Description {
+					margin-bottom: em(16px);
+					P {
+						font-weight: 400;
+						font-size: em(14px);
+						line-height: 143%;
+						color: $black;
+					}
+				}
+
+				&_Tags {
+					display: flex;
+					flex-direction: row;
+					flex-wrap: wrap;
+					margin-bottom: em(30px);
+
+					&_Item {
+						margin-right: em(6px);
+						margin-bottom: em(6px);
+						padding: em(5px) em(10px);
+						background: $blue-50;
+						border-radius: 2px;
+						span {
+							font-weight: 500;
+							font-size: em(12px);
+							line-height: 133%;
+							color: $black;
+						}
+					}
+				}
+
+				&_Documents {
+					&_Item {
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						margin-bottom: em(20px);
+						&:last-child {
+							margin-bottom: 0;
+						}
+						&:first-child {
+							.AboutProject_Documents_Item_Name {
+								color: $black;
+							}
+						}
+
+						&_Icon {
+							width: em(24px);
+							height: em(24px);
+							margin-right: em(8px);
+						}
+
+						&_Name {
+							font-weight: 400;
+							font-size: 14px;
+							line-height: 143%;
+							color: $blue-600;
+						}
+					}
+				}
+			}
+
+			.SecondInfo {
+				padding-left: em(40px);
+				@include iftablet {
+					padding-left: em(8px);
+				}
+
+				@include ifmobile {
+					padding-left: 0;
+				}
+			}
+
+			.DevelopmentPlans {
+				&_Header {
+					margin-bottom: em(16px);
+					span {
+						font-weight: 500;
+						font-size: em(18px);
+						line-height: 167%;
+						color: $black;
+					}
+				}
+
+				&_List {
+					&_Item {
+						display: flex;
+						flex-direction: row;
+						align-items: flex-start;
+						position: relative;
+						margin-bottom: em(24px);
+						&:last-child {
+							margin-bottom: 0;
+						}
+
+						&_Border {
+							display: flex;
+							width: 100%;
+							height: 1px;
+							background: rgba(26, 26, 26, 0.1);
+							position: absolute;
+							z-index: 0;
+							top: em(15px);
+						}
+
+						&_Quarter {
+							display: flex;
+							flex-direction: row;
+							background: #f1f5f9;
+							border-radius: em(6px);
+							padding: em(4px) em(11px);
+							margin-right: em(24px);
+							position: relative;
+							&_Number {
+								margin-right: em(8px);
+								span {
+									font-weight: 600;
+									font-size: em(14px);
+									line-height: 171%;
+									color: #48566a;
+									white-space: nowrap;
+								}
+							}
+
+							&_Year {
+								font-weight: 500;
+								font-size: em(14px);
+								line-height: 171%;
+								color: #94a3b8;
+							}
+						}
+
+						&_Description {
+							width: 100%;
+							position: relative;
+							padding: em(8px) em(16px);
+							border: 1px solid rgba(26, 26, 26, 0.1);
+							border-radius: em(6px);
+							background: $white;
+							p {
+								font-weight: 400;
+								font-size: em(12px);
+								line-height: 133%;
+								color: $black;
+							}
+						}
+					}
+				}
+			}
+
+			.Alternatives {
+				margin-top: em(48px);
+				&_Header {
+					margin-bottom: em(16px);
+					span {
+						font-weight: 500;
+						font-size: em(18px);
+						line-height: 167%;
+						color: $black;
+					}
+				}
+
+				&_List {
+					display: grid;
+					grid-template-columns: 1fr;
+					gap: em(22px) 0;
+					@include ifdesktop {
+						grid-template-columns: 1fr 1fr;
+						gap: em(16px) em(24px);
+					}
+
+					&_Item {
+						&_Label {
+							margin-bottom: em(6px);
+							span {
+								font-weight: 400;
+								font-size: em(14px);
+								line-height: 143%;
+								color: $grey;
+							}
+						}
+
+						&_Description {
+							font-weight: 400;
+							font-size: em(14px);
+							line-height: 114%;
+							color: $black;
+						}
+					}
+				}
+			}
+
+			.Contacts {
+				margin-top: em(48px);
+				&_Header {
+					margin-bottom: em(16px);
+					span {
+						font-weight: 500;
+						font-size: em(18px);
+						line-height: 167%;
+						color: $black;
+					}
+				}
+
+				&_List {
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					gap: em(16px) em(24px);
+					// grid-template-columns: 1fr;
+					// gap: em(22px) 0;
+					@include ifdesktop {
+					}
+
+					&_Item {
+						&_Label {
+							margin-bottom: em(6px);
+							span {
+								font-weight: 400;
+								font-size: em(14px);
+								line-height: 143%;
+								color: $grey;
+							}
+						}
+
+						&_Description {
+							font-weight: 400;
+							font-size: em(14px);
+							line-height: 114%;
+							color: $black;
+						}
+
+						&:nth-child(2),
+						&:nth-child(4) {
+							.Contacts_List_Item_Description {
+								color: $blue-500;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&_Gallery {
+		padding: em(24px);
+		background: $white;
+		box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+		border-radius: em(8px);
+
+		@include ifmobile {
+			padding: em(20px);
+		}
+
+		&_Header {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: em(15px);
+
+			&_Title {
+				font-weight: 400;
+				font-size: em(18px);
+				line-height: 150%;
+				color: $black;
+			}
+
+			&_Navbar {
+				display: flex;
+				flex-direction: row;
+				.PrevSlide {
+					margin-right: em(21px);
+				}
+				.NextSlide,
+				.PrevSlide {
+					width: em(24px);
+					height: em(24px);
+					cursor: pointer;
+					path {
+						stroke: rgba(26, 26, 26, 0.5);
+					}
+				}
+
+				.PrevSlide {
+					-webkit-transform: rotate(180deg);
+					-moz-transform: rotate(180deg);
+					-o-transform: rotate(180deg);
+					-ms-transform: rotate(180deg);
+					transform: rotate(180deg);
+				}
+			}
+		}
+
+		&_Slider {
+			overflow: hidden;
+		}
+	}
+}
