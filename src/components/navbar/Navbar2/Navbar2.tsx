@@ -10,6 +10,7 @@ import s from './Navbar2.module.scss';
 
 interface Props {
 	auth?: boolean;
+	app?: boolean;
 }
 
 interface Links {
@@ -35,7 +36,7 @@ const links: Links[] = [
 	},
 ];
 
-const Navbar2: React.FC<Props> = ({ auth }) => {
+const Navbar2: React.FC<Props> = ({ auth = false, app = false }) => {
 	const [visible, setVisible] = React.useState(false);
 	const thisDrawer = React.useRef<HTMLDivElement>(null);
 	const router = useRouter();
@@ -97,7 +98,7 @@ const Navbar2: React.FC<Props> = ({ auth }) => {
 
 	return (
 		<div className={s.Container}>
-			<div className={s.Navbar}>
+			<div className={`${s.Navbar} ${s.App}`}>
 				<div className={s.Navbar_Burger} onClick={() => setVisible(true)}>
 					<span></span>
 					<span></span>

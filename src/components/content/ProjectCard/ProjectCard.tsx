@@ -1,6 +1,7 @@
 import { BaseButton, BaseIcon } from '@base/index';
 import { ALL_ICONS } from '@constants/icons';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import s from './ProjectCard.module.scss';
 
@@ -9,6 +10,7 @@ interface Props {
 }
 
 const ProjectCard: React.FC<Props> = ({ className }) => {
+	const router = useRouter();
 	const [status, setStatus] = useState('Доступен');
 
 	return (
@@ -76,7 +78,10 @@ const ProjectCard: React.FC<Props> = ({ className }) => {
 			</div>
 
 			<div className={s.ProjectCard_Actions}>
-				<div className={s.ProjectCard_Actions_Details}>
+				<div
+					className={s.ProjectCard_Actions_Details}
+					onClick={() => router.push('/project-details/1')}
+				>
 					<span>Детали проекта</span>
 
 					<BaseIcon

@@ -7,9 +7,10 @@ import s from './Auth.module.scss';
 interface Props {
 	children: JSX.Element;
 	auth?: boolean;
+	app?: boolean;
 }
 
-const Auth: React.FC<Props> = ({ children, auth = false }) => {
+const Auth: React.FC<Props> = ({ children, auth = false, app = false }) => {
 	const [isVisible, setIsVisible] = useState(false);
 
 	const [scrollTop, setScrollTop] = useState(0);
@@ -34,16 +35,21 @@ const Auth: React.FC<Props> = ({ children, auth = false }) => {
 
 	return (
 		<>
-			<div className={s.Wrapper}>
+			<div
+				className={s.Wrapper}
+				style={{
+					backgroundImage: app ? 'none' : 'url(/images/image/main-bg.png)',
+				}}
+			>
 				{/* <div className={s.Image}>
 				<Image src='/images/image/main-bg.png' priority fill alt={'Image'} />
 			</div> */}
 
-				<Navbar2 auth={auth} />
+				<Navbar2 auth={auth} app />
 
 				<div className={s.Content}>{children}</div>
 
-				<Footer />
+				{app ? null : <Footer />}
 			</div>
 			<NotificationsPopup className='NotificationsPopup' />
 		</>
