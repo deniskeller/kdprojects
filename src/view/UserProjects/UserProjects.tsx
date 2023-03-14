@@ -2,9 +2,9 @@ import { BaseButton, BaseContainer } from '@base/index';
 import { ProjectCard } from 'components/content';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import s from './AdminProjects.module.scss';
+import s from './UserProjects.module.scss';
 
-const AdminProjects: React.FC = () => {
+const UserProjects: React.FC = () => {
 	const router = useRouter();
 
 	const [empty, setEmpty] = useState(false);
@@ -18,7 +18,7 @@ const AdminProjects: React.FC = () => {
 
 	return (
 		<BaseContainer className={s.BaseContainer}>
-			<div className={s.AdminProjects}>
+			<div className={s.UserProjects}>
 				{empty ? (
 					<>
 						<div className={s.Empty}>
@@ -124,7 +124,7 @@ const AdminProjects: React.FC = () => {
 
 							<div className={s.Empty_Subtitle}>
 								<span>
-									Вы или пользователи пока не предложили ни одного проекта.
+									Вы пока не предложили ни одного проекта к инвестированию
 								</span>
 							</div>
 
@@ -154,7 +154,7 @@ const AdminProjects: React.FC = () => {
 								</ul>
 
 								<BaseButton
-									title='Добавить проект'
+									title='Предложить проект'
 									icon='add-project'
 									type='blue'
 									className={s.Projects_Navbar_Button}
@@ -162,12 +162,12 @@ const AdminProjects: React.FC = () => {
 							</div>
 
 							<div className={s.Projects_List}>
-								<ProjectCard to='/admin/projects/project-details/' />
-								<ProjectCard to='/admin/projects/project-details/' />
-								<ProjectCard to='/admin/projects/project-details/' />
-								<ProjectCard to='/admin/projects/project-details/' />
-								<ProjectCard to='/admin/projects/project-details/' />
-								<ProjectCard to='/admin/projects/project-details/' />
+								<ProjectCard to='/user/projects/project-details/' />
+								<ProjectCard />
+								<ProjectCard />
+								<ProjectCard />
+								<ProjectCard />
+								<ProjectCard />
 							</div>
 
 							<BaseButton
@@ -183,4 +183,4 @@ const AdminProjects: React.FC = () => {
 	);
 };
 
-export default AdminProjects;
+export default UserProjects;

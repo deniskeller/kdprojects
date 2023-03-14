@@ -16,7 +16,7 @@
 .Content {
 	display: flex;
 	flex: 1 0 auto;
-	overflow: auto;
+	overflow-y: auto;
 	flex-direction: column;
 	position: relative;
 	z-index: 10;
@@ -70,7 +70,8 @@
 
 	.Content {
 		height: 100%;
-		overflow: auto;
+		overflow: hidden;
+		overflow-y: auto;
 		position: relative;
 	}
 }

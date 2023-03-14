@@ -36,6 +36,29 @@ const links: Links[] = [
 	},
 ];
 
+const user_links: Links[] = [
+	{
+		href: '/',
+		title: 'Главная',
+	},
+	{
+		href: '/coming-soon',
+		title: 'Пресса',
+	},
+	{
+		href: '/video',
+		title: 'Видео',
+	},
+	{
+		href: '/demo-day',
+		title: 'Демо-день',
+	},
+	{
+		href: '/user/projects',
+		title: 'Мои проекты',
+	},
+];
+
 const admin_links: Links[] = [
 	{
 		href: '/',
@@ -129,6 +152,10 @@ const Navbar2: React.FC<Props> = ({ auth = false, app = false }) => {
 		const current_user = router.pathname.split('/')[1];
 		if (current_user === 'admin') {
 			setCurrentLinks(admin_links);
+		}
+
+		if (current_user === 'user') {
+			setCurrentLinks(user_links);
 		}
 
 		console.log('current_user: ', current_user);

@@ -25,6 +25,7 @@ const SuccessfulAuth: React.FC = () => {
 						icon_position='left'
 						to_details
 						className={`${s.Form_Button} ${s.Form_Button1}`}
+						onClick={() => router.push('/user/projects')}
 					/>
 
 					<BaseButton
