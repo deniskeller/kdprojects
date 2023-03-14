@@ -7,7 +7,7 @@ import s from './AdminProjects.module.scss';
 const AdminProjects: React.FC = () => {
 	const router = useRouter();
 
-	const [empty, setEmpty] = useState(false);
+	const [empty, setEmpty] = useState(true);
 
 	const tabs = [
 		{ id: 1, title: 'На модерации' },

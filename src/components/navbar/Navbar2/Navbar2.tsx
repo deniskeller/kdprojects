@@ -65,7 +65,7 @@ const admin_links: Links[] = [
 		title: 'Главная',
 	},
 	{
-		href: '/press',
+		href: '/coming-soon',
 		title: 'Пресса',
 	},
 	{

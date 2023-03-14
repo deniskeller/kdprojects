@@ -6,9 +6,10 @@ import s from './Empty.module.scss';
 
 interface Props {
 	children: JSX.Element;
+	auth?: boolean;
 }
 
-const Empty: React.FC<Props> = ({ children }) => {
+const Empty: React.FC<Props> = ({ children, auth = false }) => {
 	const [isVisible, setIsVisible] = useState(false);
 
 	const [scrollTop, setScrollTop] = useState(0);
@@ -30,9 +31,6 @@ const Empty: React.FC<Props> = ({ children }) => {
 			window.removeEventListener('scroll', handleScroll);
 		};
 	}, [scrollTop]);
-
-	//моковая авторизация
-	const [auth, setAuth] = useState(true);
 
 	return (
 		<>
