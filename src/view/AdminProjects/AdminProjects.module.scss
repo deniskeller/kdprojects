@@ -53,6 +53,70 @@
 		align-items: center;
 		justify-content: space-between;
 		margin-bottom: em(30px);
+
+		@include ifmobile {
+			flex-wrap: wrap;
+		}
+
+		&_Tabs {
+			display: flex;
+			flex-direction: row;
+			@include ifmobile {
+				margin-bottom: em(30px);
+			}
+
+			.TabItem {
+				padding-bottom: em(4px);
+				cursor: pointer;
+				list-style: none;
+				position: relative;
+				margin-right: em(32px);
+
+				&:before {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: 2px;
+					background: #2e3c8d;
+					opacity: 0;
+					transition: 0.5s;
+				}
+				&:last-child {
+					margin-right: 0;
+				}
+
+				span {
+					display: flex;
+					font-weight: 500;
+					font-size: em(18px);
+					line-height: 167%;
+					color: $black;
+					white-space: nowrap;
+				}
+
+				&.Active {
+					&:before {
+						opacity: 1;
+					}
+					span {
+						color: $black;
+					}
+				}
+			}
+		}
+
+		&_Button {
+			@include ifmobile {
+				width: 100%;
+			}
+			svg {
+				path {
+					stroke: $white;
+				}
+			}
+		}
 	}
 
 	&_List {

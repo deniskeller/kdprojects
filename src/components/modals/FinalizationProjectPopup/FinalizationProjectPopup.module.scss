@@ -1,0 +1,26 @@
+.Header {
+	margin-bottom: em(12px);
+}
+
+.Description {
+	margin-bottom: em(24px);
+	p {
+		font-weight: 400;
+		font-size: em(16px);
+		line-height: 150%;
+		color: $grey;
+	}
+}
+
+.Comments {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0 em(16px);
+	margin-bottom: em(24px);
+}
+
+.Actions {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0 em(16px);
+}

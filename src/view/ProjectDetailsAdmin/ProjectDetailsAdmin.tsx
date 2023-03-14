@@ -6,6 +6,8 @@ import Link from 'next/link';
 import React, { useRef, useState } from 'react';
 import s from './ProjectDetailsAdmin.module.scss';
 
+import { useAppDispatch } from '@hooks/redux';
+import { modalSlice } from '@store/modals/reducer';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
@@ -27,10 +29,19 @@ const images = [
 
 interface Props {
 	id: string;
+	status?: string;
+	actions?: boolean;
 }
 
-const ProjectDetailsAdmin: React.FC<Props> = ({ id }) => {
-	const [status, setStatus] = useState('Доступен');
+const ProjectDetailsAdmin: React.FC<Props> = ({
+	id,
+	status = 'Модерация',
+	actions = false,
+}) => {
+	const [current_status, setCurrentStatus] = useState(status);
+
+	const { setPopup } = modalSlice.actions;
+	const dispatch = useAppDispatch();
 
 	//slider settings
 	const settings = {
@@ -67,25 +78,38 @@ const ProjectDetailsAdmin: React.FC<Props> = ({ id }) => {
 					<div className={s.ProjectDetails_Header}>
 						<div className={s.ProjectDetails_Header_Title}>Детали проекта</div>
 
-						<div className={s.ProjectDetails_Header_Actions}>
-							<BaseButton
-								icon='delete'
-								type='red'
-								className={s.ProjectDetails_Header_Actions_Delete}
-							/>
+						{actions ? (
+							<>
+								<div className={s.ProjectDetails_Header_Actions}>
+									<BaseButton
+										icon='delete'
+										type='red'
+										className={s.ProjectDetails_Header_Actions_Delete}
+										onClick={() =>
+											dispatch(setPopup({ popup: 'DeleteProjectPopup' }))
+										}
+									/>
 
-							<BaseButton
-								title='Вернуть на модерацию'
-								type='red'
-								className={s.ProjectDetails_Header_Actions_Back}
-							/>
+									<BaseButton
+										title='На доработку'
+										type='red'
+										className={s.ProjectDetails_Header_Actions_Back}
+										onClick={() =>
+											dispatch(setPopup({ popup: 'FinalizationProjectPopup' }))
+										}
+									/>
 
-							<BaseButton
-								title='Завершить'
-								type='blue'
-								className={s.ProjectDetails_Header_Actions_Complete}
-							/>
-						</div>
+									<BaseButton
+										title='Принять'
+										type='blue'
+										className={s.ProjectDetails_Header_Actions_Complete}
+										onClick={() =>
+											dispatch(setPopup({ popup: 'AcceptProjectPopup' }))
+										}
+									/>
+								</div>
+							</>
+						) : null}
 					</div>
 
 					<div className={s.ProjectDetails_Content}>
@@ -112,16 +136,16 @@ const ProjectDetailsAdmin: React.FC<Props> = ({ id }) => {
 									<div className={s.Header_Status}>
 										<div
 											className={`${s.Header_Status_Name} ${
-												status === 'Модерация'
+												current_status === 'Модерация'
 													? s.Moderation
-													: status === 'Доработка'
+													: current_status === 'Доработка'
 													? s.Available
-													: status === 'Доступен'
+													: current_status === 'Доступен'
 													? s.Refinement
 													: ''
 											}`}
 										>
-											<span>Доступен</span>
+											<span>{current_status}</span>
 										</div>
 
 										<div className={s.Header_Status_Image}>

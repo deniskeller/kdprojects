@@ -103,6 +103,23 @@
 	}
 }
 
+//red2
+.Button_red2 {
+	background: #dc2828;
+	border: 1px solid #dc2828;
+
+	.Title {
+		color: $white;
+	}
+	&:hover {
+		background: #ef4343;
+	}
+
+	&:active {
+		background: #ba1c1c;
+	}
+}
+
 //orange
 .Button_orange {
 	background: $white;
@@ -130,8 +147,11 @@
 		stroke: $white;
 	}
 
-	&_Left {
+	&_Rotate {
 		transform: rotate(180deg);
+	}
+
+	&_Left {
 		margin-right: em(12px);
 		path {
 			stroke: $blue-500;

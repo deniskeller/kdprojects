@@ -7,9 +7,10 @@ import s from './ProjectCard.module.scss';
 
 interface Props {
 	className?: string;
+	to?: string;
 }
 
-const ProjectCard: React.FC<Props> = ({ className }) => {
+const ProjectCard: React.FC<Props> = ({ className = '', to = '' }) => {
 	const router = useRouter();
 	const [status, setStatus] = useState('Доступен');
 
@@ -80,7 +81,7 @@ const ProjectCard: React.FC<Props> = ({ className }) => {
 			<div className={s.ProjectCard_Actions}>
 				<div
 					className={s.ProjectCard_Actions_Details}
-					onClick={() => router.push('/project-details/1')}
+					onClick={() => router.push(`${to}` + 1)}
 				>
 					<span>Детали проекта</span>
 

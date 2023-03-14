@@ -46,10 +46,10 @@ const Projects: React.FC<Props> = () => {
 					</div>
 
 					<div className={s.Projects_Cards}>
-						<ProjectCard />
-						<ProjectCard />
-						<ProjectCard />
-						<ProjectCard />
+						<ProjectCard to='/project-details/' />
+						<ProjectCard to='/project-details/' />
+						<ProjectCard to='/project-details/' />
+						<ProjectCard to='/project-details/' />
 					</div>
 
 					<BaseButton title='Показать ещё' className={s.Projects_Button} />

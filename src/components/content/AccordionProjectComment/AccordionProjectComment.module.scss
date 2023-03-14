@@ -1,0 +1,43 @@
+.ProjectComment {
+	&:last-child {
+		border-bottom: none !important;
+	}
+	&_Header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		cursor: pointer;
+		padding-top: em(16px);
+		padding-bottom: em(16px);
+
+		&_Title {
+			font-weight: 500;
+			font-size: em(16px);
+			line-height: 150%;
+			color: $black;
+		}
+
+		&_IconToggle {
+			width: em(24px);
+			height: em(24px);
+			transition: all 0.3s ease;
+			&_Open {
+				transform: rotate(-180deg);
+			}
+		}
+	}
+
+	&_Content {
+		overflow: hidden;
+		transition: max-height $speed cubic-bezier(1, 0, 1, 0);
+		height: auto;
+		max-height: 9999px;
+
+		&_Hidden {
+			max-height: 0;
+			transition: max-height $speed cubic-bezier(0, 1, 0, 1);
+		}
+	}
+}

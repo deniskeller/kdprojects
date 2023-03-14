@@ -1,4 +1,9 @@
-import { NotificationsPopup } from '@modals/index';
+import {
+	AcceptProjectPopup,
+	DeleteProjectPopup,
+	FinalizationProjectPopup,
+	NotificationsPopup,
+} from '@modals/index';
 import { Footer } from 'components/footer';
 import { Navbar2 } from 'components/navbar';
 import React, { useEffect, useState } from 'react';
@@ -47,6 +52,9 @@ const Auth: React.FC<Props> = ({ children, auth = false, app = false }) => {
 				{app ? null : <Footer />}
 			</div>
 			<NotificationsPopup className='NotificationsPopup' />
+			<AcceptProjectPopup className='AcceptProjectPopup' />
+			<DeleteProjectPopup className='DeleteProjectPopup' />
+			<FinalizationProjectPopup className='FinalizationProjectPopup' />
 		</>
 	);
 };

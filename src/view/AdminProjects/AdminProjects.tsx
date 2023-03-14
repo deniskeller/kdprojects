@@ -14,6 +14,13 @@ const AdminProjects: React.FC = () => {
 
 	const [empty, setEmpty] = useState(false);
 
+	const tabs = [
+		{ id: 1, title: 'На модерации' },
+		{ id: 2, title: 'На витрине' },
+	];
+
+	const [tab, setTab] = React.useState(0);
+
 	return (
 		<BaseContainer className={s.BaseContainer}>
 			<div className={s.AdminProjects}>
@@ -137,16 +144,31 @@ const AdminProjects: React.FC = () => {
 					<>
 						<div className={s.Projects}>
 							<div className={s.Projects_Navbar}>
-								<div className={s.Projects_Navbar_Tabs}></div>
+								<ul className={s.Projects_Navbar_Tabs}>
+									{tabs.map((item, index) => (
+										<li
+											onClick={() => setTab(index)}
+											className={`${s.TabItem} ${
+												tab === index ? s.Active : ''
+											}`}
+											key={item.id}
+										>
+											<span>{item.title}</span>
+										</li>
+									))}
+								</ul>
 
 								<BaseButton
 									title='Добавить проект'
+									icon='add-project'
 									type='blue'
 									className={s.Projects_Navbar_Button}
 								/>
 							</div>
 
 							<div className={s.Projects_List}>
+								<ProjectCard to='/admin/projects/project-details/' />
+								<ProjectCard />
 								<ProjectCard />
 								<ProjectCard />
 								<ProjectCard />

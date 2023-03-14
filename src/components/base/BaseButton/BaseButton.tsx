@@ -37,6 +37,14 @@ const BaseButton: React.FC<Props> = ({
 				<BaseIcon
 					viewBox='0 0 20 20'
 					icon={ALL_ICONS.TO_DETAILS}
+					className={`${s.Icon} ${s.Icon_Left} ${s.Icon_Rotate}`}
+				/>
+			) : null}
+
+			{icon === 'add-project' ? (
+				<BaseIcon
+					viewBox='0 0 20 20'
+					icon={ALL_ICONS.ADD_PROJECT}
 					className={`${s.Icon} ${s.Icon_Left}`}
 				/>
 			) : null}
