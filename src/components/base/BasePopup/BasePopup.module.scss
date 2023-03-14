@@ -4,7 +4,7 @@
 	min-height: 100vh;
 	height: 100%;
 	overflow-y: auto;
-	padding: em(30px) em(8px);
+	// padding: em(30px) em(8px);
 	background: rgba(13, 16, 38, 0.3);
 	position: fixed;
 	z-index: 10000;
@@ -12,6 +12,11 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
+}
+
+.Container {
+	width: 100%;
+	padding: em(30px) em(8px);
 }
 
 .Popup {

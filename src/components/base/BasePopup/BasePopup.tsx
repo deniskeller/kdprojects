@@ -4,7 +4,7 @@ import useOnClickOutside from '@hooks/useOnClickOutside';
 import { modalSlice } from '@store/modals/reducer';
 import React, { ReactNode, useCallback, useEffect, useState } from 'react';
 import { BaseIcon } from '..';
-import styles from './BasePopup.module.scss';
+import s from './BasePopup.module.scss';
 
 interface Props {
 	children: ReactNode | ReactNode[];
@@ -74,23 +74,20 @@ const BasePopup: React.FC<Props> = ({
 
 	return (
 		<div
-			className={` ${styles.Wrapper} ${
-				isVisible ? styles.Visible : ''
-			} ${className}`}
+			className={` ${s.Wrapper} ${isVisible ? s.Visible : ''} ${className}`}
 			ref={thisClass}
 		>
-			<div
-				className={`${styles.Popup} ${styles['Popup_' + type]}`}
-				ref={thisPopup}
-			>
-				<BaseIcon
-					icon={ALL_ICONS.CLOSE_POPUP}
-					viewBox='0 0 16 16'
-					className={styles.Popup_Close}
-					onClick={hidePopup}
-				/>
+			<div className={s.Container}>
+				<div className={`${s.Popup} ${s['Popup_' + type]}`} ref={thisPopup}>
+					<BaseIcon
+						icon={ALL_ICONS.CLOSE_POPUP}
+						viewBox='0 0 16 16'
+						className={s.Popup_Close}
+						onClick={hidePopup}
+					/>
 
-				{children}
+					{children}
+				</div>
 			</div>
 		</div>
 	);
