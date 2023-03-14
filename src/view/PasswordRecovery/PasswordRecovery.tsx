@@ -220,7 +220,7 @@ const PasswordRecovery: React.FC = () => {
 								href='/password-recovery-confirmation'
 								className={s.Form_Register_Link}
 							>
-								Якобы подтрверждаем с почты(удалить)
+								Якобы переходим с почты(удалить)
 							</Link>
 						</div>
 					</>

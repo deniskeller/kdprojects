@@ -36,6 +36,33 @@ const links: Links[] = [
 	},
 ];
 
+const admin_links: Links[] = [
+	{
+		href: '/',
+		title: 'Главная',
+	},
+	{
+		href: '/press',
+		title: 'Пресса',
+	},
+	{
+		href: '/video',
+		title: 'Видео',
+	},
+	{
+		href: '/demo-day',
+		title: 'Демо-день',
+	},
+	{
+		href: '/admin/projects',
+		title: 'Проекты',
+	},
+	{
+		href: '/users',
+		title: 'Пользователи',
+	},
+];
+
 const Navbar2: React.FC<Props> = ({ auth = false, app = false }) => {
 	const [visible, setVisible] = React.useState(false);
 	const thisDrawer = React.useRef<HTMLDivElement>(null);
@@ -96,6 +123,17 @@ const Navbar2: React.FC<Props> = ({ auth = false, app = false }) => {
 	};
 	useOnClickOutside(thisDropdown2, clickOutsideHandler3);
 
+	const [current_links, setCurrentLinks] = useState(links);
+
+	useEffect(() => {
+		const current_user = router.pathname.split('/')[1];
+		if (current_user === 'admin') {
+			setCurrentLinks(admin_links);
+		}
+
+		console.log('current_user: ', current_user);
+	}, [router.pathname]);
+
 	return (
 		<div className={s.Container}>
 			<div className={`${s.Navbar} ${s.App}`}>
@@ -108,7 +146,7 @@ const Navbar2: React.FC<Props> = ({ auth = false, app = false }) => {
 				<Logo className={s.Navbar_Logo} />
 
 				<ul className={`${s.Navbar_List} ${s.Desktop}`}>
-					{links.map((link, index) => {
+					{current_links.map((link, index) => {
 						return (
 							<NavbarLink
 								href={link.href}

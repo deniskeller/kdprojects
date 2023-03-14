@@ -33,7 +33,7 @@ const links: Links[] = [
 		title: 'Демо-день',
 	},
 	{
-		href: '/projects',
+		href: '/admin/projects',
 		title: 'Проекты',
 	},
 	{

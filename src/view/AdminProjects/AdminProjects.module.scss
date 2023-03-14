@@ -1,0 +1,45 @@
+.BaseContainer {
+	padding-top: em(40px);
+	padding-bottom: em(40px);
+	height: 100%;
+}
+
+.AdminProjects {
+	height: 100%;
+}
+
+.Empty {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 100%;
+
+	&_Image {
+		width: em(623px);
+		height: em(246px);
+		margin-bottom: em(30px);
+	}
+
+	&_Title {
+		margin-bottom: em(8px);
+		span {
+			font-weight: 600;
+			font-size: em(24px);
+			line-height: 142%;
+			color: rgba(26, 26, 26, 0.8);
+		}
+	}
+
+	&_Subtitle {
+		margin-bottom: em(32px);
+		span {
+			font-weight: 400;
+			font-size: em(20px);
+			line-height: 160%;
+			text-align: center;
+			color: rgba(26, 26, 26, 0.8);
+		}
+	}
+}

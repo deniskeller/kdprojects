@@ -1,3 +1,4 @@
+export { default as AdminProjects } from "./AdminProjects/AdminProjects";
 export { default as Authorization } from "./Authorization/Authorization";
 export { default as ComingSoon } from "./ComingSoon/ComingSoon";
 export { default as Main } from "./Main/Main";
