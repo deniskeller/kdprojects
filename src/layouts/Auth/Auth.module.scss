@@ -55,8 +55,18 @@
 	height: 100vh;
 	min-height: initial;
 	overflow: initial;
-	padding-bottom: em(90px);
+	padding-bottom: em(85px);
 	display: block;
+
+	@include iflaptop {
+		padding-bottom: em(63px);
+	}
+	@include iftablet {
+		padding-bottom: em(63px);
+	}
+	@include ifmobile {
+		padding-bottom: em(60px);
+	}
 
 	.Content {
 		height: 100%;
