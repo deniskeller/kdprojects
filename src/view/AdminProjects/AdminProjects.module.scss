@@ -1,6 +1,4 @@
 .BaseContainer {
-	padding-top: em(40px);
-	padding-bottom: em(40px);
 	height: 100%;
 }
 
@@ -41,5 +39,36 @@
 			text-align: center;
 			color: rgba(26, 26, 26, 0.8);
 		}
+	}
+}
+
+.Projects {
+	width: 100%;
+	padding-top: em(40px);
+	padding-bottom: em(40px);
+
+	&_Navbar {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: em(30px);
+	}
+
+	&_List {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: em(20px) em(30px);
+		margin-bottom: em(30px);
+
+		@include ifmobile {
+			grid-template-columns: 1fr;
+			gap: em(30px) 0;
+		}
+	}
+
+	&_Button {
+		margin: 0 auto;
+		margin-top: em(30px);
 	}
 }

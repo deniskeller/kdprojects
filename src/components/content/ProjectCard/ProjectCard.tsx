@@ -92,7 +92,7 @@ const ProjectCard: React.FC<Props> = ({ className }) => {
 				</div>
 
 				<div className={s.ProjectCard_Actions_Buttons}>
-					<BaseButton title='На доработку' type='red' className={s.Button} />
+					<BaseButton title='На доработку' type='orange' className={s.Button} />
 
 					<BaseButton title='Принять' type='blue' className={s.Button} />
 				</div>

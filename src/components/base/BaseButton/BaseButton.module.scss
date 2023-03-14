@@ -103,6 +103,25 @@
 	}
 }
 
+//orange
+.Button_orange {
+	background: $white;
+	border: 1px solid #f67416;
+
+	.Title {
+		color: rgba(26, 26, 26, 0.8);
+	}
+	&:hover {
+		background: #fef1f1;
+		border: 1px solid #ef4343;
+	}
+
+	&:active {
+		background: #fee1e1;
+		border: 1px solid #dc2828;
+	}
+}
+
 .Icon {
 	width: em(20px);
 	height: em(20px);
