@@ -1,11 +1,14 @@
 import { BaseButton, BaseContainer } from '@base/index';
 import { Logo } from 'components/content';
+import { useRouter } from 'next/router';
 import React from 'react';
 import s from './About.module.scss';
 
 type Props = {};
 
 const About: React.FC<Props> = () => {
+	const router = useRouter();
+
 	return (
 		<>
 			<BaseContainer>
@@ -35,6 +38,7 @@ const About: React.FC<Props> = () => {
 						title='Добавить проект'
 						type='blue'
 						className={s.About_Button}
+						onClick={() => router.push('/create-project')}
 					/>
 
 					<div className={s.About_Achievements}>

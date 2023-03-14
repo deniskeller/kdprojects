@@ -132,6 +132,7 @@ const UserProjects: React.FC = () => {
 								title='Предложить проект'
 								type='blue'
 								className={s.Empty_Button}
+								onClick={() => router.push('/create-project')}
 							/>
 						</div>
 					</>
@@ -158,6 +159,7 @@ const UserProjects: React.FC = () => {
 									icon='add-project'
 									type='blue'
 									className={s.Projects_Navbar_Button}
+									onClick={() => router.push('/create-project')}
 								/>
 							</div>
 

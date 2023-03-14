@@ -33,6 +33,7 @@ const SuccessfulAuth: React.FC = () => {
 						type='blue'
 						to_details
 						className={s.Form_Button}
+						onClick={() => router.push('/create-project')}
 					/>
 				</div>
 			</BaseContainer>

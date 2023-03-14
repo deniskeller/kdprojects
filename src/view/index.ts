@@ -1,6 +1,7 @@
 export { default as AdminProjects } from "./AdminProjects/AdminProjects";
 export { default as Authorization } from "./Authorization/Authorization";
 export { default as ComingSoon } from "./ComingSoon/ComingSoon";
+export { default as CreateProject } from "./CreateProject/CreateProject";
 export { default as Main } from "./Main/Main";
 export { default as NotFound } from "./NotFound/NotFound";
 export { default as PasswordRecovery } from "./PasswordRecovery/PasswordRecovery";

@@ -7,7 +7,7 @@ import s from './AdminProjects.module.scss';
 const AdminProjects: React.FC = () => {
 	const router = useRouter();
 
-	const [empty, setEmpty] = useState(true);
+	const [empty, setEmpty] = useState(false);
 
 	const tabs = [
 		{ id: 1, title: 'На модерации' },
@@ -132,6 +132,7 @@ const AdminProjects: React.FC = () => {
 								title='Предложить проект'
 								type='blue'
 								className={s.Empty_Button}
+								onClick={() => router.push('/create-project')}
 							/>
 						</div>
 					</>
@@ -158,6 +159,7 @@ const AdminProjects: React.FC = () => {
 									icon='add-project'
 									type='blue'
 									className={s.Projects_Navbar_Button}
+									onClick={() => router.push('/create-project')}
 								/>
 							</div>
 
