@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { buttonsSlice } from './buttons/reducers';
 import { modalSlice } from './modals/reducer';
 
 export const setupStore = () => {
 	return configureStore({
 		reducer: {
 			modals: modalSlice.reducer,
+			buttons: buttonsSlice.reducer,
 		}
 	});
 }

@@ -5,21 +5,173 @@
 }
 
 .CreateProject {
-	&_Header {
-		margin-bottom: em(30px);
-		span {
-			font-weight: 400;
-			font-size: em(20px);
-			line-height: 160%;
-			color: $black;
-			text-transform: uppercase;
+	@include ifmobile {
+		padding-bottom: em(50px);
+	}
+	.StickyButton {
+		display: none;
+		@include ifmobile {
+			display: flex;
+			scroll-behavior: smooth;
+			position: fixed;
+			z-index: 100;
+			left: em(10px);
+			right: em(10px);
+			bottom: em(16px);
 		}
 	}
 
-	&_Body {
+	&_Header {
+		margin-bottom: em(30px);
+		&_Title {
+			span {
+				font-weight: 400;
+				font-size: em(20px);
+				line-height: 160%;
+				color: $black;
+				text-transform: uppercase;
+			}
+		}
+
+		&_MobileContent {
+			display: none;
+			margin-top: em(30px);
+			@include ifmobile {
+				display: block;
+			}
+
+			&_Select {
+				width: 100%;
+			}
+
+			&_Button {
+				margin-top: em(16px);
+				width: 100%;
+			}
+		}
+	}
+
+	&_Content {
+		display: grid;
+		grid-template-columns: 1fr em(406px);
 		background: $white;
 		box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
 		border-radius: em(8px);
-		padding: em(24px) em(20px) em(40px);
+		padding: em(24px);
+
+		@include iflaptop {
+			grid-template-columns: 1fr em(330px);
+		}
+		@include iftablet {
+			grid-template-columns: 1fr em(217px);
+		}
+
+		@include ifmobile {
+			grid-template-columns: 1fr;
+			padding: em(20px) em(10px);
+		}
+
+		&_Main {
+			padding-right: em(68px);
+
+			@include iflaptop {
+				padding-right: em(24px);
+			}
+			@include iftablet {
+				padding-right: em(18px);
+			}
+			@include ifmobile {
+				padding-right: 0;
+			}
+		}
+
+		&_Navbar {
+			padding-left: em(68px);
+			padding-right: em(30px);
+			border-left: 1px solid rgba(26, 26, 26, 0.1);
+
+			@include iflaptop {
+				padding-right: 0;
+				padding-left: em(24px);
+			}
+			@include iftablet {
+				padding-right: 0;
+				padding-left: em(18px);
+			}
+
+			@include ifmobile {
+				display: none;
+			}
+
+			.Navbar {
+				position: sticky;
+				top: 0;
+				&_Header {
+					display: grid;
+					grid-template-columns: 1fr;
+					padding-top: em(50px);
+					margin-bottom: em(40px);
+				}
+
+				&_Content {
+					list-style: none;
+					&_Item {
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						margin-bottom: em(16px);
+						cursor: pointer;
+						&:last-child {
+							margin-bottom: 0;
+						}
+
+						&:hover {
+							.Navbar_Content_Item_Number {
+								border: 1px solid #8c97d9;
+							}
+							.Navbar_Content_Item_Name {
+								color: $black;
+							}
+						}
+
+						&.Active {
+							.Navbar_Content_Item_Number {
+								background: #3abff8;
+								border-color: #3abff8;
+								span {
+									color: $white;
+								}
+							}
+							.Navbar_Content_Item_Name {
+								color: $black;
+							}
+						}
+
+						&_Number {
+							min-width: em(32px);
+							height: em(32px);
+							border-radius: 50%;
+							background: #eceef9;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							margin-right: em(12px);
+							span {
+								font-weight: 600;
+								font-size: em(16px);
+								color: $grey;
+							}
+						}
+
+						&_Name {
+							font-weight: 600;
+							font-size: em(16px);
+							line-height: 100%;
+							color: $grey;
+						}
+					}
+				}
+			}
+		}
 	}
 }

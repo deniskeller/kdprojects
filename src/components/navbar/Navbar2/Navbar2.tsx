@@ -157,8 +157,6 @@ const Navbar2: React.FC<Props> = ({ auth = false, app = false }) => {
 		if (current_user === 'user') {
 			setCurrentLinks(user_links);
 		}
-
-		console.log('current_user: ', current_user);
 	}, [router.pathname]);
 
 	return (
