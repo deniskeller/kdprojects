@@ -11,6 +11,7 @@ interface Props {
 	min?: number;
 	max?: number;
 	placeholder?: string;
+	optional?: boolean;
 	required?: boolean;
 	disabled?: boolean;
 	className?: string;
@@ -33,6 +34,7 @@ const BaseInput: React.FC<Props> = ({
 	required = false,
 	disabled = false,
 	prefix = '',
+	optional = false,
 	placeholder,
 	className = '',
 	autocomplete = 'off',
@@ -57,37 +59,37 @@ const BaseInput: React.FC<Props> = ({
 
 	return (
 		<div className={`${styles.BaseInput} ${className}`}>
-			{/* {prefix ? (
+			{prefix ? (
 				<>
 					<div className={styles.Prefix}>
 						{prefix == 'dollar' ? (
 							<BaseIcon
-								viewBox='0 0 20 20'
-								icon={ALL_ICONS.PREFIX_DOLLAR}
+								viewBox='0 0 24 24'
+								icon={ALL_ICONS.LOCATION_MARKER}
 								className={styles.Prefix_Icon}
 							/>
 						) : prefix == 'marker' ? (
 							<BaseIcon
-								viewBox='0 0 20 20'
-								icon={ALL_ICONS.MARKER}
+								viewBox='0 0 24 24'
+								icon={ALL_ICONS.LOCATION_MARKER}
 								className={styles.Prefix_Icon}
 							/>
 						) : prefix == 'website' ? (
 							<BaseIcon
-								viewBox='0 0 20 20'
-								icon={ALL_ICONS.WEBSITE}
+								viewBox='0 0 24 24'
+								icon={ALL_ICONS.LOCATION_MARKER}
 								className={styles.Prefix_Icon}
 							/>
 						) : prefix == 'mail' ? (
 							<BaseIcon
-								viewBox='0 0 16 12'
+								viewBox='0 0 24 24'
 								icon={ALL_ICONS.MAIL}
 								className={styles.Prefix_Icon}
 							/>
 						) : prefix == 'percent' ? (
 							<BaseIcon
-								viewBox='0 0 18 15'
-								icon={ALL_ICONS.PERCENT}
+								viewBox='0 0 24 24'
+								icon={ALL_ICONS.LOCATION_MARKER}
 								className={styles.Prefix_Icon}
 							/>
 						) : (
@@ -95,14 +97,14 @@ const BaseInput: React.FC<Props> = ({
 						)}
 					</div>
 				</>
-			) : null} */}
+			) : null}
 
 			<input
 				value={value}
 				type={newType || type}
 				className={`${styles.Input} ${error ? styles.Error : ''} ${
 					prefix ? styles.WithPrefix : ''
-				}`}
+				} ${optional ? styles.PaddingRight : ''}`}
 				name={name}
 				min={min}
 				max={max}
@@ -125,6 +127,8 @@ const BaseInput: React.FC<Props> = ({
 					{label}
 				</label>
 			) : null}
+
+			{optional ? <span className={styles.Optional}>Опционально</span> : null}
 
 			{typeIcon === 'eye' ? (
 				<BaseIcon

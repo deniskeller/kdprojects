@@ -15,14 +15,14 @@
 	height: em(54px);
 	background: #f3f4f6;
 	pointer-events: none;
-	border-top-left-radius: 2px;
-	border-bottom-left-radius: 2px;
+	border-top-left-radius: em(2px);
+	border-bottom-left-radius: em(2px);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	&_Icon {
-		width: em(20px);
-		height: em(20px);
+		width: em(24px);
+		height: em(24px);
 	}
 }
 
@@ -143,4 +143,20 @@
 	font-size: em(12px);
 	top: em(10px);
 	left: em(99px);
+}
+
+.Optional {
+	position: absolute;
+	right: em(16px);
+	top: 50%;
+	transform: translateY(-50%);
+	font-weight: 400;
+	font-size: em(16px);
+	line-height: 150%;
+	font-family: $Avenir;
+	color: rgba(26, 26, 26, 0.5);
+}
+
+.PaddingRight {
+	padding-right: em(140px);
 }
