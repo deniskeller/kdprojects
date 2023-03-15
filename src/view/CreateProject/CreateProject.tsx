@@ -5,6 +5,7 @@ import {
 	BaseIcon,
 	BaseInput,
 	BaseInputFile,
+	BaseRadioButton,
 	BaseSelect,
 	BaseSelectMultiple,
 	BaseTextarea,
@@ -51,11 +52,11 @@ const CreateProject: React.FC = () => {
 	const radio_items = [
 		{
 			value: 'yes',
-			label: 'yes',
+			label: 'Хочу участвовать',
 		},
 		{
 			value: 'no',
-			label: 'no',
+			label: 'Не хочу участвовать',
 		},
 	];
 
@@ -258,6 +259,155 @@ const CreateProject: React.FC = () => {
 										onChange={(val: string) => setNewValue(val, 'some_text4')}
 										className={s.Input}
 									/>
+								</div>
+
+								<div className={s.Form_Block_Subtitle}>
+									<span>Участие в демо-днях</span>
+								</div>
+
+								<div className={`${s.Form_Block_Row} ${s.Form_Block_Col}`}>
+									<div className={s.ChoiseOptions}>
+										{radio_items?.map((item) => {
+											return (
+												<BaseRadioButton
+													key={item.value}
+													value={item.value}
+													checked={radioValue === item.value}
+													onChange={() => setRadioValue(item.value)}
+													className={s.ChoiseOptions_Button}
+												>
+													{item.label}
+												</BaseRadioButton>
+											);
+										})}
+									</div>
+
+									<p className={s.Paragraph}>
+										Демо-день это очень важное мероприятие на котором тысячи
+										людей очень внимательно смотрят на ваши замечательные
+										проекты и после этого инвестируют в них все свои сбережения.
+									</p>
+								</div>
+
+								<div className={s.Form_Block_Subtitle}>
+									<span>Ссылки</span>
+								</div>
+
+								<div className={s.Form_Block_Row}>
+									<div className={s.Links}>
+										<div className={s.Links_Item}>
+											<div className={s.Links_Item_Header}>
+												<div className={s.Links_Item_Header_Title}>
+													<span>Ссылка 1</span>
+												</div>
+
+												<div className={s.Links_Item_Header_Delete}>
+													<span>Удалить</span>
+
+													<BaseIcon
+														viewBox='0 0 20 20'
+														icon={ALL_ICONS.DELETE}
+														className={s.Links_Item_Header_Delete_Icon}
+													/>
+												</div>
+											</div>
+
+											<div className={s.Links_Item_Body}>
+												<BaseSelect
+													label='Выбрать'
+													options={[
+														{ value: '1', label: 'Сайт' },
+														{ value: '2', label: 'Вконтакте' },
+														{ value: '3', label: 'Телеграм' },
+														{ value: '4', label: 'Другое' },
+													]}
+													onChange={(val: string) => setNewValue(val, 'title')}
+												/>
+
+												<BaseInput
+													name='some_text'
+													placeholder='Ссылка'
+													label='Ссылка'
+													value={value.some_text}
+													onChange={(val: string) =>
+														setNewValue(val, 'some_text')
+													}
+													className={s.Links_Item_Body_Input}
+												/>
+											</div>
+										</div>
+
+										<div className={s.Links_Item}>
+											<div className={s.Links_Item_Header}>
+												<div className={s.Links_Item_Header_Title}>
+													<span>Ссылка 2</span>
+												</div>
+
+												<div className={s.Links_Item_Header_Delete}>
+													<span>Удалить</span>
+
+													<BaseIcon
+														viewBox='0 0 20 20'
+														icon={ALL_ICONS.DELETE}
+														className={s.Links_Item_Header_Delete_Icon}
+													/>
+												</div>
+											</div>
+
+											<div className={s.Links_Item_Body}>
+												<BaseSelect
+													label='Выбрать'
+													options={[
+														{ value: '1', label: 'Сайт' },
+														{ value: '2', label: 'Вконтакте' },
+														{ value: '3', label: 'Телеграм' },
+														{ value: '4', label: 'Другое' },
+													]}
+													onChange={(val: string) => setNewValue(val, 'title')}
+												/>
+
+												<BaseInput
+													name='some_text'
+													placeholder='Ссылка'
+													label='Ссылка'
+													value={value.some_text}
+													onChange={(val: string) =>
+														setNewValue(val, 'some_text')
+													}
+													className={s.Links_Item_Body_Input}
+												/>
+											</div>
+										</div>
+									</div>
+
+									<div className={s.AddElement}>
+										<span>+ Добавить ссылку</span>
+									</div>
+								</div>
+
+								<div className={s.Form_Block_Subtitle}>
+									<span>Презентация</span>
+
+									<span>Опционально</span>
+								</div>
+
+								<div className={s.Form_Block_Row}>
+									<BaseInputFile
+										title='Перетащите или кликните для загрузки файла'
+										types='odt, doc, docx, pdf, jpg, jpeg, png, ppt, odp, pptx (max 3MB)'
+										files={value.files}
+										onChange={(val: any[]) => setNewValue(val, 'files')}
+									/>
+								</div>
+							</div>
+
+							{/* border */}
+							<div className={s.Form_Border} id='section-2'></div>
+
+							{/* 2 */}
+							<div className={s.Form_Block}>
+								<div className={s.Form_Block_Title}>
+									<span>2.&nbsp;Инвестиции</span>
 								</div>
 							</div>
 						</div>

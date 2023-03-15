@@ -97,12 +97,23 @@
 					}
 
 					&_Subtitle {
+						display: flex;
+						flex-direction: row;
+						justify-content: space-between;
+						align-items: center;
 						margin-bottom: em(8px);
+
 						span {
 							font-weight: 500;
 							font-size: em(16px);
 							line-height: 150%;
 							color: $black;
+							&:nth-child(2) {
+								font-weight: 400;
+								font-size: em(16px);
+								line-height: 150%;
+								color: rgba(26, 26, 26, 0.5);
+							}
 						}
 					}
 
@@ -121,67 +132,177 @@
 
 					&_Row {
 						width: 100%;
-						display: inline-flex;
-						flex-direction: row;
 						margin-bottom: em(16px);
+					}
 
-						.ProjectType {
-							width: 100%;
-							display: grid;
-							grid-template-columns: 1fr 1fr;
+					&_Col {
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+						gap: 0 em(16px);
+					}
 
-							&_Item {
-								display: flex;
-								justify-content: center;
-								align-items: center;
-								background: $white;
-								border-color: #e4e4e7;
-								border-style: solid;
-								padding: em(10px);
-								height: em(44px);
-								cursor: pointer;
+					.ProjectType {
+						width: 100%;
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+
+						&_Item {
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							background: $white;
+							border-color: #e4e4e7;
+							border-style: solid;
+							padding: em(10px);
+							height: em(44px);
+							cursor: pointer;
+							span {
+								font-weight: 500;
+								font-size: em(16px);
+								line-height: 150%;
+								color: $grey;
+							}
+							&:nth-child(1) {
+								border-width: 1px 0.5px 1px 1px;
+								box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+								border-radius: 4px 0px 0px 4px;
+							}
+
+							&:nth-child(2) {
+								border-width: 1px 1px 1px 0.5px;
+								box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+								border-radius: 0px 4px 4px 0px;
+							}
+
+							&_Active {
+								border-width: 2px !important;
+								border-color: #0da2e7;
 								span {
-									font-weight: 500;
-									font-size: em(16px);
-									line-height: 150%;
-									color: $grey;
+									color: $blue-600;
 								}
-								&:nth-child(1) {
-									border-width: 1px 0.5px 1px 1px;
-									box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-									border-radius: 4px 0px 0px 4px;
-								}
+							}
+						}
+					}
 
-								&:nth-child(2) {
-									border-width: 1px 1px 1px 0.5px;
-									box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-									border-radius: 0px 4px 4px 0px;
-								}
+					.Input {
+						width: 100%;
+					}
 
-								&_Active {
-									border-width: 2px !important;
-									border-color: #0da2e7;
+					.Textarea {
+						width: 100%;
+					}
+
+					.Halfwidth {
+						width: 50%;
+						@include ifmobile {
+							width: 100%;
+						}
+					}
+
+					.Paragraph {
+						font-weight: 400;
+						font-size: em(12px);
+						line-height: 133%;
+						color: $black;
+					}
+
+					.SecondItem {
+						margin-left: em(16px);
+						@include ifmobile {
+							margin-left: 0;
+						}
+					}
+
+					.ChoiseOptions {
+						display: flex;
+						flex-direction: column;
+						gap: em(16px) 0;
+					}
+
+					.Links {
+						display: grid;
+						grid-template-columns: 1fr;
+						gap: em(16px) 0;
+
+						&_Item {
+							&_Header {
+								display: flex;
+								flex-direction: row;
+								justify-content: space-between;
+								margin-bottom: em(10px);
+
+								&_Title {
 									span {
-										color: $blue-600;
+										font-weight: 500;
+										font-size: em(16px);
+										line-height: 150%;
+										color: rgba(26, 26, 26, 0.8);
+									}
+								}
+
+								&_Delete {
+									cursor: pointer;
+									display: flex;
+									flex-direction: row;
+									align-items: center;
+
+									&:hover {
+										.Links_Item_Header_Delete_Icon path {
+											stroke: $red;
+										}
+										span {
+											color: $red;
+										}
+									}
+									span {
+										font-weight: 400;
+										font-size: em(16px);
+										line-height: 150%;
+										color: rgba(26, 26, 26, 0.5);
+									}
+
+									&_Icon {
+										width: em(24px);
+										height: em(24px);
+										path {
+											stroke: rgba(26, 26, 26, 0.5);
+										}
 									}
 								}
 							}
-						}
 
-						.Input {
-							width: 100%;
-						}
-
-						.Textarea {
-							width: 100%;
-						}
-
-						.Halfwidth {
-							width: 50%;
-							@include ifmobile {
+							&_Body {
 								width: 100%;
+								display: grid;
+								grid-template-columns: em(158px) 1fr;
+								gap: 0 em(16px);
+								&_Input {
+									width: 100%;
+								}
 							}
 						}
+					}
+
+					.AddElement {
+						cursor: pointer;
+						margin-top: em(24px);
+						span {
+							font-weight: 500;
+							font-size: em(16px);
+							line-height: 150%;
+							color: #6575cd;
+						}
+					}
+				}
+
+				&_Border {
+					width: 100%;
+					height: 1px;
+					background: rgba(26, 26, 26, 0.1);
+					margin: em(32px) 0;
+
+					@include ifmobile {
+						margin: em(16px) 0;
 					}
 				}
 
