@@ -60,6 +60,17 @@ const CreateProject: React.FC = () => {
 		},
 	];
 
+	const radio_items2 = [
+		{
+			value: 'yes',
+			label: 'Да',
+		},
+		{
+			value: 'no',
+			label: 'Нет',
+		},
+	];
+
 	const [radioValue, setRadioValue] = React.useState('yes');
 	//desktop navigation
 	const handleClickNavbar = (index: number) => {
@@ -408,6 +419,506 @@ const CreateProject: React.FC = () => {
 							<div className={s.Form_Block}>
 								<div className={s.Form_Block_Title}>
 									<span>2.&nbsp;Инвестиции</span>
+								</div>
+
+								<div className={s.Form_Block_Description}>
+									<span>Укажите необходимый объём инвестиций и условия</span>
+								</div>
+
+								<div className={s.Form_Block_Subtitle}>
+									<span>Оценка проекта</span>
+								</div>
+
+								<div className={`${s.Form_Block_Row} ${s.Form_Block_Col}`}>
+									<BaseInput
+										prefix='rub'
+										name='some_text4'
+										placeholder='Стоимость проекта'
+										label='Стоимость проекта'
+										value={value.some_text4}
+										onChange={(val: string) => setNewValue(val, 'some_text4')}
+										className={s.Input}
+									/>
+
+									<div className={s.Corresponds}>
+										<div className={s.Corresponds_Label}>
+											<span>Соответствует</span>
+										</div>
+										<div className={s.Corresponds_Value}>100%</div>
+									</div>
+								</div>
+
+								<div className={s.Form_Block_Subtitle}>
+									<span>Требуется инвестиций</span>
+								</div>
+
+								<div className={`${s.Form_Block_Row} ${s.Form_Block_Col}`}>
+									<BaseInput
+										prefix='rub'
+										name='some_text4'
+										placeholder='Сумма инвестиций'
+										label='Сумма инвестиций'
+										value={value.some_text4}
+										onChange={(val: string) => setNewValue(val, 'some_text4')}
+										className={s.Input}
+									/>
+
+									<div className={s.Corresponds}>
+										<div className={s.Corresponds_Label}>
+											<span>Соответствует</span>
+										</div>
+										<div className={s.Corresponds_Value}>&mdash;</div>
+									</div>
+								</div>
+
+								<div className={`${s.Form_Block_Row} ${s.Form_Block_Col}`}>
+									<BaseInput
+										name='some_text4'
+										placeholder='Период раунда '
+										label='Период раунда '
+										value={value.some_text4}
+										onChange={(val: string) => setNewValue(val, 'some_text4')}
+										className={s.Input}
+									/>
+								</div>
+
+								<div className={s.Form_Block_Subtitle}>
+									<span>Условия соучастия для одного инвестора </span>
+								</div>
+
+								<div className={`${s.Form_Block_Row} ${s.Form_Block_Col}`}>
+									<BaseInput
+										prefix='rub'
+										name='some_text4'
+										placeholder='Мин.'
+										label='Мин.'
+										value={value.some_text4}
+										onChange={(val: string) => setNewValue(val, 'some_text4')}
+										className={s.Input}
+									/>
+
+									<div className={s.Corresponds}>
+										<div className={s.Corresponds_Label}>
+											<span>Соответствует</span>
+										</div>
+										<div className={s.Corresponds_Value}>&mdash;</div>
+									</div>
+								</div>
+
+								<div className={`${s.Form_Block_Row} ${s.Form_Block_Col}`}>
+									<BaseInput
+										prefix='rub'
+										name='some_text4'
+										placeholder='Макс'
+										label='Макс'
+										value={value.some_text4}
+										onChange={(val: string) => setNewValue(val, 'some_text4')}
+										className={s.Input}
+									/>
+
+									<div className={s.Corresponds}>
+										<div className={s.Corresponds_Label}>
+											<span>Соответствует</span>
+										</div>
+										<div className={s.Corresponds_Value}>&mdash;</div>
+									</div>
+								</div>
+
+								<div className={s.Form_Block_Subtitle}>
+									<span>Уже были инвестиции?</span>
+								</div>
+
+								<div className={s.Form_Block_Row}>
+									<div className={s.ChoiseOptions}>
+										{radio_items2?.map((item) => {
+											return (
+												<BaseRadioButton
+													key={item.value}
+													value={item.value}
+													checked={radioValue === item.value}
+													onChange={() => setRadioValue(item.value)}
+													className={s.ChoiseOptions_Button}
+												>
+													{item.label}
+												</BaseRadioButton>
+											);
+										})}
+									</div>
+								</div>
+							</div>
+
+							{/* border */}
+							<div className={s.Form_Border} id='section-3'></div>
+
+							{/* 3 */}
+							<div className={s.Form_Block}>
+								<div className={s.Form_Block_Title}>
+									<span>3.&nbsp;Альтернативные способы участия</span>
+									<div className={s.Optional}>Опционально</div>
+								</div>
+
+								<div className={s.Form_Block_Description}>
+									<span>
+										Вы можете указать необходимые единицы
+										материально-технической базы или нематериальные ресурсы
+									</span>
+								</div>
+
+								<div className={s.Form_Block_Row}>
+									<div className={s.Alternatives}>
+										<div className={s.Alternatives_Item}>
+											<div className={s.Alternatives_Item_Header}>
+												<div className={s.Alternatives_Item_Header_Title}>
+													<span>Ресурс 1</span>
+												</div>
+
+												<div className={s.Alternatives_Item_Header_Delete}>
+													<span>Удалить</span>
+
+													<BaseIcon
+														viewBox='0 0 20 20'
+														icon={ALL_ICONS.DELETE}
+														className={s.Alternatives_Item_Header_Delete_Icon}
+													/>
+												</div>
+											</div>
+
+											<div className={s.Alternatives_Item_Body}>
+												<BaseSelect
+													label='Выберите ресурс'
+													options={[
+														{ value: '1', label: 'Люди' },
+														{ value: '2', label: 'Оборудование/техника' },
+														{ value: '3', label: 'Другое' },
+													]}
+													onChange={(val: string) => setNewValue(val, 'title')}
+													className={s.Halfwidth}
+												/>
+
+												<BaseTextarea
+													name='message'
+													label='Описание'
+													placeholder='Описание'
+													type='text'
+													value={value.some_text3}
+													onChange={(val: string) =>
+														setNewValue(val, 'some_text3')
+													}
+													className={s.Textarea}
+												/>
+											</div>
+										</div>
+
+										<div className={s.Alternatives_Item}>
+											<div className={s.Alternatives_Item_Header}>
+												<div className={s.Alternatives_Item_Header_Title}>
+													<span>Ресурс 2</span>
+												</div>
+
+												<div className={s.Alternatives_Item_Header_Delete}>
+													<span>Удалить</span>
+
+													<BaseIcon
+														viewBox='0 0 20 20'
+														icon={ALL_ICONS.DELETE}
+														className={s.Alternatives_Item_Header_Delete_Icon}
+													/>
+												</div>
+											</div>
+
+											<div className={s.Alternatives_Item_Body}>
+												<BaseSelect
+													label='Выберите ресурс'
+													options={[
+														{ value: '1', label: 'Люди' },
+														{ value: '2', label: 'Оборудование/техника' },
+														{ value: '3', label: 'Другое' },
+													]}
+													onChange={(val: string) => setNewValue(val, 'title')}
+													className={s.Halfwidth}
+												/>
+
+												<BaseTextarea
+													name='message'
+													label='Описание'
+													placeholder='Описание'
+													type='text'
+													value={value.some_text3}
+													onChange={(val: string) =>
+														setNewValue(val, 'some_text3')
+													}
+													className={s.Textarea}
+												/>
+											</div>
+										</div>
+									</div>
+
+									<div className={s.AddElement}>
+										<span>+ Добавить</span>
+									</div>
+								</div>
+							</div>
+
+							{/* border */}
+							<div className={s.Form_Border} id='section-4'></div>
+
+							{/* 4 */}
+							<div className={s.Form_Block}>
+								<div className={s.Form_Block_Title}>
+									<span>4.&nbsp;Планы развития</span>
+								</div>
+
+								<div className={s.Form_Block_Description}>
+									<span>
+										Вы можете добавить до 5-и вех развития проекта, в т.ч.
+										прошедшие
+									</span>
+								</div>
+
+								<div className={s.Form_Block_Row}>
+									<div className={s.Plans}>
+										<div className={s.Plans_Item}>
+											<div className={s.Plans_Item_Header}>
+												<div className={s.Plans_Item_Header_Title}>
+													<span>Веха 1</span>
+												</div>
+
+												<div className={s.Plans_Item_Header_Delete}>
+													<span>Удалить</span>
+
+													<BaseIcon
+														viewBox='0 0 20 20'
+														icon={ALL_ICONS.DELETE}
+														className={s.Plans_Item_Header_Delete_Icon}
+													/>
+												</div>
+											</div>
+
+											<div className={s.Plans_Item_Body}>
+												<div className={s.Plans_Item_Body_Col}>
+													<BaseSelect
+														label='Квартал'
+														options={[
+															{ value: '1', label: '1 Квартал' },
+															{ value: '2', label: '2 Квартал' },
+															{ value: '3', label: '3 Квартал' },
+															{ value: '4', label: '4 Квартал' },
+														]}
+														onChange={(val: string) =>
+															setNewValue(val, 'title')
+														}
+													/>
+
+													<BaseSelect
+														label='Год'
+														options={[
+															{ value: '1', label: '2023' },
+															{ value: '2', label: '2024' },
+															{ value: '3', label: '2025' },
+														]}
+														onChange={(val: string) =>
+															setNewValue(val, 'title')
+														}
+													/>
+												</div>
+
+												<BaseTextarea
+													name='message'
+													label='Описание'
+													placeholder='Описание'
+													type='text'
+													value={value.some_text3}
+													onChange={(val: string) =>
+														setNewValue(val, 'some_text3')
+													}
+													className={s.Textarea}
+												/>
+											</div>
+										</div>
+
+										<div className={s.Plans_Item}>
+											<div className={s.Plans_Item_Header}>
+												<div className={s.Plans_Item_Header_Title}>
+													<span>Веха 2</span>
+												</div>
+
+												<div className={s.Plans_Item_Header_Delete}>
+													<span>Удалить</span>
+
+													<BaseIcon
+														viewBox='0 0 20 20'
+														icon={ALL_ICONS.DELETE}
+														className={s.Plans_Item_Header_Delete_Icon}
+													/>
+												</div>
+											</div>
+
+											<div className={s.Plans_Item_Body}>
+												<div className={s.Plans_Item_Body_Col}>
+													<BaseSelect
+														label='Квартал'
+														options={[
+															{ value: '1', label: '1 Квартал' },
+															{ value: '2', label: '2 Квартал' },
+															{ value: '3', label: '3 Квартал' },
+															{ value: '4', label: '4 Квартал' },
+														]}
+														onChange={(val: string) =>
+															setNewValue(val, 'title')
+														}
+													/>
+
+													<BaseSelect
+														label='Год'
+														options={[
+															{ value: '1', label: '2023' },
+															{ value: '2', label: '2024' },
+															{ value: '3', label: '2025' },
+														]}
+														onChange={(val: string) =>
+															setNewValue(val, 'title')
+														}
+													/>
+												</div>
+
+												<BaseTextarea
+													name='message'
+													label='Описание'
+													placeholder='Описание'
+													type='text'
+													value={value.some_text3}
+													onChange={(val: string) =>
+														setNewValue(val, 'some_text3')
+													}
+													className={s.Textarea}
+												/>
+											</div>
+										</div>
+									</div>
+
+									<div className={s.AddElement}>
+										<span>+ Добавить веху</span>
+									</div>
+								</div>
+							</div>
+
+							{/* border */}
+							<div className={s.Form_Border} id='section-5'></div>
+
+							{/* 5 */}
+							<div className={s.Form_Block}>
+								<div className={s.Form_Block_Title}>
+									<span>5.&nbsp;Контакты</span>
+								</div>
+
+								<div className={s.Form_Block_Description}>
+									<span>Укажите контактные данные</span>
+								</div>
+
+								<div className={`${s.Form_Block_Row} ${s.Form_Block_Col}`}>
+									<BaseInput
+										prefix='phone'
+										name='some_text4'
+										placeholder='Телефон'
+										label='Телефон'
+										value={value.some_text4}
+										onChange={(val: string) => setNewValue(val, 'some_text4')}
+										className={s.Input}
+									/>
+
+									<BaseInput
+										prefix='mail'
+										name='some_text4'
+										placeholder='Эл.почта'
+										label='Эл.почта'
+										value={value.some_text4}
+										onChange={(val: string) => setNewValue(val, 'some_text4')}
+										className={s.Input}
+									/>
+								</div>
+
+								<div className={`${s.Form_Block_Row} ${s.Form_Block_Col}`}>
+									<BaseInput
+										prefix='telegram'
+										name='some_text4'
+										placeholder='Telegram'
+										label='Telegram'
+										value={value.some_text4}
+										onChange={(val: string) => setNewValue(val, 'some_text4')}
+										className={s.Input}
+									/>
+
+									<BaseInput
+										prefix='vk'
+										name='some_text4'
+										placeholder='VK'
+										label='VK'
+										value={value.some_text4}
+										onChange={(val: string) => setNewValue(val, 'some_text4')}
+										className={s.Input}
+									/>
+								</div>
+							</div>
+
+							{/* border */}
+							<div className={s.Form_Border} id='section-6'></div>
+
+							{/* 6 */}
+							<div className={s.Form_Block}>
+								<div className={s.Form_Block_Title}>
+									<span>6.&nbsp;Галерея</span>
+								</div>
+
+								<div className={s.Form_Block_Description}>
+									<span>Добавьте фото и изображения (не более 10)</span>
+								</div>
+
+								<div className={s.Form_Block_Row}>
+									<BaseInputFile
+										type='image'
+										title='Drag file here to upload or browse'
+										types='jpg, jpeg, png'
+										files={value.files2}
+										multiple
+										outside
+										onChange={(val: any[]) => setNewValue(val, 'files2')}
+									/>
+								</div>
+
+								<div className={s.Form_Block_RowWithImage}>
+									{value.files2?.map((file) => {
+										return (
+											<div
+												className={s.UploadImage}
+												key={file?.name}
+												style={{
+													backgroundImage: `url(/images/image/main-bg.png)`,
+												}}
+											>
+												<div className={s.UploadImage_Overlay}></div>
+
+												<div
+													className={`${s.UploadImage_Delete} ${s.UploadImage_Delete_Desktop}`}
+												>
+													<BaseIcon
+														viewBox='0 0 20 20'
+														icon={ALL_ICONS.DELETE}
+														className={s.UploadImage_Delete_Icon}
+													/>
+												</div>
+
+												<div
+													className={`${s.UploadImage_Delete} ${s.UploadImage_Delete_Mobile}`}
+												>
+													<BaseIcon
+														icon={ALL_ICONS.CLOSE_POPUP}
+														viewBox='0 0 16 16'
+														className={s.UploadImage_Delete_Mobile_Icon}
+													/>
+												</div>
+											</div>
+										);
+									})}
 								</div>
 							</div>
 						</div>

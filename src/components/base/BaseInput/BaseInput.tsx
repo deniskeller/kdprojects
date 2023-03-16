@@ -62,10 +62,10 @@ const BaseInput: React.FC<Props> = ({
 			{prefix ? (
 				<>
 					<div className={styles.Prefix}>
-						{prefix == 'dollar' ? (
+						{prefix == 'rub' ? (
 							<BaseIcon
 								viewBox='0 0 24 24'
-								icon={ALL_ICONS.LOCATION_MARKER}
+								icon={ALL_ICONS.RUB}
 								className={styles.Prefix_Icon}
 							/>
 						) : prefix == 'marker' ? (
@@ -74,10 +74,10 @@ const BaseInput: React.FC<Props> = ({
 								icon={ALL_ICONS.LOCATION_MARKER}
 								className={styles.Prefix_Icon}
 							/>
-						) : prefix == 'website' ? (
+						) : prefix == 'phone' ? (
 							<BaseIcon
 								viewBox='0 0 24 24'
-								icon={ALL_ICONS.LOCATION_MARKER}
+								icon={ALL_ICONS.PHONE}
 								className={styles.Prefix_Icon}
 							/>
 						) : prefix == 'mail' ? (
@@ -86,10 +86,16 @@ const BaseInput: React.FC<Props> = ({
 								icon={ALL_ICONS.MAIL}
 								className={styles.Prefix_Icon}
 							/>
-						) : prefix == 'percent' ? (
+						) : prefix == 'telegram' ? (
 							<BaseIcon
 								viewBox='0 0 24 24'
-								icon={ALL_ICONS.LOCATION_MARKER}
+								icon={ALL_ICONS.TELEGRAM}
+								className={styles.Prefix_Icon}
+							/>
+						) : prefix == 'vk' ? (
+							<BaseIcon
+								viewBox='0 0 24 24'
+								icon={ALL_ICONS.VK}
 								className={styles.Prefix_Icon}
 							/>
 						) : (
