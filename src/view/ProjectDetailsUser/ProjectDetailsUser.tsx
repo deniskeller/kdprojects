@@ -8,6 +8,7 @@ import s from './ProjectDetailsUser.module.scss';
 
 import { useAppDispatch } from '@hooks/redux';
 import { modalSlice } from '@store/modals/reducer';
+import { useRouter } from 'next/router';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
@@ -38,6 +39,7 @@ const ProjectDetailsUser: React.FC<Props> = ({
 	status = 'Модерация',
 	actions = false,
 }) => {
+	const router = useRouter();
 	const [current_status, setCurrentStatus] = useState(status);
 
 	const { setPopup } = modalSlice.actions;
@@ -94,6 +96,7 @@ const ProjectDetailsUser: React.FC<Props> = ({
 										title='Редактировать'
 										type='white'
 										className={s.ProjectDetails_Header_Actions_Complete}
+										onClick={() => router.push('/edit-project')}
 									/>
 								</div>
 							</>

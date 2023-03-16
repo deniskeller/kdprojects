@@ -57,7 +57,7 @@ const BaseButton: React.FC<Props> = ({
 				/>
 			) : null}
 
-			<div className={s.Title}>{title}</div>
+			<span className={s.Title}>{title}</span>
 
 			{to_details && icon_position == 'right' ? (
 				<BaseIcon

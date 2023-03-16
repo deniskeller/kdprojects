@@ -1,0 +1,692 @@
+.BaseContainer {
+	max-width: em(1110px);
+	padding-top: em(40px);
+	padding-bottom: em(40px);
+	@include iflaptop {
+		padding-left: em(16px);
+		padding-right: em(16px);
+	}
+	@include iftablet {
+		padding-left: em(16px);
+		padding-right: em(16px);
+	}
+}
+
+.EditProject {
+	@include ifmobile {
+		padding-bottom: em(50px);
+	}
+	.StickyButton {
+		display: none;
+		@include ifmobile {
+			display: flex;
+			scroll-behavior: smooth;
+			position: fixed;
+			z-index: 100;
+			left: em(10px);
+			right: em(10px);
+			bottom: em(16px);
+		}
+	}
+
+	&_Header {
+		margin-bottom: em(30px);
+		&_Title {
+			span {
+				font-weight: 400;
+				font-size: em(20px);
+				line-height: 160%;
+				color: $black;
+				text-transform: uppercase;
+			}
+		}
+
+		&_MobileContent {
+			display: none;
+			margin-top: em(30px);
+			@include ifmobile {
+				display: block;
+			}
+
+			&_Select {
+				width: 100%;
+			}
+
+			&_Button {
+				margin-top: em(16px);
+				width: 100%;
+			}
+		}
+	}
+
+	&_Content {
+		display: grid;
+		grid-template-columns: 1fr em(406px);
+		background: $white;
+		box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+		border-radius: em(8px);
+		padding: em(24px);
+
+		@include iflaptop {
+			grid-template-columns: 1fr em(330px);
+		}
+		@include iftablet {
+			grid-template-columns: 1fr em(217px);
+		}
+
+		@include ifmobile {
+			grid-template-columns: 1fr;
+			padding: em(20px) em(10px);
+		}
+
+		&_Main {
+			padding-right: em(68px);
+
+			@include iflaptop {
+				padding-right: em(24px);
+			}
+			@include iftablet {
+				padding-right: em(18px);
+			}
+			@include ifmobile {
+				padding-right: 0;
+			}
+
+			.Form {
+				&_Block {
+					&_Title {
+						margin-bottom: em(10px);
+						span {
+							font-weight: 600;
+							font-size: em(20px);
+							line-height: 160%;
+							color: $black;
+						}
+
+						.Optional {
+							display: inline-block;
+							font-weight: 400;
+							font-size: em(16px);
+							line-height: 150%;
+							color: rgba(26, 26, 26, 0.5);
+							margin-left: em(16px);
+						}
+					}
+
+					&_Subtitle {
+						display: flex;
+						flex-direction: row;
+						justify-content: space-between;
+						align-items: center;
+						margin-bottom: em(8px);
+
+						span {
+							font-weight: 500;
+							font-size: em(16px);
+							line-height: 150%;
+							color: $black;
+							&:nth-child(2) {
+								font-weight: 400;
+								font-size: em(16px);
+								line-height: 150%;
+								color: rgba(26, 26, 26, 0.5);
+							}
+						}
+					}
+
+					&_Description {
+						display: inline-block;
+						position: relative;
+						margin-bottom: em(16px);
+
+						@include ifmobile {
+							padding-right: em(32px);
+						}
+						span {
+							font-weight: 400;
+							font-size: em(16px);
+							line-height: 167%;
+							color: $grey;
+						}
+					}
+
+					&_Row {
+						width: 100%;
+						margin-bottom: em(16px);
+					}
+
+					&_RowWithImage {
+						display: grid;
+						grid-template-columns: repeat(5, minmax(em(113px), 1fr));
+						gap: em(12px) em(12px);
+
+						@include iftablet {
+							grid-template-columns: repeat(4, minmax(em(113px), 1fr));
+							gap: em(8px) em(8px);
+						}
+
+						@include ifmobile {
+							grid-template-columns: 1fr 1fr;
+							gap: em(29px) em(29px);
+						}
+
+						.UploadImage {
+							width: 100%;
+							height: em(113px);
+							background: $grey;
+							border: 1px solid #d1d5db;
+							border-radius: 2px;
+							position: relative;
+							background-size: cover;
+							background-position: center;
+							background-repeat: no-repeat;
+							cursor: pointer;
+							@include ifmobile {
+								height: em(135px);
+							}
+							&:hover {
+								.UploadImage_Overlay {
+									opacity: 0.5;
+								}
+								.UploadImage_Delete_Desktop {
+									display: flex;
+								}
+							}
+
+							&_Overlay {
+								@extend %fullsize;
+								background: #000;
+								opacity: 0;
+								@include ifmobile {
+									display: none;
+								}
+							}
+
+							&_Delete {
+								position: absolute;
+								border-radius: 50%;
+								justify-content: center;
+								align-items: center;
+								&_Icon {
+									width: em(20px);
+									height: em(20px);
+									cursor: pointer;
+									path {
+										stroke: rgba(26, 26, 26, 0.5);
+									}
+									&:hover {
+										path {
+											stroke: $red;
+										}
+									}
+								}
+
+								&_Desktop {
+									display: none;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
+									width: em(40px);
+									height: em(40px);
+									background: $white;
+									@include ifmobile {
+										display: none !important;
+									}
+								}
+
+								&_Mobile {
+									top: em(-8px);
+									right: em(-8px);
+									display: none;
+									width: em(26px);
+									height: em(26px);
+									background: #f4f4f4;
+									@include ifmobile {
+										display: flex;
+									}
+
+									&_Icon {
+										width: em(10px);
+										height: em(10px);
+									}
+								}
+							}
+						}
+					}
+
+					&_Col {
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+						gap: 0 em(16px);
+						@include ifmobile {
+							grid-template-columns: 1fr;
+							gap: em(16px) 0;
+						}
+					}
+
+					.ProjectType {
+						width: 100%;
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+
+						&_Item {
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							background: $white;
+							border-color: #e4e4e7;
+							border-style: solid;
+							padding: em(10px);
+							height: em(44px);
+							cursor: pointer;
+							span {
+								font-weight: 500;
+								font-size: em(16px);
+								line-height: 150%;
+								color: $grey;
+							}
+							&:nth-child(1) {
+								border-width: 1px 0.5px 1px 1px;
+								box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+								border-radius: 4px 0px 0px 4px;
+							}
+
+							&:nth-child(2) {
+								border-width: 1px 1px 1px 0.5px;
+								box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+								border-radius: 0px 4px 4px 0px;
+							}
+
+							&_Active {
+								border-width: 2px !important;
+								border-color: #0da2e7;
+								span {
+									color: $blue-600;
+								}
+							}
+						}
+					}
+
+					.Input {
+						width: 100%;
+					}
+
+					.Textarea {
+						width: 100%;
+					}
+
+					.Halfwidth {
+						width: 50%;
+						@include ifmobile {
+							width: 100%;
+						}
+					}
+
+					.Paragraph {
+						font-weight: 400;
+						font-size: em(12px);
+						line-height: 133%;
+						color: $black;
+					}
+
+					.SecondItem {
+						margin-left: em(16px);
+						@include ifmobile {
+							margin-left: 0;
+						}
+					}
+
+					.ChoiseOptions {
+						display: flex;
+						flex-direction: column;
+						gap: em(16px) 0;
+					}
+
+					.Links {
+						display: grid;
+						grid-template-columns: 1fr;
+						gap: em(16px) 0;
+
+						&_Item {
+							&_Header {
+								display: flex;
+								flex-direction: row;
+								justify-content: space-between;
+								margin-bottom: em(10px);
+
+								&_Title {
+									span {
+										font-weight: 500;
+										font-size: em(16px);
+										line-height: 150%;
+										color: rgba(26, 26, 26, 0.8);
+									}
+								}
+
+								&_Delete {
+									cursor: pointer;
+									display: flex;
+									flex-direction: row;
+									align-items: center;
+
+									&:hover {
+										.Links_Item_Header_Delete_Icon path {
+											stroke: $red;
+										}
+										span {
+											color: $red;
+										}
+									}
+									span {
+										font-weight: 400;
+										font-size: em(16px);
+										line-height: 150%;
+										color: rgba(26, 26, 26, 0.5);
+									}
+
+									&_Icon {
+										width: em(24px);
+										height: em(24px);
+										path {
+											stroke: rgba(26, 26, 26, 0.5);
+										}
+									}
+								}
+							}
+
+							&_Body {
+								width: 100%;
+								display: grid;
+								grid-template-columns: em(158px) 1fr;
+								gap: 0 em(16px);
+
+								@include ifmobile {
+									grid-template-columns: 1fr;
+									gap: em(16px) 0;
+								}
+								&_Input {
+									width: 100%;
+								}
+							}
+						}
+					}
+
+					.Alternatives {
+						display: grid;
+						grid-template-columns: 1fr;
+						gap: em(16px) 0;
+
+						&_Item {
+							&_Header {
+								display: flex;
+								flex-direction: row;
+								justify-content: space-between;
+								margin-bottom: em(10px);
+
+								&_Title {
+									span {
+										font-weight: 500;
+										font-size: em(16px);
+										line-height: 150%;
+										color: rgba(26, 26, 26, 0.8);
+									}
+								}
+
+								&_Delete {
+									cursor: pointer;
+									display: flex;
+									flex-direction: row;
+									align-items: center;
+
+									&:hover {
+										.Links_Item_Header_Delete_Icon path {
+											stroke: $red;
+										}
+										span {
+											color: $red;
+										}
+									}
+									span {
+										font-weight: 400;
+										font-size: em(16px);
+										line-height: 150%;
+										color: rgba(26, 26, 26, 0.5);
+									}
+
+									&_Icon {
+										width: em(24px);
+										height: em(24px);
+										path {
+											stroke: rgba(26, 26, 26, 0.5);
+										}
+									}
+								}
+							}
+
+							&_Body {
+								width: 100%;
+								display: grid;
+								grid-template-columns: 1fr;
+								gap: em(16px) 0;
+								&_Input {
+									width: 100%;
+								}
+							}
+						}
+					}
+
+					.Plans {
+						display: grid;
+						grid-template-columns: 1fr;
+						gap: em(16px) 0;
+
+						&_Item {
+							&_Header {
+								display: flex;
+								flex-direction: row;
+								justify-content: space-between;
+								margin-bottom: em(10px);
+
+								&_Title {
+									span {
+										font-weight: 500;
+										font-size: em(16px);
+										line-height: 150%;
+										color: rgba(26, 26, 26, 0.8);
+									}
+								}
+
+								&_Delete {
+									cursor: pointer;
+									display: flex;
+									flex-direction: row;
+									align-items: center;
+
+									&:hover {
+										.Links_Item_Header_Delete_Icon path {
+											stroke: $red;
+										}
+										span {
+											color: $red;
+										}
+									}
+									span {
+										font-weight: 400;
+										font-size: em(16px);
+										line-height: 150%;
+										color: rgba(26, 26, 26, 0.5);
+									}
+
+									&_Icon {
+										width: em(24px);
+										height: em(24px);
+										path {
+											stroke: rgba(26, 26, 26, 0.5);
+										}
+									}
+								}
+							}
+
+							&_Body {
+								width: 100%;
+								display: grid;
+								grid-template-columns: 1fr;
+								gap: em(16px) 0;
+
+								&_Col {
+									display: grid;
+									grid-template-columns: 1fr 1fr;
+									gap: 0 em(16px);
+
+									@include ifmobile {
+										grid-template-columns: 1fr;
+										gap: em(16px) 0;
+									}
+								}
+							}
+						}
+					}
+
+					.AddElement {
+						cursor: pointer;
+						margin-top: em(24px);
+						span {
+							font-weight: 500;
+							font-size: em(16px);
+							line-height: 150%;
+							color: #6575cd;
+						}
+					}
+
+					.Corresponds {
+						&_Label {
+							margin-bottom: em(4px);
+							span {
+								font-weight: 400;
+								font-size: em(14px);
+								line-height: 143%;
+								color: $grey;
+							}
+						}
+
+						&_Value {
+							font-weight: 600;
+							font-size: em(16px);
+							line-height: 150%;
+							color: $black;
+						}
+					}
+				}
+
+				&_Border {
+					width: 100%;
+					height: 1px;
+					background: rgba(26, 26, 26, 0.1);
+					margin: em(32px) 0;
+				}
+
+				.Tooltip {
+					position: absolute;
+					top: 0;
+					right: em(-32px);
+					width: em(24px);
+					height: em(24px);
+					cursor: pointer;
+
+					@include ifmobile {
+						right: 0;
+					}
+				}
+			}
+		}
+
+		&_Navbar {
+			padding-left: em(68px);
+			padding-right: em(56px);
+			border-left: 1px solid rgba(26, 26, 26, 0.1);
+
+			@include iflaptop {
+				padding-right: em(24px);
+				padding-left: em(24px);
+			}
+			@include iftablet {
+				padding-right: em(18px);
+				padding-left: em(18px);
+			}
+
+			@include ifmobile {
+				display: none;
+			}
+
+			.Navbar {
+				position: sticky;
+				top: 0;
+				&_Header {
+					display: grid;
+					grid-template-columns: 1fr;
+					padding-top: em(50px);
+					margin-bottom: em(40px);
+				}
+
+				&_Content {
+					list-style: none;
+					&_Item {
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						margin-bottom: em(16px);
+						cursor: pointer;
+						&:last-child {
+							margin-bottom: 0;
+						}
+
+						&:hover {
+							.Navbar_Content_Item_Number {
+								border: 1px solid #8c97d9;
+							}
+							.Navbar_Content_Item_Name {
+								color: $black;
+							}
+						}
+
+						&.Active {
+							.Navbar_Content_Item_Number {
+								background: #3abff8;
+								border-color: #3abff8;
+								span {
+									color: $white;
+								}
+							}
+							.Navbar_Content_Item_Name {
+								color: $black;
+							}
+						}
+
+						&_Number {
+							min-width: em(32px);
+							height: em(32px);
+							border-radius: 50%;
+							background: #eceef9;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							margin-right: em(12px);
+							span {
+								font-weight: 600;
+								font-size: em(16px);
+								color: $grey;
+							}
+						}
+
+						&_Name {
+							font-weight: 600;
+							font-size: em(16px);
+							line-height: 100%;
+							color: $grey;
+						}
+					}
+				}
+			}
+		}
+	}
+}
