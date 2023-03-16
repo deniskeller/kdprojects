@@ -89,7 +89,7 @@
 			margin-right: em(8px);
 
 			@include ifmobile {
-				font-size: em(16px);
+				font-size: em(15px);
 			}
 		}
 
@@ -99,7 +99,7 @@
 			line-height: 167%;
 			color: $blue-600;
 			@include ifmobile {
-				font-size: em(16px);
+				font-size: em(15px);
 			}
 		}
 	}
