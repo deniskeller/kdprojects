@@ -29,6 +29,7 @@
 			display: flex;
 			flex-direction: row;
 			@include ifmobile {
+				width: 100%;
 				flex-wrap: wrap;
 				margin-top: em(30px);
 			}
@@ -38,7 +39,9 @@
 				padding-right: em(12px);
 				margin-right: em(16px);
 				@include ifmobile {
-					order: -1;
+					order: 1;
+					margin-left: em(16px);
+					margin-right: 0;
 				}
 			}
 
@@ -217,6 +220,13 @@
 					justify-content: space-between;
 					flex-wrap: wrap;
 					row-gap: em(20px);
+
+					@include iflaptop {
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+						gap: em(20px) em(40px);
+					}
+
 					@include iftablet {
 						display: grid;
 						grid-template-columns: auto 1fr;
@@ -229,6 +239,18 @@
 					}
 
 					&_Item {
+						@include iflaptop {
+							&:nth-child(2),
+							&:nth-child(4) {
+								order: 1;
+							}
+						}
+						@include iftablet {
+							&:nth-child(2),
+							&:nth-child(4) {
+								order: 1;
+							}
+						}
 						&_Label {
 							margin-bottom: em(10px);
 							@include ifmobile {

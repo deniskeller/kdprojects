@@ -52,8 +52,12 @@
 	}
 
 	&_Button {
+		width: em(218px);
 		height: em(58px);
 		margin-bottom: em(81px);
+		span {
+			font-size: em(20px) !important;
+		}
 
 		@include iflaptop {
 			margin-bottom: em(42px);

@@ -11,6 +11,15 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: top right;
+
+	@include iftablet {
+		background-size: cover;
+		background-position: bottom right;
+	}
+	@include ifmobile {
+		background-size: cover;
+		background-position: top;
+	}
 }
 
 .Content {

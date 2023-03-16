@@ -210,6 +210,12 @@
 					justify-content: space-between;
 					flex-wrap: wrap;
 					row-gap: em(20px);
+					@include iflaptop {
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+						gap: em(20px) em(40px);
+					}
+
 					@include iftablet {
 						display: grid;
 						grid-template-columns: auto 1fr;
@@ -222,6 +228,19 @@
 					}
 
 					&_Item {
+						@include iflaptop {
+							&:nth-child(2),
+							&:nth-child(4) {
+								order: 1;
+							}
+						}
+						@include iftablet {
+							&:nth-child(2),
+							&:nth-child(4) {
+								order: 1;
+							}
+						}
+
 						&_Label {
 							margin-bottom: em(10px);
 							@include ifmobile {

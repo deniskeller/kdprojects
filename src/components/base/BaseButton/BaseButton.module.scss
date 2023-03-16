@@ -16,20 +16,9 @@
 	.Title {
 		display: flex;
 		font-size: em(16px);
-		font-weight: 600;
-		line-height: 100%;
+		font-weight: 500;
 		color: $black;
 		font-family: $Avenir;
-
-		@include iflaptop {
-			font-size: em(14px);
-		}
-		@include iftablet {
-			font-size: em(14px);
-		}
-		@include ifmobile {
-			font-size: em(14px);
-		}
 	}
 }
 

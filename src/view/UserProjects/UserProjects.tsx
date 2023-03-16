@@ -165,11 +165,11 @@ const UserProjects: React.FC = () => {
 
 							<div className={s.Projects_List}>
 								<ProjectCard to='/user/projects/project-details/' />
-								<ProjectCard />
-								<ProjectCard />
-								<ProjectCard />
-								<ProjectCard />
-								<ProjectCard />
+								<ProjectCard to='/user/projects/project-details/' />
+								<ProjectCard to='/user/projects/project-details/' />
+								<ProjectCard to='/user/projects/project-details/' />
+								<ProjectCard to='/user/projects/project-details/' />
+								<ProjectCard to='/user/projects/project-details/' />
 							</div>
 
 							<BaseButton
