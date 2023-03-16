@@ -164,12 +164,12 @@ const AdminProjects: React.FC = () => {
 							</div>
 
 							<div className={s.Projects_List}>
-								<ProjectCard to='/admin/projects/project-details/' />
-								<ProjectCard to='/admin/projects/project-details/' />
-								<ProjectCard to='/admin/projects/project-details/' />
-								<ProjectCard to='/admin/projects/project-details/' />
-								<ProjectCard to='/admin/projects/project-details/' />
-								<ProjectCard to='/admin/projects/project-details/' />
+								<ProjectCard to='/admin/projects/project-details/' admin />
+								<ProjectCard to='/admin/projects/project-details/' admin />
+								<ProjectCard to='/admin/projects/project-details/' admin />
+								<ProjectCard to='/admin/projects/project-details/' admin />
+								<ProjectCard to='/admin/projects/project-details/' admin />
+								<ProjectCard to='/admin/projects/project-details/' admin />
 							</div>
 
 							<BaseButton

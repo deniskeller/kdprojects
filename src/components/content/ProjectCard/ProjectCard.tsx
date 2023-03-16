@@ -8,9 +8,14 @@ import s from './ProjectCard.module.scss';
 interface Props {
 	className?: string;
 	to?: string;
+	admin?: boolean;
 }
 
-const ProjectCard: React.FC<Props> = ({ className = '', to = '' }) => {
+const ProjectCard: React.FC<Props> = ({
+	className = '',
+	to = '',
+	admin = false,
+}) => {
 	const router = useRouter();
 	const [status, setStatus] = useState('Доступен');
 
@@ -92,11 +97,19 @@ const ProjectCard: React.FC<Props> = ({ className = '', to = '' }) => {
 					/>
 				</div>
 
-				<div className={s.ProjectCard_Actions_Buttons}>
-					<BaseButton title='На доработку' type='orange' className={s.Button} />
+				{admin ? (
+					<>
+						<div className={s.ProjectCard_Actions_Buttons}>
+							<BaseButton
+								title='На доработку'
+								type='orange'
+								className={s.Button}
+							/>
 
-					<BaseButton title='Принять' type='blue' className={s.Button} />
-				</div>
+							<BaseButton title='Принять' type='blue' className={s.Button} />
+						</div>
+					</>
+				) : null}
 			</div>
 		</div>
 	);
