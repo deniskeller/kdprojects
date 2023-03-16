@@ -9,6 +9,7 @@ export enum OthersIcons {
 	GLOBE = 'GLOBE',
 	VK = 'VK',
 	ADD_PROJECT = 'ADD_PROJECT',
+	STATUS_COMMENT = 'STATUS_COMMENT',
 }
 
 export const othersIcons = {
@@ -135,6 +136,17 @@ export const othersIcons = {
 				stroke='white'
 				stroke-linecap='round'
 				stroke-linejoin='round'
+			/>
+		</>
+	),
+
+	[OthersIcons.STATUS_COMMENT]: (
+		<>
+			<path
+				fill-rule='evenodd'
+				clip-rule='evenodd'
+				d='M21.6004 5.99961V15.5996C21.6004 16.9251 20.5259 17.9996 19.2004 17.9996H13.2004L7.20039 22.7996V17.9996H4.80039C3.47491 17.9996 2.40039 16.9251 2.40039 15.5996V5.99961C2.40039 4.67413 3.47491 3.59961 4.80039 3.59961H19.2004C20.5259 3.59961 21.6004 4.67413 21.6004 5.99961ZM8.40039 9.59961H6.00039V11.9996H8.40039V9.59961ZM10.8004 9.59961H13.2004V11.9996H10.8004V9.59961ZM18.0004 9.59961H15.6004V11.9996H18.0004V9.59961Z'
+				fill='#F67416'
 			/>
 		</>
 	),

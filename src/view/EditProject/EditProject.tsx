@@ -12,6 +12,7 @@ import {
 } from '@base/index';
 import { ALL_ICONS } from '@constants/icons';
 import { useAppSelector } from '@hooks/redux';
+import { EditStatus } from 'components/content';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import s from './EditProject.module.scss';
@@ -105,6 +106,19 @@ const EditProject: React.FC = () => {
 	//для мульти селекта
 	const [value2, setValue2] = React.useState([]);
 
+	const comments = [
+		{
+			status: 'denied',
+			comment:
+				'Это полная ахинея! Нет, Миша, так тебе денег никто не даст, давай заново11111',
+		},
+		{ status: 'accepted', comment: '' },
+		{ status: 'accepted', comment: '' },
+		{ status: 'accepted', comment: '' },
+		{ status: 'accepted', comment: '' },
+		{ status: 'accepted', comment: '' },
+	];
+
 	return (
 		<BaseContainer className={s.BaseContainer}>
 			<div className={s.EditProject} id='section-1'>
@@ -123,7 +137,7 @@ const EditProject: React.FC = () => {
 
 					<div className={s.EditProject_Header_MobileContent}>
 						<BaseSelect
-							initialValue='General'
+							initialValue='1. Основное'
 							options={mobile_links}
 							onChange={(val: string) => handleClickNavbarMobile(val)}
 							className={s.EditProject_Header_MobileContent_Navbar}
@@ -142,6 +156,11 @@ const EditProject: React.FC = () => {
 						<div className={s.Form}>
 							{/* 1 */}
 							<div className={s.Form_Block}>
+								<EditStatus
+									status={comments[0].status}
+									comment={comments[0].comment}
+								/>
+
 								<div className={s.Form_Block_Title}>
 									<span>1.&nbsp;Основное</span>
 								</div>
@@ -417,6 +436,7 @@ const EditProject: React.FC = () => {
 
 							{/* 2 */}
 							<div className={s.Form_Block}>
+								<EditStatus status={comments[1].status} />
 								<div className={s.Form_Block_Title}>
 									<span>2.&nbsp;Инвестиции</span>
 								</div>
@@ -552,6 +572,7 @@ const EditProject: React.FC = () => {
 
 							{/* 3 */}
 							<div className={s.Form_Block}>
+								<EditStatus status={comments[1].status} />
 								<div className={s.Form_Block_Title}>
 									<span>3.&nbsp;Альтернативные способы участия</span>
 									<div className={s.Optional}>Опционально</div>
@@ -664,6 +685,7 @@ const EditProject: React.FC = () => {
 
 							{/* 4 */}
 							<div className={s.Form_Block}>
+								<EditStatus status={comments[1].status} />
 								<div className={s.Form_Block_Title}>
 									<span>4.&nbsp;Планы развития</span>
 								</div>
@@ -807,6 +829,7 @@ const EditProject: React.FC = () => {
 
 							{/* 5 */}
 							<div className={s.Form_Block}>
+								<EditStatus status={comments[1].status} />
 								<div className={s.Form_Block_Title}>
 									<span>5.&nbsp;Контакты</span>
 								</div>
@@ -865,6 +888,7 @@ const EditProject: React.FC = () => {
 
 							{/* 6 */}
 							<div className={s.Form_Block}>
+								<EditStatus status={comments[1].status} />
 								<div className={s.Form_Block_Title}>
 									<span>6.&nbsp;Галерея</span>
 								</div>

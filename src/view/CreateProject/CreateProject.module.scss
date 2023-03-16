@@ -45,7 +45,8 @@
 			display: none;
 			margin-top: em(30px);
 			@include ifmobile {
-				display: block;
+				display: flex;
+				flex-direction: column;
 			}
 
 			&_Select {
@@ -53,8 +54,9 @@
 			}
 
 			&_Button {
-				margin-top: em(16px);
 				width: 100%;
+				order: -1;
+				margin-bottom: em(16px);
 			}
 		}
 	}
@@ -97,7 +99,7 @@
 					&_Title {
 						margin-bottom: em(10px);
 						span {
-							font-weight: 600;
+							font-weight: 500;
 							font-size: em(20px);
 							line-height: 160%;
 							color: $black;
@@ -570,7 +572,7 @@
 						}
 
 						&_Value {
-							font-weight: 600;
+							font-weight: 500;
 							font-size: em(16px);
 							line-height: 150%;
 							color: $black;
@@ -672,14 +674,14 @@
 							align-items: center;
 							margin-right: em(12px);
 							span {
-								font-weight: 600;
+								font-weight: 500;
 								font-size: em(16px);
 								color: $grey;
 							}
 						}
 
 						&_Name {
-							font-weight: 600;
+							font-weight: 500;
 							font-size: em(16px);
 							line-height: 100%;
 							color: $grey;

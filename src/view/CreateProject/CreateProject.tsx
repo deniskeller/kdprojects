@@ -123,7 +123,7 @@ const CreateProject: React.FC = () => {
 
 					<div className={s.CreateProject_Header_MobileContent}>
 						<BaseSelect
-							initialValue='General'
+							initialValue='1. Основное'
 							options={mobile_links}
 							onChange={(val: string) => handleClickNavbarMobile(val)}
 							className={s.CreateProject_Header_MobileContent_Navbar}

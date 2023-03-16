@@ -1,0 +1,95 @@
+.Status {
+	width: max-content;
+	margin-bottom: em(0px);
+	margin-left: auto;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	&_Name {
+		font-weight: 500;
+		font-size: em(16px);
+		line-height: 150%;
+		color: $black;
+	}
+
+	.Accepted {
+		color: $green;
+	}
+	.Denied {
+		color: $orange;
+	}
+
+	&_Icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: em(24px);
+		height: em(24px);
+		margin-left: em(8px);
+		position: relative;
+
+		.IconComment {
+			width: em(24px);
+			height: em(24px);
+			cursor: pointer;
+			&:hover + .CommentTooltip {
+				opacity: 1;
+			}
+		}
+		.IconCheckboxTick {
+			width: em(16px);
+			height: em(13px);
+			path {
+				fill: $green;
+			}
+		}
+	}
+
+	.CommentTooltip {
+		width: max-content;
+		max-width: em(200px);
+		position: absolute;
+		bottom: calc(100% + em(10px));
+		left: 50%;
+		transform: translateX(-50%);
+		padding: em(8px) em(12px);
+		background: #fdfdfd;
+		border: 1px solid #d4d4d8;
+		border-radius: em(4px);
+		filter: drop-shadow(0px 1px 1px rgba(18, 18, 18, 0.3));
+		pointer-events: none;
+		opacity: 0;
+		transition: ease-in $speed;
+
+		@include ifmobile {
+			width: em(200px);
+			left: em(-66px);
+		}
+
+		&::after {
+			content: '';
+			display: flex;
+			border: 1px solid #cccc;
+			border-bottom: none;
+			border-right: none;
+			height: em(8px);
+			width: em(8px);
+			position: absolute;
+			top: 100%;
+			right: calc(50% - em(4px));
+			transform: translatey(em(-3.3px)) rotate(225deg);
+			background-color: #fff;
+
+			@include ifmobile {
+				right: calc(8% - em(4px));
+			}
+		}
+		p {
+			font-weight: 500;
+			font-size: em(12px);
+			line-height: 133%;
+			color: $black;
+		}
+	}
+}
