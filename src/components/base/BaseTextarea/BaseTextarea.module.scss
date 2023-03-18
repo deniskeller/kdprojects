@@ -13,7 +13,7 @@
 	transition: 0.5s ease all;
 	-moz-transition: 0.5s ease all;
 	-webkit-transition: 0.5s ease all;
-	padding: em(26px) em(5px) em(8px) em(16px);
+	padding: em(26px) em(5px) em(20px) em(16px);
 	cursor: text;
 
 	&_Input {
@@ -108,4 +108,21 @@
 	line-height: 100%;
 	color: rgba(26, 26, 26, 0.5);
 	transition: all 0.3s ease;
+}
+
+.ShowCount {
+	position: absolute;
+	right: em(8px);
+	bottom: em(8px);
+	font-size: em(10px);
+	font-weight: 400;
+	line-height: 100%;
+	color: $grey;
+
+	&_CurrentValue {
+		color: #e7b008;
+	}
+	&_MaxValue {
+		color: #ef4343;
+	}
 }

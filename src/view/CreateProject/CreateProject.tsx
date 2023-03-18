@@ -237,6 +237,8 @@ const CreateProject: React.FC = () => {
 										label='Краткое описание'
 										placeholder='Краткое описание'
 										type='text'
+										maxLength={500}
+										showCount
 										value={value.some_text3}
 										onChange={(val: string) => setNewValue(val, 'some_text3')}
 										className={s.Textarea}
@@ -474,12 +476,14 @@ const CreateProject: React.FC = () => {
 								<div className={`${s.Form_Block_Row} ${s.Form_Block_Col}`}>
 									<BaseInput
 										name='some_text4'
-										placeholder='Период раунда '
-										label='Период раунда '
+										placeholder='Период раунда'
+										label='Период раунда'
 										value={value.some_text4}
 										onChange={(val: string) => setNewValue(val, 'some_text4')}
 										className={s.Input}
 									/>
+
+									{/* <BaseInputCalendar /> */}
 								</div>
 
 								<div className={s.Form_Block_Subtitle}>

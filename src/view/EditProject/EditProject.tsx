@@ -124,7 +124,7 @@ const EditProject: React.FC = () => {
 			<div className={s.EditProject} id='section-1'>
 				{visible ? (
 					<BaseButton
-						title='Отправить'
+						title='Отправить повторно'
 						type='blue'
 						className={s.StickyButton}
 					/>
@@ -144,7 +144,7 @@ const EditProject: React.FC = () => {
 						/>
 
 						<BaseButton
-							title='Отправить'
+							title='Отправить повторно'
 							type='blue'
 							className={s.EditProject_Header_MobileContent_Button}
 						/>
@@ -256,6 +256,8 @@ const EditProject: React.FC = () => {
 										label='Краткое описание'
 										placeholder='Краткое описание'
 										type='text'
+										maxLength={500}
+										showCount
 										value={value.some_text3}
 										onChange={(val: string) => setNewValue(val, 'some_text3')}
 										className={s.Textarea}
@@ -953,7 +955,7 @@ const EditProject: React.FC = () => {
 						<div className={s.Navbar}>
 							<div className={s.Navbar_Header}>
 								<BaseButton
-									title='Отправить'
+									title='Отправить повторно'
 									type='blue'
 									className={s.Navbar_Header_Button}
 								/>

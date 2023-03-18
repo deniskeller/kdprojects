@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import styles from './BaseTextarea.module.scss';
+import s from './BaseTextarea.module.scss';
 
 interface Props {
 	type?: string;
@@ -10,6 +10,7 @@ interface Props {
 	className?: string;
 	error?: string | boolean;
 	value: string;
+	showCount?: boolean;
 	maxLength?: number;
 	onChange(value: string): void;
 }
@@ -22,6 +23,7 @@ const BaseTextarea: React.FC<Props> = ({
 	required,
 	placeholder,
 	className = '',
+	showCount = false,
 	maxLength,
 	onChange,
 }) => {
@@ -29,10 +31,10 @@ const BaseTextarea: React.FC<Props> = ({
 	const refTextarea = useRef<HTMLTextAreaElement | null>(null);
 
 	return (
-		<div className={`${styles.BaseTextarea} ${className}`}>
+		<div className={`${s.BaseTextarea} ${className}`}>
 			<div
-				className={`${styles.Textarea} ${error ? styles.Error : ''} ${
-					focus ? styles.Focus : ''
+				className={`${s.Textarea} ${error ? s.Error : ''} ${
+					focus ? s.Focus : ''
 				}`}
 				onClick={() => refTextarea.current?.focus()}
 			>
@@ -48,21 +50,33 @@ const BaseTextarea: React.FC<Props> = ({
 					}
 					onFocus={() => setFocus(true)}
 					onBlur={() => setFocus(false)}
-					className={`${styles.Textarea_Input}`}
+					className={`${s.Textarea_Input}`}
 				/>
 			</div>
 
 			{label ? (
 				<label
-					className={`${styles.Label} ${value || focus ? styles.NoEmpty : ''} ${
-						styles.Label_Default
+					className={`${s.Label} ${value || focus ? s.NoEmpty : ''} ${
+						s.Label_Default
 					}`}
 				>
 					{label}
 				</label>
 			) : null}
 
-			{error ? <div className={styles.ErrorText}>{error}</div> : null}
+			{showCount ? (
+				<div className={s.ShowCount}>
+					<span
+						className={s.ShowCount_CurrentValue}
+						style={{ color: value.length == maxLength ? '#ef4343' : '#e7b008' }}
+					>
+						{value.length}
+					</span>
+					<span className={s.ShowCount_MaxValue}>/{maxLength}</span>
+				</div>
+			) : null}
+
+			{error ? <div className={s.ErrorText}>{error}</div> : null}
 		</div>
 	);
 };
