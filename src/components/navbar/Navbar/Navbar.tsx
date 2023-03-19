@@ -37,7 +37,7 @@ const links: Links[] = [
 		title: 'Проекты',
 	},
 	{
-		href: '/users',
+		href: '/admin/users',
 		title: 'Пользователи',
 	},
 ];
@@ -74,6 +74,8 @@ const Navbar: React.FC<Props> = ({ fixed }) => {
 			document.addEventListener('keydown', onKeyDown);
 		}
 
+		console.log('router: ', router.pathname);
+
 		return () => {
 			document.body.style.overflow = '';
 			document.body.style.height = '';
@@ -82,7 +84,7 @@ const Navbar: React.FC<Props> = ({ fixed }) => {
 			document.body.style.paddingRight = '0px';
 			document.removeEventListener('keydown', onKeyDown);
 		};
-	}, [visible]);
+	}, [visible, router.pathname]);
 
 	return (
 		<div className={s.Container}>
@@ -144,8 +146,8 @@ const Navbar: React.FC<Props> = ({ fixed }) => {
 									return (
 										<li
 											className={`${s.Drawer_Navbar_List_Item} ${
-												router.pathname.split('/')[1] ===
-												link.href.split('/')[1]
+												router.pathname.split('/').slice(-1)[0] ===
+												link.href.split('/').slice(-1)[0]
 													? s.Drawer_Navbar_List_Item_Active
 													: ''
 											}`}

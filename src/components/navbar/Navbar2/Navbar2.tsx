@@ -81,7 +81,7 @@ const admin_links: Links[] = [
 		title: 'Проекты',
 	},
 	{
-		href: '/users',
+		href: '/admin/users',
 		title: 'Пользователи',
 	},
 ];
@@ -490,12 +490,12 @@ const Navbar2: React.FC<Props> = ({ auth = false, app = false }) => {
 							) : null}
 
 							<ul className={s.Drawer_Navbar_List}>
-								{links.map((link, index) => {
+								{current_links.map((link, index) => {
 									return (
 										<li
 											className={`${s.Drawer_Navbar_List_Item} ${
-												router.pathname.split('/')[1] ===
-												link.href.split('/')[1]
+												router.pathname.split('/').slice(-1)[0] ===
+												link.href.split('/').slice(-1)[0]
 													? s.Drawer_Navbar_List_Item_Active
 													: ''
 											}`}
