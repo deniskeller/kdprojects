@@ -628,6 +628,12 @@
 					grid-template-columns: 1fr;
 					padding-top: em(50px);
 					margin-bottom: em(40px);
+					&_Button {
+						@include iftablet {
+							padding-left: em(8px);
+							padding-right: em(8px);
+						}
+					}
 				}
 
 				&_Content {
