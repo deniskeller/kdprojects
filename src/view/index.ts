@@ -10,6 +10,7 @@ export { default as ProjectDetailsAdmin } from "./ProjectDetailsAdmin/ProjectDet
 export { default as ProjectDetailsUser } from "./ProjectDetailsUser/ProjectDetailsUser";
 export { default as Registration } from "./Registration/Registration";
 export { default as SuccessfulAuth } from "./SuccessfulAuth/SuccessfulAuth";
+export { default as UserDetails } from "./UserDetails/UserDetails";
 export { default as UserProjects } from "./UserProjects/UserProjects";
 export { default as Users } from "./Users/Users";
 

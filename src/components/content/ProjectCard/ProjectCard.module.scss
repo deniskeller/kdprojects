@@ -248,18 +248,22 @@
 				height: em(20px);
 				margin-left: em(10px);
 			}
-
-			@include iftablet {
-				margin-bottom: em(8px);
-			}
-			@include ifmobile {
-				margin-bottom: em(8px);
-			}
 		}
 
 		&_Buttons {
 			display: flex;
 			flex-direction: row;
+
+			@include iflaptop {
+				// margin-top: em(8px);
+			}
+
+			@include iftablet {
+				margin-top: em(8px);
+			}
+			@include ifmobile {
+				margin-top: em(8px);
+			}
 
 			.Button {
 				height: em(36px);

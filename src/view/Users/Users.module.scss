@@ -1,0 +1,238 @@
+.BaseContainer {
+	height: 100%;
+}
+
+.Users {
+	padding: em(48px) 0;
+
+	&_Header {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: em(30px);
+		flex-wrap: wrap;
+
+		&_Filter {
+			display: flex;
+			flex-direction: row;
+			margin-right: em(20px);
+
+			@include iftablet {
+				margin-bottom: em(24px);
+			}
+
+			@include ifmobile {
+				margin-right: 0;
+				margin-bottom: em(24px);
+			}
+
+			&_Input {
+				width: em(177px);
+				line-height: 100%;
+				font-size: em(16px);
+				font-weight: 400;
+				color: #1a1a1a;
+				font-family: $Avenir;
+				height: em(44px);
+				background: none;
+				outline: none;
+				border: none;
+				position: relative;
+				box-shadow: none;
+				background: #fdfdfd;
+				border: 1px solid #d1d5db;
+				border-radius: em(4px);
+				transition: 0.5s ease all;
+				-moz-transition: 0.5s ease all;
+				-webkit-transition: 0.5s ease all;
+				@include placeholder-color(rgba(26, 26, 26, 0.5));
+				padding: em(10px) em(16px);
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+
+				&:hover {
+					border-color: #8c97d9;
+				}
+
+				&:focus {
+					border-color: #6575cd;
+				}
+				@include ifmobile {
+					width: em(155px);
+				}
+			}
+
+			&_Select {
+				width: em(158px);
+				@include ifmobile {
+					width: em(141px);
+				}
+				& > div {
+					height: em(44px);
+					border-radius: 0;
+					border-left: none;
+					border-right: none;
+
+					// &:hover {
+					// 	border-color: #d1d5db !important;
+					// 	border: none;
+					// 	border-top: 1px solid #d1d5db !important;
+					// 	border: 1px solid #d1d5db !important;
+					// 	border-bottom: 1px solid #d1d5db !important;
+					// }
+				}
+				ul {
+					top: em(47px);
+				}
+			}
+			&_Icon {
+				width: em(44px);
+				height: em(44px);
+				padding: 0 em(12px);
+				background: $white;
+				border: 1px solid #d1d5db;
+				border-radius: 0px em(2px) em(2px) 0px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				.Icon {
+					width: em(20px);
+					height: em(20px);
+				}
+			}
+		}
+
+		&_Selected {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+
+			&_Label {
+				margin-right: em(8px);
+				span {
+					font-weight: 500;
+					font-size: em(14px);
+					line-height: 143%;
+					color: $grey;
+				}
+			}
+
+			&_Select {
+				width: em(87px);
+				margin-right: em(16px);
+				& > div {
+					height: em(44px);
+				}
+				ul {
+					top: em(47px);
+				}
+				@include ifmobile {
+					width: em(86px);
+				}
+			}
+
+			&_Button {
+				width: em(124px);
+				height: em(44px);
+			}
+		}
+	}
+
+	&_Table {
+		width: 100%;
+		max-width: em(1360px);
+		margin: 0 auto;
+		margin-bottom: em(20px);
+
+		@include iflaptop {
+			padding: 0 em(40px);
+		}
+
+		@include iftablet {
+			padding-left: em(16px);
+		}
+
+		@include ifmobile {
+			padding-left: em(10px);
+		}
+
+		.Table {
+			table {
+				border-collapse: collapse;
+				overflow-x: auto;
+				border-collapse: collapse;
+				overflow-x: auto;
+				width: 100%;
+
+				@include iftablet {
+					display: block;
+					width: fit-content;
+					max-width: 100%;
+					padding-right: em(16px);
+				}
+				@include ifmobile {
+					display: block;
+					width: fit-content;
+					max-width: 100%;
+					padding-right: em(10px);
+				}
+			}
+			thead {
+				tr {
+					th {
+						font-family: $Avenir;
+						font-style: normal;
+						font-weight: 500;
+						font-size: em(12px);
+						line-height: 133%;
+						color: $black;
+						padding: em(12px) em(16px);
+						min-width: em(175px);
+						text-align: left;
+						white-space: nowrap;
+					}
+					.SortingCol {
+						display: flex;
+						align-items: center;
+						.SortingIcon {
+							width: em(8px);
+							height: em(13px);
+							margin-left: em(20px);
+							cursor: pointer;
+						}
+					}
+				}
+			}
+
+			tbody {
+				background: $white;
+				box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06),
+					0px 1px 3px rgba(0, 0, 0, 0.1);
+				border-radius: em(4px);
+				overflow: hidden;
+				tr {
+					border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+					&:hover {
+						background: #f5f5f5;
+					}
+					td {
+						font-weight: 400;
+						font-size: em(14px);
+						line-height: 143%;
+						color: $black;
+						padding: em(12px) em(16px);
+						white-space: nowrap;
+						.UserInfo {
+							width: em(24px);
+							height: em(24px);
+							margin-left: auto;
+							transform: rotate(-90deg);
+							cursor: pointer;
+						}
+					}
+				}
+			}
+		}
+	}
+}
