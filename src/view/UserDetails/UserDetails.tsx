@@ -5,7 +5,12 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import s from './UserDetails.module.scss';
 
-const UserDetails: React.FC = () => {
+interface Props {
+	id: string;
+}
+
+const UserDetails: React.FC<Props> = ({ id }) => {
+	console.log('id: ', id);
 	const router = useRouter();
 
 	const tabs = [
