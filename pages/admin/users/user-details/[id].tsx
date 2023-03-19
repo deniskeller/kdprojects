@@ -8,7 +8,7 @@ const ProjectDetailsPage = () => {
 	const id = typeof query?.id === 'string' ? query?.id : '';
 	return (
 		<Auth auth app>
-			<UserDetails id={id} status='Модерация' />
+			<UserDetails status='Модерация' />
 		</Auth>
 	);
 };

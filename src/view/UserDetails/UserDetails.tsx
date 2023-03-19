@@ -6,7 +6,7 @@ import React from 'react';
 import s from './UserDetails.module.scss';
 
 interface Props {
-	id: string;
+	id?: string;
 }
 
 const UserDetails: React.FC<Props> = ({ id }) => {
