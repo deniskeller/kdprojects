@@ -154,6 +154,25 @@ const Users: React.FC = () => {
 										/>
 									</td>
 								</tr>
+
+								<tr>
+									<td>12.02.2022</td>
+									<td>Андрей</td>
+									<td>Чурсин</td>
+									<td>allencooper@company.com</td>
+									<td>+7 927-612-21-04</td>
+									<td style={{ display: 'flex' }}>
+										<span>1</span>
+										<BaseIcon
+											icon={ALL_ICONS.CHEVERON}
+											viewBox='0 0 24 24'
+											className={s.UserInfo}
+											onClick={() =>
+												router.push('/admin/users/user-details/' + 1)
+											}
+										/>
+									</td>
+								</tr>
 							</tbody>
 						</table>
 					</div>
