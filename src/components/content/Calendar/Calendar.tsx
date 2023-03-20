@@ -58,8 +58,8 @@ export const Chevron = ({ className = '' }) => {
 				<path
 					d='M11.5 19.832L17.3333 13.9987L11.5 8.16536'
 					stroke='#121212'
-					stroke-linecap='round'
-					stroke-linejoin='round'
+					strokeLinecap='round'
+					strokeLinejoin='round'
 				/>
 			</svg>
 		</>
@@ -80,8 +80,8 @@ export const Chevron2 = ({ className = '' }) => {
 				<path
 					d='M14.8327 19.832L20.666 13.9987L14.8327 8.16536M8.16602 19.832L13.9993 13.9987L8.16602 8.16536'
 					stroke='#121212'
-					stroke-linecap='round'
-					stroke-linejoin='round'
+					strokeLinecap='round'
+					strokeLinejoin='round'
 				/>
 			</svg>
 		</>
