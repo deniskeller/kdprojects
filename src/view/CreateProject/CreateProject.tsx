@@ -481,12 +481,12 @@ const CreateProject: React.FC = () => {
 											label={'Период раунда'}
 											// value={value.some_text}
 											calendarProps={{}}
-											valueCodeInitial={''}
+											valueсodeinitial={''}
 											variant={'default'}
 											message={''}
-											messageCode={''}
-											isErrorPhone={false}
-											isErrorCode={false}
+											messagecode={''}
+											iserrorphone='false'
+											iserrorcode='false'
 											// onChange={(val: string) => setNewValue(val, 'birth_date')}
 											className={s.Input}
 										/>
