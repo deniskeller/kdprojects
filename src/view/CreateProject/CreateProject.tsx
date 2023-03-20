@@ -12,6 +12,7 @@ import {
 } from '@base/index';
 import { ALL_ICONS } from '@constants/icons';
 import { useAppSelector } from '@hooks/redux';
+import { Input } from 'components/content';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import s from './CreateProject.module.scss';
@@ -36,6 +37,7 @@ const CreateProject: React.FC = () => {
 		some_text2: '',
 		some_text3: '',
 		some_text4: '',
+		birth_date: '',
 		counter: 1,
 		dividend_payments: 'Upon expiration',
 		files: [],
@@ -474,16 +476,21 @@ const CreateProject: React.FC = () => {
 								</div>
 
 								<div className={`${s.Form_Block_Row} ${s.Form_Block_Col}`}>
-									<BaseInput
-										name='some_text4'
-										placeholder='Период раунда'
-										label='Период раунда'
-										value={value.some_text4}
-										onChange={(val: string) => setNewValue(val, 'some_text4')}
-										className={s.Input}
-									/>
-
-									{/* <BaseInputCalendar /> */}
+									<div style={{ position: 'relative' }}>
+										<Input.Calendar
+											label={'Период раунда'}
+											// value={value.some_text}
+											calendarProps={{}}
+											valueCodeInitial={''}
+											variant={'default'}
+											message={''}
+											messageCode={''}
+											isErrorPhone={false}
+											isErrorCode={false}
+											// onChange={(val: string) => setNewValue(val, 'birth_date')}
+											className={s.Input}
+										/>
+									</div>
 								</div>
 
 								<div className={s.Form_Block_Subtitle}>

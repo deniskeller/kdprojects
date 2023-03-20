@@ -1,0 +1,89 @@
+.InputCalendar {
+	font-size: inherit;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+
+	.Input {
+		line-height: 100%;
+		font-size: em(16px);
+		font-weight: 400;
+		color: #1a1a1a;
+		font-family: $Avenir;
+		width: 100%;
+		height: em(56px);
+		background: none;
+		outline: none;
+		border: none;
+		position: relative;
+		box-shadow: none;
+		background: #fdfdfd;
+		border: 1px solid #d1d5db;
+		border-radius: em(4px);
+		transition: 0.5s ease all;
+		-moz-transition: 0.5s ease all;
+		-webkit-transition: 0.5s ease all;
+		@include placeholder-color(rgba(26, 26, 26, 0));
+		padding: em(26px) em(16px) em(8px);
+
+		&:hover {
+			border-color: #8c97d9;
+		}
+
+		&_Focus {
+			border-color: #6575cd;
+		}
+	}
+
+	input[type='date']::-webkit-calendar-picker-indicator {
+		opacity: 0;
+	}
+
+	&_Label {
+		position: absolute;
+		z-index: 10;
+		pointer-events: none;
+		font-size: em(16px);
+		top: em(20px);
+		left: em(16px);
+		font-family: $Avenir;
+		font-weight: 500;
+		line-height: 100%;
+		color: rgba(26, 26, 26, 0.5);
+		transition: all 0.3s ease;
+
+		&_Focus {
+			$size: 12px;
+			font-size: em(12px);
+			left: em(17px, $size);
+			top: em(10px);
+		}
+	}
+
+	&_Icon {
+		position: absolute;
+		z-index: 10;
+		top: 50%;
+		transform: translateY(-50%);
+		right: em(16px);
+		width: em(24px);
+		height: em(24px);
+	}
+}
+
+.Calendar {
+	width: em(386px);
+	z-index: 10;
+	filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.15));
+	left: 0 !important;
+	top: em(60px) !important;
+	transform: none !important;
+
+	@include iftablet {
+		left: 0 !important;
+	}
+	@include ifmobile {
+		left: 0 !important;
+		width: em(320px);
+	}
+}

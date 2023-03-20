@@ -57,9 +57,7 @@ const Auth: React.FC<Props> = ({ children, auth = false, app = false }) => {
 	return (
 		<>
 			<div className={`${s.Wrapper} ${app ? s.App : ''}`}>
-				{/* <div className={s.Image}>
-				<Image src='/images/image/main-bg.png' priority fill alt={'Image'} />
-			</div> */}
+				
 
 				<Navbar2 auth={auth} app />
 

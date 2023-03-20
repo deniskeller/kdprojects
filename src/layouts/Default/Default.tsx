@@ -34,7 +34,12 @@ const Default: React.FC<Props> = ({ children }) => {
 	return (
 		<div className={s.Wrapper}>
 			<div className={s.Image}>
-				<Image src='/images/image/main-bg.png' priority fill alt={'Image'} />
+				<Image
+					src='/images/image/main-bg.png'
+					priority
+					layout='fill'
+					alt={'Image'}
+				/>
 			</div>
 
 			<Navbar />

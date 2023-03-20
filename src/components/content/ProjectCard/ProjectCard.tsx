@@ -47,7 +47,12 @@ const ProjectCard: React.FC<Props> = ({
 				</div>
 
 				<div className={s.ProjectCard_About_Image}>
-					<Image src='/images/image/main-bg.png' priority fill alt={'Image'} />
+					<Image
+						src='/images/image/main-bg.png'
+						priority
+						layout='fill'
+						alt={'Image'}
+					/>
 				</div>
 			</div>
 

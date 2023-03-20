@@ -35,3 +35,123 @@
 		background-repeat: no-repeat;
 	}
 }
+
+//стили для датапикера
+.react-calendar {
+	width: em(386px);
+	background: $white;
+
+	left: 0 !important;
+	top: em(60px) !important;
+	transform: none !important;
+	@include ifmobile {
+		width: em(320px);
+		left: 0 !important;
+	}
+	.react-calendar__navigation {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		padding: em(6px) em(18px);
+		border-bottom: 1px solid rgba(26, 26, 26, 0.05);
+		border-radius: 2px 2px 0px 0px;
+
+		.react-calendar__navigation__label {
+			font-family: $Avenir;
+			font-style: normal;
+			font-weight: 400;
+			font-size: em(16px);
+			line-height: 150%;
+			color: #1a1a1a;
+			text-transform: capitalize;
+		}
+		button {
+			@extend %button;
+			background: none;
+			cursor: pointer;
+		}
+	}
+
+	.react-calendar__month-view__weekdays__weekday {
+		width: em(36px);
+		height: em(30px);
+		text-align: center;
+		abbr {
+			font-family: $Avenir;
+			font-style: normal;
+			font-weight: 500;
+			font-size: em(12px);
+			line-height: 133%;
+			color: rgba(26, 26, 26, 0.3);
+			text-transform: uppercase;
+			text-decoration: none;
+		}
+	}
+
+	.react-calendar__month-view__days__day {
+		&:hover {
+			abbr {
+				background: rgba(26, 26, 26, 0.1);
+			}
+		}
+		abbr {
+			$size: 14px;
+			font-family: $Avenir;
+			font-style: normal;
+			font-weight: 400;
+			font-size: em($size);
+			line-height: 120%;
+			color: #1a1a1a;
+			width: em(24px, $size);
+			height: em(24px, $size);
+			border-radius: 2px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: em(4px) 0;
+		}
+	}
+
+	.react-calendar__tile--active {
+		abbr {
+			background: #2e3c8d !important;
+			color: $white;
+		}
+	}
+
+	.react-calendar__viewContainer {
+		padding: em(10px) em(10px);
+		button {
+			@extend %button;
+			background: none;
+			cursor: pointer;
+		}
+	}
+
+	.react-calendar__year-view__months__month,
+	.react-calendar__decade-view__years__year,
+	.react-calendar__century-view__decades__decade {
+		padding: em(6px);
+	}
+}
+
+.Calendar_today {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	width: 100%;
+	padding: em(10px);
+	background: $white;
+	border-top: 1px solid rgba(26, 26, 26, 0.05);
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	span {
+		cursor: pointer;
+		font-weight: 400;
+		font-size: em(14px);
+		line-height: 157%;
+		color: #2e3c8d;
+	}
+}
