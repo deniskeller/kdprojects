@@ -136,6 +136,12 @@
 	}
 }
 
+.react-calendar__month-view__days__day--neighboringMonth {
+	abbr {
+		color: rgba(26, 26, 26, 0.5) !important;
+	}
+}
+
 .Calendar_today {
 	display: flex;
 	align-items: center;
