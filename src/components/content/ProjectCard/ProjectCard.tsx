@@ -5,24 +5,42 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import s from './ProjectCard.module.scss';
 
+interface IProject {
+	id: number;
+	image_logo?: string;
+	project_name?: string;
+	tagline?: string;
+	amount_of_investment?: string;
+	description?: string;
+	round_ends?: string;
+	tags?: string[];
+	price?: string;
+	investment_required?: string;
+	participation_conditions?: string;
+}
+
 interface Props {
 	className?: string;
 	to?: string;
 	admin?: boolean;
+	project: IProject;
 }
 
 const ProjectCard: React.FC<Props> = ({
 	className = '',
 	to = '',
 	admin = false,
+	project,
 }) => {
 	const router = useRouter();
 	const [status, setStatus] = useState('Доступен');
+	// const { id, project_name, description, round_ends, tags, image_logo } =
+	// 	project;
 
 	return (
 		<div className={`${s.ProjectCard} ${className}`}>
 			<div className={s.ProjectCard_Header}>
-				<div className={s.ProjectCard_Header_Name}>Кодеки</div>
+				<div className={s.ProjectCard_Header_Name}>{project.project_name}</div>
 				<div
 					className={`${s.ProjectCard_Header_Status} ${
 						status == 'Модерация'
@@ -40,15 +58,12 @@ const ProjectCard: React.FC<Props> = ({
 
 			<div className={s.ProjectCard_About}>
 				<div className={s.ProjectCard_About_Text}>
-					<p>
-						Поможем найти работу по душе, даже если нет опыта. Практики и
-						стажировки в топовых компаниях и на реальных проектах.
-					</p>
+					<p>{project.description}</p>
 				</div>
 
 				<div className={s.ProjectCard_About_Image}>
 					<Image
-						src='/images/image/main-bg.png'
+						src={`/images/image/${project.image_logo || 'main-bg.png'}`}
 						priority
 						layout='fill'
 						alt={'Image'}
@@ -70,22 +85,20 @@ const ProjectCard: React.FC<Props> = ({
 						<span>Доступен к участию до:</span>
 					</div>
 
-					<div className={s.ProjectCard_Info_Item_Value}>21.02.2023</div>
+					<div className={s.ProjectCard_Info_Item_Value}>
+						{project.round_ends}
+					</div>
 				</div>
 			</div>
 
 			<div className={s.ProjectCard_Tags}>
-				<div className={s.ProjectCard_Tags_Item}>
-					<span>Образование</span>
-				</div>
-
-				<div className={s.ProjectCard_Tags_Item}>
-					<span>Стажировки и практики</span>
-				</div>
-
-				<div className={s.ProjectCard_Tags_Item}>
-					<span>Информационные технологии</span>
-				</div>
+				{project.tags?.map((tag: string, index: number) => {
+					return (
+						<div className={s.ProjectCard_Tags_Item} key={index}>
+							<span>{tag}</span>
+						</div>
+					);
+				})}
 			</div>
 
 			<div className={s.ProjectCard_Actions}>

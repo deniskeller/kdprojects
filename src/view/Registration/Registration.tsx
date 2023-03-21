@@ -11,6 +11,9 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import s from './Registration.module.scss';
 
+import InputMask from 'react-input-mask';
+console.log('InputMask: ', InputMask);
+
 interface IValue {
 	email: string;
 	first_name: string;
@@ -90,6 +93,25 @@ const Registration: React.FC = () => {
 						onChange={(val: string) => setNewValue(val, 'phone')}
 						className={s.Form_Input}
 					/>
+
+					{/* <InputMask
+						mask='+7 (___) ___-____'
+						value={value.phone}
+						onChange={(val: string) => setNewValue(val, 'phone')}
+					>
+						{(inputProps: any) => (
+							<BaseInputPhone
+								{...inputProps}
+								name='phone'
+								placeholder='Телефон'
+								label='Телефон'
+								// value={inputProps.value}
+								// value={value.phone}
+								// onChange={(val: string) => setNewValue(val, 'phone')}
+								className={s.Form_Input}
+							/>
+						)}
+					</InputMask> */}
 
 					<BaseInput
 						name='email'

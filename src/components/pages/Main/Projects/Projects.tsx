@@ -1,4 +1,5 @@
 import { BaseButton, BaseContainer } from '@base/index';
+import { mock_projects } from '@services/index';
 import { ProjectCard } from 'components/content';
 import React, { useState } from 'react';
 import s from './Projects.module.scss';
@@ -46,10 +47,15 @@ const Projects: React.FC<Props> = () => {
 					</div>
 
 					<div className={s.Projects_Cards}>
-						<ProjectCard to='/project-details/' />
-						<ProjectCard to='/project-details/' />
-						<ProjectCard to='/project-details/' />
-						<ProjectCard to='/project-details/' />
+						{mock_projects?.map((project, index) => {
+							return (
+								<ProjectCard
+									project={project}
+									to='/project-details/'
+									key={project.id}
+								/>
+							);
+						})}
 					</div>
 
 					<BaseButton title='Показать ещё' className={s.Projects_Button} />

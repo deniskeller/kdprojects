@@ -1,0 +1,162 @@
+.BaseInput {
+	font-size: inherit;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.Prefix {
+	position: absolute;
+	overflow: hidden;
+	z-index: 1;
+	top: 1px;
+	left: 1px;
+	width: em(55px);
+	height: em(54px);
+	background: #f3f4f6;
+	pointer-events: none;
+	border-top-left-radius: em(2px);
+	border-bottom-left-radius: em(2px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&_Icon {
+		width: em(24px);
+		height: em(24px);
+	}
+}
+
+.Input {
+	line-height: 100%;
+	font-size: em(16px);
+	font-weight: 400;
+	color: #1a1a1a;
+	font-family: $Avenir;
+	width: 100%;
+	height: em(56px);
+	background: none;
+	outline: none;
+	border: none;
+	position: relative;
+	box-shadow: none;
+	background: #fdfdfd;
+	border: 1px solid #d1d5db;
+	border-radius: em(4px);
+	transition: 0.5s ease all;
+	-moz-transition: 0.5s ease all;
+	-webkit-transition: 0.5s ease all;
+	@include placeholder-color(rgba(26, 26, 26, 0));
+	padding: em(26px) em(16px) em(8px);
+
+	&.WithPrefix {
+		padding: em(26px) em(16px) em(8px) em(73px);
+	}
+
+	&:hover {
+		border-color: #8c97d9;
+	}
+
+	&:focus {
+		border-color: #6575cd;
+		@include placeholder-color(rgba(26, 26, 26, 0.7));
+		& + .Label_Default {
+			$size: 12px;
+			font-size: em(12px);
+			left: em(17px, $size);
+			top: em(10px);
+		}
+
+		& + .Label_WithPrefix {
+			$size: 12px;
+			font-size: em(12px);
+			left: em(74px, $size);
+			top: em(10px);
+		}
+	}
+
+	& + .NoEmpty {
+		$size: 12px;
+		font-size: em(12px);
+		left: em(17px, $size);
+		top: em(10px);
+	}
+}
+
+//disabled style
+.Input:disabled,
+.Input:disabled:hover,
+.Input:disabled:focus {
+	cursor: not-allowed;
+	pointer-events: none;
+	background: #f4f4f5;
+	border: 1px solid #e5e7eb !important;
+	color: rgba(26, 26, 26, 0.5);
+}
+
+.Icon {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: em(19px);
+	width: em(28px);
+	height: em(28px);
+}
+
+.IconPassword {
+	cursor: pointer;
+}
+
+.Error {
+	border: 1px solid #ef4343 !important;
+}
+
+.ErrorText {
+	font-size: em(12px);
+	font-family: $Avenir;
+	line-height: 100%;
+	color: #ef4343;
+	display: block;
+	margin-top: em(10px);
+	font-weight: 400;
+}
+
+.Label {
+	position: absolute;
+	pointer-events: none;
+	font-size: em(16px);
+	top: em(20px);
+	font-family: $Avenir;
+	font-weight: 500;
+	line-height: 100%;
+	color: rgba(26, 26, 26, 0.5);
+	transition: all 0.3s ease;
+}
+
+.Label_Default {
+	left: em(16px);
+}
+.Label_WithPrefix {
+	left: em(73px);
+}
+
+.WithPrefix + .NoEmpty {
+	font-size: em(12px);
+	top: em(10px);
+	left: em(99px);
+}
+
+.Optional {
+	position: absolute;
+	right: em(16px);
+	top: 50%;
+	transform: translateY(-50%);
+	font-weight: 400;
+	font-size: em(16px);
+	line-height: 150%;
+	font-family: $Avenir;
+	color: rgba(26, 26, 26, 0.5);
+}
+
+.PaddingRight {
+	padding-right: em(140px);
+}
