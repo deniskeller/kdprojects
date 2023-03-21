@@ -78,7 +78,17 @@ const ProjectDetailsUser: React.FC<Props> = ({
 			<BaseContainer className={s.BaseContainer}>
 				<div className={s.ProjectDetails}>
 					<div className={s.ProjectDetails_Header}>
-						<div className={s.ProjectDetails_Header_Title}>Детали проекта</div>
+						<div
+							className={s.ProjectDetails_Header_Title}
+							onClick={() => router.back()}
+						>
+							<BaseIcon
+								viewBox='0 0 20 20'
+								icon={ALL_ICONS.TO_DETAILS}
+								className={s.Icon}
+							/>
+							<span>Детали проекта</span>
+						</div>
 
 						{actions ? (
 							<>
@@ -143,7 +153,7 @@ const ProjectDetailsUser: React.FC<Props> = ({
 											<Image
 												src='/images/image/main-bg.png'
 												priority
-												fill
+												layout='fill'
 												alt={'Image'}
 											/>
 										</div>

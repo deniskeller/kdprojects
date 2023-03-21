@@ -18,11 +18,26 @@
 		margin-bottom: em(30px);
 
 		&_Title {
-			font-weight: 400;
-			font-size: em(20px);
-			line-height: 160%;
-			color: $black;
-			text-transform: uppercase;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			cursor: pointer;
+			.Icon {
+				width: em(20px);
+				height: em(20px);
+				margin-right: em(10px);
+				transform: rotate(180deg);
+				path {
+					stroke: $black;
+				}
+			}
+			span {
+				font-weight: 400;
+				font-size: em(20px);
+				line-height: 160%;
+				color: $black;
+				text-transform: uppercase;
+			}
 		}
 
 		&_Actions {

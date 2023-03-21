@@ -119,7 +119,16 @@ const CreateProject: React.FC = () => {
 				) : null}
 
 				<div className={s.CreateProject_Header}>
-					<div className={s.CreateProject_Header_Title}>
+					<div
+						className={s.CreateProject_Header_Title}
+						onClick={() => router.back()}
+					>
+						<BaseIcon
+							viewBox='0 0 20 20'
+							icon={ALL_ICONS.TO_DETAILS}
+							className={s.Icon}
+						/>
+
 						<span>предложить ПРОЕКТ</span>
 					</div>
 

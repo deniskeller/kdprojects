@@ -131,7 +131,16 @@ const EditProject: React.FC = () => {
 				) : null}
 
 				<div className={s.EditProject_Header}>
-					<div className={s.EditProject_Header_Title}>
+					<div
+						className={s.EditProject_Header_Title}
+						onClick={() => router.back()}
+					>
+						<BaseIcon
+							viewBox='0 0 20 20'
+							icon={ALL_ICONS.TO_DETAILS}
+							className={s.Icon}
+						/>
+
 						<span>Редактирование проекта</span>
 					</div>
 
