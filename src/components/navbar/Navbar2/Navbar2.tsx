@@ -502,7 +502,7 @@ const Navbar2: React.FC<Props> = ({ auth = false, app = false }) => {
 											key={index}
 										>
 											<Link href={link.href}>
-												<>
+												<a>
 													{link.title == 'Главная' ? (
 														<svg
 															width='24'
@@ -574,7 +574,8 @@ const Navbar2: React.FC<Props> = ({ auth = false, app = false }) => {
 																strokeLinejoin='round'
 															/>
 														</svg>
-													) : link.title == 'Проекты' ? (
+													) : link.title == 'Проекты' ||
+													  link.title == 'Мои проекты' ? (
 														<svg
 															width='24'
 															height='24'
@@ -609,7 +610,7 @@ const Navbar2: React.FC<Props> = ({ auth = false, app = false }) => {
 													)}
 
 													{link.title}
-												</>
+												</a>
 											</Link>
 										</li>
 									);
@@ -636,14 +637,20 @@ const Navbar2: React.FC<Props> = ({ auth = false, app = false }) => {
 							) : null}
 
 							<div className={s.Drawer_Navbar_Footer}>
-								<Link href='/' className={s.Drawer_Navbar_Footer_Link}>
-									IT-проекты Калининграда, 2023
+								<Link href='/'>
+									<a className={s.Drawer_Navbar_Footer_Link}>
+										IT-проекты Калининграда, 2023
+									</a>
 								</Link>
-								<Link href='/' className={s.Drawer_Navbar_Footer_Link}>
-									Политика конфиденциальности
+								<Link href='/'>
+									<a className={s.Drawer_Navbar_Footer_Link}>
+										Политика конфиденциальности
+									</a>
 								</Link>
-								<Link href='/' className={s.Drawer_Navbar_Footer_Link}>
-									IT омбудсмен Калининграда
+								<Link href='/'>
+									<a className={s.Drawer_Navbar_Footer_Link}>
+										IT омбудсмен Калининграда
+									</a>
 								</Link>
 							</div>
 						</div>

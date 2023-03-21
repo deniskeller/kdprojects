@@ -125,7 +125,7 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 						<div className={s.ProjectDetails_Content_Header}>
 							<div className={s.ProjectDetails_Content_Header_Image}>
 								<Image
-									src='/images/image/main-bg.png'
+									src={`/images/image/${project?.image_logo || 'main-bg.png'}`}
 									priority
 									layout='fill'
 									alt={'Image'}

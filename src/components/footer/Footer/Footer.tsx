@@ -10,14 +10,14 @@ const Footer: React.FC<Props> = () => {
 			<div className={s.Wrapper}>
 				<div className={s.Container}>
 					<div className={s.Footer}>
-						<Link href='/' className={s.Footer_Link}>
-							IT-проекты Калининграда, 2023
+						<Link href='/'>
+							<a className={s.Footer_Link}>IT-проекты Калининграда, 2023</a>
 						</Link>
-						<Link href='/' className={s.Footer_Link}>
-							Политика конфиденциальности
+						<Link href='/'>
+							<a className={s.Footer_Link}>Политика конфиденциальности</a>
 						</Link>
-						<Link href='/' className={s.Footer_Link}>
-							IT омбудсмен Калининграда
+						<Link href='/'>
+							<a className={s.Footer_Link}>IT омбудсмен Калининграда</a>
 						</Link>
 					</div>
 				</div>

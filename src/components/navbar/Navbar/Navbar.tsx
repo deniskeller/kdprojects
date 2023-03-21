@@ -154,7 +154,7 @@ const Navbar: React.FC<Props> = ({ fixed }) => {
 											key={index}
 										>
 											<Link href={link.href}>
-												<>
+												<a>
 													{link.title == 'Главная' ? (
 														<svg
 															width='24'
@@ -260,7 +260,7 @@ const Navbar: React.FC<Props> = ({ fixed }) => {
 														''
 													)}
 													{link.title}
-												</>
+												</a>
 											</Link>
 										</li>
 									);
@@ -282,14 +282,20 @@ const Navbar: React.FC<Props> = ({ fixed }) => {
 							</div>
 
 							<div className={s.Drawer_Navbar_Footer}>
-								<Link href='/' className={s.Drawer_Navbar_Footer_Link}>
-									IT-проекты Калининграда, 2023
+								<Link href='/'>
+									<a href='' className={s.Drawer_Navbar_Footer_Link}>
+										IT-проекты Калининграда, 2023
+									</a>
 								</Link>
-								<Link href='/' className={s.Drawer_Navbar_Footer_Link}>
-									Политика конфиденциальности
+								<Link href='/'>
+									<a href='' className={s.Drawer_Navbar_Footer_Link}>
+										Политика конфиденциальности
+									</a>
 								</Link>
-								<Link href='/' className={s.Drawer_Navbar_Footer_Link}>
-									IT омбудсмен Калининграда
+								<Link href='/'>
+									<a href='' className={s.Drawer_Navbar_Footer_Link}>
+										IT омбудсмен Калининграда
+									</a>
 								</Link>
 							</div>
 						</div>
