@@ -118,7 +118,7 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 								<Image
 									src='/images/image/main-bg.png'
 									priority
-									fill
+									layout='fill'
 									alt={'Image'}
 								/>
 							</div>
@@ -152,7 +152,7 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 											<Image
 												src='/images/image/main-bg.png'
 												priority
-												fill
+												layout='fill'
 												alt={'Image'}
 											/>
 										</div>

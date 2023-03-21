@@ -157,6 +157,14 @@ const CreateProject: React.FC = () => {
 											icon={ALL_ICONS.TOOLTIP}
 											className={s.Tooltip_Icon}
 										/>
+
+										<div className={s.Tooltip_Comment}>
+											<p>
+												Стартап - это начинающий проект.
+												<br />
+												Существующий - это существующий проект.
+											</p>
+										</div>
 									</div>
 								</div>
 

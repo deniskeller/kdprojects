@@ -12,7 +12,7 @@ import {
 } from '@base/index';
 import { ALL_ICONS } from '@constants/icons';
 import { useAppSelector } from '@hooks/redux';
-import { EditStatus } from 'components/content';
+import { EditStatus, Input } from 'components/content';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import s from './EditProject.module.scss';
@@ -174,6 +174,14 @@ const EditProject: React.FC = () => {
 											icon={ALL_ICONS.TOOLTIP}
 											className={s.Tooltip_Icon}
 										/>
+
+										<div className={s.Tooltip_Comment}>
+											<p>
+												Стартап - это начинающий проект.
+												<br />
+												Существующий - это существующий проект.
+											</p>
+										</div>
 									</div>
 								</div>
 
@@ -494,14 +502,21 @@ const EditProject: React.FC = () => {
 								</div>
 
 								<div className={`${s.Form_Block_Row} ${s.Form_Block_Col}`}>
-									<BaseInput
-										name='some_text4'
-										placeholder='Период раунда '
-										label='Период раунда '
-										value={value.some_text4}
-										onChange={(val: string) => setNewValue(val, 'some_text4')}
-										className={s.Input}
-									/>
+									<div style={{ position: 'relative' }}>
+										<Input.Calendar
+											label={'Период раунда'}
+											// value={value.some_text}
+											calendarProps={{}}
+											valueсodeinitial={''}
+											variant={'default'}
+											message={''}
+											messagecode={''}
+											iserrorphone='false'
+											iserrorcode='false'
+											// onChange={(val: string) => setNewValue(val, 'birth_date')}
+											className={s.Input}
+										/>
+									</div>
 								</div>
 
 								<div className={s.Form_Block_Subtitle}>

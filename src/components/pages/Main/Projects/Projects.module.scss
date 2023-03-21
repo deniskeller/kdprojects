@@ -57,12 +57,15 @@
 			}
 
 			&:hover {
-				background: #f1f5f9;
+				border-color: $blue-500;
 			}
 
 			&_Active {
-				background: #f1f5f9;
+				background: $blue-500;
 				pointer-events: none;
+				span {
+					color: $white;
+				}
 			}
 		}
 	}
