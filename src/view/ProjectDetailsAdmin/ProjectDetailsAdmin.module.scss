@@ -436,6 +436,7 @@
 						flex-direction: row;
 						align-items: center;
 						margin-bottom: em(20px);
+						cursor: pointer;
 						&:last-child {
 							margin-bottom: 0;
 						}
@@ -628,6 +629,7 @@
 							font-size: em(14px);
 							line-height: 114%;
 							color: $black;
+							cursor: pointer;
 						}
 
 						&:nth-child(2),

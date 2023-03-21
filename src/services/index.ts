@@ -180,8 +180,34 @@ export const mock_projects = [
 		round_ends: '20.05.2023',
 		tags: ['Образование','Стажировки и практики', 'Информационные технологии'],
 		price: '20 000 000',
-		participation_conditions: ''
+		participation_conditions: {
+			min: '500 000 (2,5%)',
+			max: '5 000 000 (25%)'
+		},
+		coordinates: '',
+		file: '',
+		mail: '',
+		website: '',
+		vk: '',
+		plans: [
+			{
+				quarter: 1,
+				year: 2023,
+				description: 'Запуск образовательной программы, старт разработки портала',
+			},
+			{
+				quarter: 3,
+				year: 2023,
+				description: 'Запуск MVP, привлечение пользователей, работа с университетами',
+			},
+			{
+				quarter: 1,
+				year: 2024,
+				description: 'Запуск второй версии, привлечение трекеров, маркетинг',
+			},
+		]
 	},
+
 	{
 		id: 2,
 		image_logo: 'ladado.png',
@@ -192,8 +218,34 @@ export const mock_projects = [
 		round_ends: '20.05.2023',
 		tags: ['Креативные индустрии','Коллаборации', 'UI/UX', 'Сообщество'],
 		price: '100 000 000',
-		participation_conditions: ''
+		participation_conditions: {
+			min: '2 000 000 (2%)',
+			max: '10 000 000 (10%)'
+		},
+		coordinates: '',
+		file: '',
+		mail: 'info@labado.ru',
+		website: 'labado.ru',
+		vk: 'vk.ru/labado',
+		plans: [
+			{
+				quarter: 2,
+				year: 2022,
+				description: 'Запущен веб-сервис с личным кабинетом, конструктор портфолио',
+			},
+			{
+				quarter: 2,
+				year: 2022,
+				description: 'Привлечена первая 1000 активных пользователей',
+			},
+			{
+				quarter: 1,
+				year: 2023,
+				description: 'Инвестиции в маркетинг, реклама, привлечение 20 000 активных пользователей',
+			},
+		]
 	},	
+
 	{
 		id: 3,
 		image_logo: 'melioracia.png',
@@ -204,8 +256,34 @@ export const mock_projects = [
 		round_ends: '20.05.2023',
 		tags: ['Сельское хозяйство','Экология', 'UI/UX'],
 		price: '40 000 000',
-		participation_conditions: ''
+		participation_conditions: {
+			min: '1 000 000 (2,5%)',
+			max: '5 000 000 (12,5%)'
+		},
+		coordinates: '',
+		file: '',
+		mail: 'info@melioration.ru',
+		website: 'melioration.ru',
+		vk: 'vk.ru/melioration',
+		plans: [
+			{
+				quarter: 4,
+				year: 2022,
+				description: 'Запущен веб-сервис, установлены датчики, подключены первые 10 ОНС',
+			},
+			{
+				quarter: 2,
+				year: 2023,
+				description: 'Обновление платформы, подключение дополнительно 30 ОНС',
+			},
+			{
+				quarter: 3,
+				year: 2023,
+				description: 'Маркетинг, выход в другие регионы',
+			},
+		]
 	},
+
 	{
 		id: 4,
 		image_logo: 'terka.png',
@@ -216,6 +294,31 @@ export const mock_projects = [
 		round_ends: '20.05.2023',
 		tags: ['Знакомства','Коллаборации', 'UI/UX', 'Креативные индустрии'],
 		price: '25 000 000',
-		participation_conditions: ''
+		participation_conditions: {
+			min: '500 000 (2%)',
+			max: '5 000 000 (20%)'
+		},
+		coordinates: '',
+		file: '',
+		mail: 'info@terka.ru',
+		website: 'terkatalk.ru',
+		vk: 'vk.ru/terka',
+		plans: [
+			{
+				quarter: 2,
+				year: 2022,
+				description: 'Запущен веб-сервис с личным кабинетом, телеграм-бот, ИИ-мэтчинг',
+			},
+			{
+				quarter: 2,
+				year: 2022,
+				description: 'Привлечена первая 1000 активных пользователей',
+			},
+			{
+				quarter: 1,
+				year: 2023,
+				description: 'Инвестиции в маркетинг, реклама, привлечение 20 000 активных пользователей',
+			},
+		]
 	},
 ]

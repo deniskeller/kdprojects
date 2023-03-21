@@ -1,23 +1,10 @@
 import { BaseButton, BaseIcon } from '@base/index';
+import { IProject } from '@constants/globals/types';
 import { ALL_ICONS } from '@constants/icons';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import s from './ProjectCard.module.scss';
-
-interface IProject {
-	id: number;
-	image_logo?: string;
-	project_name?: string;
-	tagline?: string;
-	amount_of_investment?: string;
-	description?: string;
-	round_ends?: string;
-	tags?: string[];
-	price?: string;
-	investment_required?: string;
-	participation_conditions?: string;
-}
 
 interface Props {
 	className?: string;
@@ -104,7 +91,7 @@ const ProjectCard: React.FC<Props> = ({
 			<div className={s.ProjectCard_Actions}>
 				<div
 					className={s.ProjectCard_Actions_Details}
-					onClick={() => router.push(`${to}` + 1)}
+					onClick={() => router.push(`${to}` + project.id)}
 				>
 					<span>Детали проекта</span>
 

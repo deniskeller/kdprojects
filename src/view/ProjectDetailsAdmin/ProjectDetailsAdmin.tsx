@@ -7,7 +7,9 @@ import React, { useRef, useState } from 'react';
 import s from './ProjectDetailsAdmin.module.scss';
 
 import { useAppDispatch } from '@hooks/redux';
+import { mock_projects } from '@services/index';
 import { modalSlice } from '@store/modals/reducer';
+import { useRouter } from 'next/router';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
@@ -28,13 +30,11 @@ const images = [
 ];
 
 interface Props {
-	id: string;
 	status?: string;
 	actions?: boolean;
 }
 
 const ProjectDetailsAdmin: React.FC<Props> = ({
-	id,
 	status = 'Модерация',
 	actions = false,
 }) => {
@@ -70,6 +70,15 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 	};
 
 	const slider = useRef(null);
+
+	const router = useRouter();
+	const { id } = router.query;
+	// console.log('id: ', id);
+
+	//тащим с базы
+	const project =
+		mock_projects.filter((item) => +item.id === Number(id))?.[0] || {};
+	// console.log('newItem', project);
 
 	return (
 		<>
@@ -126,7 +135,9 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 							<div className={s.ProjectDetails_Content_Header_Parameters}>
 								<div className={s.Header}>
 									<div className={s.Header_Name}>
-										<div className={s.Header_Name_Title}>Кодики</div>
+										<div className={s.Header_Name_Title}>
+											{project?.project_name}
+										</div>
 
 										<div className={s.Header_Name_Date}>
 											<span>На рынке с 2018</span>
@@ -166,7 +177,7 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 										</div>
 
 										<div className={s.Content_Item_Value}>
-											<span className={s.Value}>2 000 000</span>
+											<span className={s.Value}>{project?.price}</span>
 										</div>
 									</div>
 
@@ -176,7 +187,9 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 										</div>
 
 										<div className={s.Content_Item_Value}>
-											<span className={s.Value}>1 000 000</span>
+											<span className={s.Value}>
+												{project?.amount_of_investment}
+											</span>
 										</div>
 									</div>
 
@@ -187,7 +200,8 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 
 										<div className={s.Content_Item_Value}>
 											<span className={s.Value}>
-												100 000 (5%) - 800 000 (40%)
+												{project?.participation_conditions?.min}&nbsp;-&nbsp;
+												{project?.participation_conditions?.max}
 											</span>
 										</div>
 									</div>
@@ -210,7 +224,8 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 												<div className={s.Tooltip_Tooltip}>
 													<p>
 														Раунд заканчивается
-														<br /> 12.03.2023 в 12:00
+														<br />
+														{project?.round_ends} в 12:00
 													</p>
 												</div>
 											</span>
@@ -227,32 +242,21 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 								</div>
 
 								<div className={s.AboutProject_Title}>
-									<span>Стажировки - всем!</span>
+									<span>{project?.tagline}</span>
 								</div>
 
 								<div className={s.AboutProject_Description}>
-									<p>
-										Поможем найти работу по душе, даже если нет опыта. Практики
-										и стажировки в топовых компаниях и на реальных проектах.
-									</p>
+									<p>{project?.description}</p>
 								</div>
 
 								<div className={s.AboutProject_Tags}>
-									<div className={s.AboutProject_Tags_Item}>
-										<span>Образование</span>
-									</div>
-									<div className={s.AboutProject_Tags_Item}>
-										<span>Стажировки и практики</span>
-									</div>
-									<div className={s.AboutProject_Tags_Item}>
-										<span>UX/UI</span>
-									</div>
-									<div className={s.AboutProject_Tags_Item}>
-										<span>Frontend</span>
-									</div>
-									<div className={s.AboutProject_Tags_Item}>
-										<span>Backend</span>
-									</div>
+									{project?.tags?.map((tag, index) => {
+										return (
+											<div className={s.AboutProject_Tags_Item} key={index}>
+												<span>{tag}</span>
+											</div>
+										);
+									})}
 								</div>
 
 								<div className={s.AboutProject_Documents}>
@@ -264,7 +268,7 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 										/>
 
 										<div className={s.AboutProject_Documents_Item_Name}>
-											Калининград
+											{project?.coordinates || 'Калининград'}
 										</div>
 									</div>
 
@@ -280,7 +284,7 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 											href='/images/myw3schoolsimage.jpg'
 											download
 										>
-											Презентация.pdf
+											{project?.file || 'Презентация.pdf'}
 										</a>
 									</div>
 
@@ -292,10 +296,10 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 										/>
 
 										<a
-											href='mailto:hello@kodiki.ru'
+											href={`mailto:${project?.mail}`}
 											className={s.AboutProject_Documents_Item_Name}
 										>
-											hello@kodiki.ru
+											{project?.mail || 'hello@kodiki.ru'}
 										</a>
 									</div>
 
@@ -306,10 +310,13 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 											className={s.AboutProject_Documents_Item_Icon}
 										/>
 
-										<Link href='https://twitter.com/' target='_blank'>
-											<div className={s.AboutProject_Documents_Item_Name}>
-												kodiki.ru
-											</div>
+										<Link href={`https://${project?.website}`}>
+											<a
+												className={s.AboutProject_Documents_Item_Name}
+												target='_blank'
+											>
+												{project?.website || 'kodiki.ru'}
+											</a>
 										</Link>
 									</div>
 
@@ -319,10 +326,13 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 											icon={ALL_ICONS.VK}
 											className={s.AboutProject_Documents_Item_Icon}
 										/>
-										<Link href='https://vk.ru/kodiki' target='_blank'>
-											<div className={s.AboutProject_Documents_Item_Name}>
-												vk.ru/kodiki
-											</div>
+										<Link href={`https://${project?.vk}`}>
+											<a
+												className={s.AboutProject_Documents_Item_Name}
+												target='_blank'
+											>
+												{project?.vk || 'vk.ru/kodiki'}
+											</a>
 										</Link>
 									</div>
 								</div>
@@ -335,92 +345,45 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 									</div>
 
 									<div className={s.DevelopmentPlans_List}>
-										<div className={s.DevelopmentPlans_List_Item}>
-											<div
-												className={s.DevelopmentPlans_List_Item_Border}
-											></div>
-
-											<div className={s.DevelopmentPlans_List_Item_Quarter}>
+										{project?.plans?.map((plan, index) => {
+											return (
 												<div
-													className={
-														s.DevelopmentPlans_List_Item_Quarter_Number
-													}
+													className={s.DevelopmentPlans_List_Item}
+													key={index}
 												>
-													<span>1 Кв</span>
+													<div
+														className={s.DevelopmentPlans_List_Item_Border}
+													></div>
+
+													<div className={s.DevelopmentPlans_List_Item_Quarter}>
+														<div
+															className={
+																s.DevelopmentPlans_List_Item_Quarter_Number
+															}
+														>
+															<span>{plan.quarter} Кв</span>
+														</div>
+
+														<div
+															className={
+																s.DevelopmentPlans_List_Item_Quarter_Year
+															}
+														>
+															{plan.year}
+														</div>
+													</div>
+
+													<div
+														className={s.DevelopmentPlans_List_Item_Description}
+													>
+														<p>
+															{plan.description ||
+																'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, excepturi.'}
+														</p>
+													</div>
 												</div>
-
-												<div
-													className={s.DevelopmentPlans_List_Item_Quarter_Year}
-												>
-													2023
-												</div>
-											</div>
-
-											<div className={s.DevelopmentPlans_List_Item_Description}>
-												<p>
-													Запуск образовательной программы, старт разработки
-													портала
-												</p>
-											</div>
-										</div>
-
-										<div className={s.DevelopmentPlans_List_Item}>
-											<div
-												className={s.DevelopmentPlans_List_Item_Border}
-											></div>
-											<div className={s.DevelopmentPlans_List_Item_Quarter}>
-												<div
-													className={
-														s.DevelopmentPlans_List_Item_Quarter_Number
-													}
-												>
-													<span>1 Кв</span>
-												</div>
-
-												<div
-													className={s.DevelopmentPlans_List_Item_Quarter_Year}
-												>
-													2023
-												</div>
-											</div>
-
-											<div className={s.DevelopmentPlans_List_Item_Description}>
-												<p>
-													Lorem ipsum dolor sit, amet consectetur adipisicing
-													elit. Dolore provident dicta, impedit aperiam aliquid
-													delectus sunt maxime inventore accusantium architecto
-													omnis deserunt suscipit corrupti accusamus. Animi
-													blanditiis quas quia recusandae dignissimos tempora,
-													sed voluptatem omnis in, consequuntur quos velit error
-													eveniet, nulla deleniti!
-												</p>
-											</div>
-										</div>
-
-										<div className={s.DevelopmentPlans_List_Item}>
-											<div
-												className={s.DevelopmentPlans_List_Item_Border}
-											></div>
-											<div className={s.DevelopmentPlans_List_Item_Quarter}>
-												<div
-													className={
-														s.DevelopmentPlans_List_Item_Quarter_Number
-													}
-												>
-													<span>1 Кв</span>
-												</div>
-
-												<div
-													className={s.DevelopmentPlans_List_Item_Quarter_Year}
-												>
-													2023
-												</div>
-											</div>
-
-											<div className={s.DevelopmentPlans_List_Item_Description}>
-												<p>Запуск образовательной программы</p>
-											</div>
-										</div>
+											);
+										})}
 									</div>
 								</div>
 
@@ -447,7 +410,7 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 
 											<div className={s.Alternatives_List_Item_Description}>
 												<p>
-													Нужны разработчики: <br /> фронтенд - 2 <br />{' '}
+													Нужны разработчики: <br /> фронтенд - 2 <br />
 													дизайнер - 1
 												</p>
 											</div>
@@ -470,7 +433,7 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 
 											<div className={s.Alternatives_List_Item_Description}>
 												<p>
-													Нужны разработчики: <br /> фронтенд - 2 <br />{' '}
+													Нужны разработчики: <br /> фронтенд - 2 <br />
 													дизайнер - 1
 												</p>
 											</div>
@@ -500,10 +463,10 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 											</div>
 
 											<a
-												href='mailto:hello@kodiki.ru'
+												href={`mailto:${project?.mail}`}
 												className={s.Contacts_List_Item_Description}
 											>
-												edu@kodiki.ru
+												{project?.mail || 'hello@kodiki.ru'}
 											</a>
 										</div>
 
@@ -513,7 +476,8 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 											</div>
 
 											<a
-												href='telegram.me/@groupname'
+												href='tg://telegram.me/@groupname'
+												target='_blank'
 												className={s.Contacts_List_Item_Description}
 											>
 												@edu.kurator
@@ -525,10 +489,13 @@ const ProjectDetailsAdmin: React.FC<Props> = ({
 												<span>VK</span>
 											</div>
 
-											<Link href='https://vk.ru/edu.kurator' target='_blank'>
-												<div className={s.Contacts_List_Item_Description}>
-													kodiki.ru
-												</div>
+											<Link href={`https://${project?.vk}`}>
+												<a
+													className={s.Contacts_List_Item_Description}
+													target='_blank'
+												>
+													{project?.vk || 'vk.ru/kodiki'}
+												</a>
 											</Link>
 										</div>
 									</div>
