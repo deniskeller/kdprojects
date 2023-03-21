@@ -1,4 +1,5 @@
 import { BaseButton, BaseContainer } from '@base/index';
+import { mock_projects } from '@services/index';
 import { ProjectCard } from 'components/content';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
@@ -164,12 +165,22 @@ const UserProjects: React.FC = () => {
 							</div>
 
 							<div className={s.Projects_List}>
+								{/* <ProjectCard to='/user/projects/project-details/' />
 								<ProjectCard to='/user/projects/project-details/' />
 								<ProjectCard to='/user/projects/project-details/' />
 								<ProjectCard to='/user/projects/project-details/' />
 								<ProjectCard to='/user/projects/project-details/' />
-								<ProjectCard to='/user/projects/project-details/' />
-								<ProjectCard to='/user/projects/project-details/' />
+								<ProjectCard to='/user/projects/project-details/' /> */}
+
+								{mock_projects?.map((project, index) => {
+									return (
+										<ProjectCard
+											to='/user/projects/project-details/'
+											project={project}
+											key={project.id}
+										/>
+									);
+								})}
 							</div>
 
 							<BaseButton
