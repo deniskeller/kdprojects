@@ -34,8 +34,6 @@ const ProjectCard: React.FC<Props> = ({
 }) => {
 	const router = useRouter();
 	const [status, setStatus] = useState('Доступен');
-	// const { id, project_name, description, round_ends, tags, image_logo } =
-	// 	project;
 
 	return (
 		<div className={`${s.ProjectCard} ${className}`}>
@@ -77,7 +75,9 @@ const ProjectCard: React.FC<Props> = ({
 						<span>Сумма инвестиций:</span>
 					</div>
 
-					<div className={s.ProjectCard_Info_Item_Value}>1 000 000 ₽</div>
+					<div className={s.ProjectCard_Info_Item_Value}>
+						{project.amount_of_investment} ₽
+					</div>
 				</div>
 
 				<div className={s.ProjectCard_Info_Item}>
