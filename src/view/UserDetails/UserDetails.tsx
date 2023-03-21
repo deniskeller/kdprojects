@@ -1,5 +1,6 @@
 import { BaseContainer, BaseIcon } from '@base/index';
 import { ALL_ICONS } from '@constants/icons';
+import { mock_projects } from '@services/index';
 import { ProjectCard } from 'components/content';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -91,8 +92,25 @@ const UserDetails: React.FC<Props> = ({ id }) => {
 					</div>
 
 					<div className={s.Projects_List}>
-						<ProjectCard to='/user/projects/project-details/' admin />
-						<ProjectCard to='/user/projects/project-details/' admin />
+						{/* <ProjectCard to='/user/projects/project-details/' admin />
+						<ProjectCard to='/user/projects/project-details/' admin /> */}
+
+						{mock_projects?.map((project, index) => {
+							return (
+								// <ProjectCard
+								// to='/project-details/'
+								// 	project={project}
+								// 	key={project.id}
+								// />
+
+								<ProjectCard
+									to='/user/projects/project-details/'
+									admin
+									project={project}
+									key={project.id}
+								/>
+							);
+						})}
 					</div>
 				</div>
 			</div>
