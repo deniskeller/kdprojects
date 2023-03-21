@@ -6,12 +6,15 @@
 	min-height: em(297px);
 	padding: em(20px);
 	position: relative;
+	display: flex;
+	flex-direction: column;
 
 	&_Header {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
+		width: 100%;
 		max-width: em(458px);
 		margin-left: auto;
 		margin-bottom: em(12px);
@@ -71,6 +74,7 @@
 	}
 
 	&_About {
+		width: 100%;
 		max-width: em(458px);
 		margin-left: auto;
 		margin-bottom: em(12px);
@@ -148,6 +152,7 @@
 	}
 
 	&_Info {
+		width: 100%;
 		max-width: em(458px);
 		margin-left: auto;
 		margin-bottom: em(24px);
@@ -231,6 +236,7 @@
 		justify-content: space-between;
 		align-items: center;
 		flex-wrap: wrap;
+		margin-top: auto;
 
 		&_Details {
 			cursor: pointer;
