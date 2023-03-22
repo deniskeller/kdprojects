@@ -53,11 +53,11 @@
 	}
 
 	&:hover {
-		border-color: #8c97d9;
+		border-color: #91c3fd;
 	}
 
 	&:focus {
-		border-color: #6575cd;
+		border-color: #61a6fa;
 		@include placeholder-color(rgba(26, 26, 26, 0.7));
 		& + .Label_Default {
 			$size: 12px;

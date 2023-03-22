@@ -6,7 +6,7 @@
 	&:focus {
 		outline: none;
 		& .Selection {
-			border: 1px solid #6575cd !important;
+			border: 1px solid #61a6fa !important;
 		}
 	}
 }
@@ -29,8 +29,13 @@
 	-webkit-transition: 0.5s ease all;
 	background: #fdfdfd;
 	border-radius: em(4px);
+
+	&_Focus {
+		border-color: #61a6fa !important;
+	}
+
 	&:hover {
-		border: 1px solid #8c97d9;
+		border: 1px solid #91c3fd;
 	}
 }
 

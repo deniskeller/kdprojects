@@ -45,7 +45,7 @@
 	}
 
 	&:hover {
-		border-color: #8c97d9;
+		border-color: #91c3fd;
 	}
 
 	// &:focus {
@@ -66,7 +66,7 @@
 }
 
 .Focus {
-	border-color: #6575cd !important;
+	border-color: #61a6fa !important;
 	.Textarea_Input {
 		@include placeholder-color(rgba(26, 26, 26, 0.7));
 	}

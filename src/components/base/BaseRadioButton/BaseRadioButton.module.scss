@@ -8,11 +8,11 @@
 
 	&:hover {
 		.BaseRadioButtonCheck {
-			border: 1px solid #6575cd;
+			border: 1px solid #0369a0;
 		}
 		.BaseRadioButtonCheck.isActive {
 			border: none;
-			background: #263173;
+			background: #0369a0;
 		}
 	}
 
@@ -76,8 +76,8 @@
 
 .isActive {
 	.BaseRadioButtonCheck {
-		border: 1px solid #2e3c8d;
-		background: #2e3c8d;
+		border: 1px solid #0284c5;
+		background: #0284c5;
 		box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
 	}
 }

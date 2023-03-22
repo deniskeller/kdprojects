@@ -337,7 +337,12 @@ const BaseSelectMultiple: React.FC<Props> = ({
 				{placeholder}
 			</label>
 
-			<div className={styles.Selection} onClick={onClick}>
+			<div
+				className={`${styles.Selection} ${
+					isOpen ? styles.Selection_Focus : ''
+				}`}
+				onClick={onClick}
+			>
 				{renderValues()}
 
 				<BaseIcon

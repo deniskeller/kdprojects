@@ -86,4 +86,12 @@
 		left: 0 !important;
 		width: em(320px);
 	}
+
+	&_Icon {
+		cursor: pointer;
+		pointer-events: auto;
+		&_PointerEventsNone {
+			pointer-events: none !important;
+		}
+	}
 }

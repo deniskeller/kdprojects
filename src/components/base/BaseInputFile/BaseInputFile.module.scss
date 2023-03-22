@@ -13,7 +13,7 @@
 		height: inherit;
 		&:hover {
 			.FileInput_Clear_Border {
-				border: 2px dashed #cccccc;
+				border: 1px dashed #6575cd;
 			}
 		}
 
@@ -31,7 +31,7 @@
 
 		&.Active {
 			.FileInput_Clear_Border {
-				border: 2px dashed $blue-500;
+				border: 1px dashed #6575cd;
 			}
 		}
 

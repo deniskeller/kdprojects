@@ -1,3 +1,5 @@
+import { BaseIcon } from '@base/index';
+import { ALL_ICONS } from '@constants/icons';
 import { format, isValid } from 'date-fns';
 import {
 	ComponentPropsWithRef,
@@ -6,7 +8,6 @@ import {
 	useRef,
 	useState,
 } from 'react';
-import { Calendar as CalendarIcon } from 'react-feather';
 import { usePopper } from 'react-popper';
 import { useClickAway } from 'react-use';
 import { Calendar } from '../Calendar/Calendar';
@@ -110,14 +111,14 @@ export const InputCalendar = forwardRef<HTMLInputElement, InputCalendarProps>(
 							: ''
 					}
 					right={
-						<CalendarIcon
-							color={'rgba(26, 26, 26, 0.5)'}
+						<BaseIcon
+							viewBox='0 0 28 28'
+							icon={ALL_ICONS.CALENDAR}
+							className={`${s.Calendar_Icon} ${
+								isCalendarOpen ? s.Calendar_Icon_PointerEventsNone : ''
+							}`}
 							onClick={() => {
 								setIsCalendarOpen(!isCalendarOpen);
-							}}
-							style={{
-								pointerEvents: isCalendarOpen ? 'none' : 'auto',
-								cursor: 'pointer',
 							}}
 						/>
 					}
