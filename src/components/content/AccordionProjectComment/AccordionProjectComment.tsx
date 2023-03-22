@@ -60,8 +60,8 @@ const AccordionProjectComment: React.FC<IProps> = ({
 				>
 					<BaseTextarea
 						name='message'
-						label='Discription'
-						placeholder='Discription'
+						label='Комментарий'
+						// placeholder='Комментарий'
 						type='text'
 						value={value}
 						onChange={onChange}

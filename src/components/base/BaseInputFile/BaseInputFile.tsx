@@ -218,7 +218,7 @@ const BaseInputFile: React.FC<FileInputProps> = ({
 											/>
 										)}
 
-										<span>Browse to upload</span>
+										<span>Обзор</span>
 									</div>
 
 									<div

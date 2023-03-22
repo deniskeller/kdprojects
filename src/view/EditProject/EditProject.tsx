@@ -940,7 +940,7 @@ const EditProject: React.FC = () => {
 								<div className={s.Form_Block_Row}>
 									<BaseInputFile
 										type='image'
-										title='Drag file here to upload or browse'
+										title='Перетащите или кликните для загрузки файла'
 										types='jpg, jpeg, png'
 										files={value.files2}
 										multiple
