@@ -4,6 +4,7 @@ import {
 	BaseContainer,
 	BaseIcon,
 	BaseInput,
+	BaseInputPhone,
 } from '@base/index';
 import { ALL_ICONS } from '@constants/icons';
 import Link from 'next/link';
@@ -30,7 +31,7 @@ const Registration: React.FC = () => {
 		email: '',
 		first_name: '',
 		second_name: '',
-		phone: '',
+		phone: '+',
 		password: '',
 		confirm_password: '',
 	});
@@ -85,33 +86,35 @@ const Registration: React.FC = () => {
 						className={s.Form_Input}
 					/>
 
-					<BaseInput
+					{/* <BaseInput
 						name='phone'
 						placeholder='Телефон'
 						label='Телефон'
 						value={value.phone}
 						onChange={(val: string) => setNewValue(val, 'phone')}
 						className={s.Form_Input}
-					/>
+					/> */}
 
-					{/* <InputMask
-						mask='+7 (___) ___-____'
+					<BaseInputPhone
+						name='phone'
+						placeholder='Телефон22'
+						label='Телефон'
 						value={value.phone}
 						onChange={(val: string) => setNewValue(val, 'phone')}
-					>
-						{(inputProps: any) => (
-							<BaseInputPhone
-								{...inputProps}
-								name='phone'
-								placeholder='Телефон'
-								label='Телефон'
-								// value={inputProps.value}
-								// value={value.phone}
-								// onChange={(val: string) => setNewValue(val, 'phone')}
-								className={s.Form_Input}
-							/>
-						)}
-					</InputMask> */}
+						className={s.Form_Input}
+						formatter={(value) => {
+							return (
+								value
+									.toString()
+									.slice(0, 18)
+									.replace(/\D/g, '')
+									.replace(/(\d{0})(\d)/, '+7 $1')
+									.replace(/(\d{3})(\d)/, '($1) $2')
+									.replace(/(\d{3})(\d)/, '$1-$2')
+									.replace(/(\d{2})(\d{2})/, '$1-$2') || '+7 '
+							);
+						}}
+					/>
 
 					<BaseInput
 						name='email'

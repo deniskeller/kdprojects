@@ -21,10 +21,11 @@ interface Props {
 	icon?: string | boolean;
 	onChange(value: string | number): void;
 	onKeyDown?: React.KeyboardEventHandler;
+	formatter?: (value: string | number) => string | number;
 }
 
 const BaseInputPhone: React.FC<Props> = ({
-	// value,
+	value = '+',
 	label,
 	type = 'text',
 	error,
@@ -39,13 +40,20 @@ const BaseInputPhone: React.FC<Props> = ({
 	className = '',
 	autocomplete = 'off',
 	icon,
-	// onChange,
-	// onKeyDown,
-	...inputProps
+	onChange,
+	onKeyDown,
+	formatter,
 }) => {
 	//for button type password start
 	const [typeIcon, setTypeIcon] = React.useState<string>('eye-off');
 	const [newType, setType] = React.useState<string>(type);
+
+	const [price, setPrice] = React.useState(value);
+	const toNumber = (value: string | number) => {
+		const parsedValue = parseInt(value.toString().replace(/[^\d]+/g, ''));
+
+		return isNaN(parsedValue) ? 0 : parsedValue;
+	};
 
 	const changeType = (value: string) => {
 		if (value == 'eye') {
@@ -58,8 +66,12 @@ const BaseInputPhone: React.FC<Props> = ({
 	};
 	//for button type password end
 
-	console.log('inputProps: ', inputProps);
-	console.log('inputProps.value: ', inputProps.value);
+	const onChangeHandler = (e: React.FocusEvent<HTMLInputElement>) => {
+		const number = toNumber(e.target.value);
+		const formatted = formatter ? formatter(number) : number;
+		setPrice(formatted);
+		onChange(formatted);
+	};
 
 	return (
 		<div className={`${styles.BaseInput} ${className}`}>
@@ -121,18 +133,12 @@ const BaseInputPhone: React.FC<Props> = ({
 				required={required}
 				autoComplete={autocomplete}
 				disabled={disabled}
-				// value={value}
-				// onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-				// 	onChange(e.target.value)
-				// }
-				{...inputProps}
-				value={inputProps.value}
-				// onChange={(e) => inputProps.onChange(e.target.value)}
-				onChange={(e) => console.log(e.target.value)}
-				// onKeyDown={onKeyDown}
+				value={formatter ? formatter(price) : price}
+				onChange={onChangeHandler}
+				onKeyDown={onKeyDown}
 			/>
 
-			{/* {label ? (
+			{label ? (
 				<label
 					className={`${styles.Label} ${value ? styles.NoEmpty : ''} ${
 						prefix ? styles.Label_WithPrefix : styles.Label_Default
@@ -140,7 +146,7 @@ const BaseInputPhone: React.FC<Props> = ({
 				>
 					{label}
 				</label>
-			) : null} */}
+			) : null}
 
 			{optional ? <span className={styles.Optional}>Опционально</span> : null}
 

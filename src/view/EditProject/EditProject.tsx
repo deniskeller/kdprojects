@@ -5,6 +5,7 @@ import {
 	BaseIcon,
 	BaseInput,
 	BaseInputFile,
+	BaseInputPhone,
 	BaseRadioButton,
 	BaseSelect,
 	BaseSelectMultiple,
@@ -37,6 +38,7 @@ const EditProject: React.FC = () => {
 		some_text2: '',
 		some_text3: '',
 		some_text4: '',
+		phone: '+79999999999',
 		counter: 1,
 		dividend_payments: 'Upon expiration',
 		files: [],
@@ -865,14 +867,26 @@ const EditProject: React.FC = () => {
 								</div>
 
 								<div className={`${s.Form_Block_Row} ${s.Form_Block_Col}`}>
-									<BaseInput
+									<BaseInputPhone
 										prefix='phone'
-										name='some_text4'
+										name='phone'
 										placeholder='Телефон'
 										label='Телефон'
-										value={value.some_text4}
-										onChange={(val: string) => setNewValue(val, 'some_text4')}
+										value={value.phone}
+										onChange={(val: string) => setNewValue(val, 'phone')}
 										className={s.Input}
+										formatter={(value) => {
+											return (
+												value
+													.toString()
+													.slice(0, 18)
+													.replace(/\D/g, '')
+													.replace(/(\d{0})(\d)/, '+7 $1')
+													.replace(/(\d{3})(\d)/, '($1) $2')
+													.replace(/(\d{3})(\d)/, '$1-$2')
+													.replace(/(\d{2})(\d{2})/, '$1-$2') || '+7 '
+											);
+										}}
 									/>
 
 									<BaseInput
