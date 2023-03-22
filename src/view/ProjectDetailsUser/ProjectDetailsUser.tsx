@@ -307,10 +307,13 @@ const ProjectDetailsUser: React.FC<Props> = ({
 											className={s.AboutProject_Documents_Item_Icon}
 										/>
 
-										<Link href='https://twitter.com/' target='_blank'>
-											<div className={s.AboutProject_Documents_Item_Name}>
+										<Link href='https://twitter.com/'>
+											<a
+												className={s.AboutProject_Documents_Item_Name}
+												target='_blank'
+											>
 												kodiki.ru
-											</div>
+											</a>
 										</Link>
 									</div>
 
@@ -320,10 +323,13 @@ const ProjectDetailsUser: React.FC<Props> = ({
 											icon={ALL_ICONS.VK}
 											className={s.AboutProject_Documents_Item_Icon}
 										/>
-										<Link href='https://vk.ru/kodiki' target='_blank'>
-											<div className={s.AboutProject_Documents_Item_Name}>
+										<Link href='https://vk.ru/kodiki'>
+											<a
+												className={s.AboutProject_Documents_Item_Name}
+												target='_blank'
+											>
 												vk.ru/kodiki
-											</div>
+											</a>
 										</Link>
 									</div>
 								</div>
@@ -526,10 +532,13 @@ const ProjectDetailsUser: React.FC<Props> = ({
 												<span>VK</span>
 											</div>
 
-											<Link href='https://vk.ru/edu.kurator' target='_blank'>
-												<div className={s.Contacts_List_Item_Description}>
+											<Link href='https://vk.ru/edu.kurator'>
+												<a
+													className={s.Contacts_List_Item_Description}
+													target='_blank'
+												>
 													kodiki.ru
-												</div>
+												</a>
 											</Link>
 										</div>
 									</div>

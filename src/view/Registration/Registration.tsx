@@ -222,8 +222,10 @@ const Registration: React.FC = () => {
 					<div className={s.Form_Register}>
 						<div className={s.Form_Register_Question}>Уже есть аккаунт?</div>
 
-						<Link href='/' className={s.Form_Register_Link}>
-							Войти
+						<Link href='/'>
+							<a href='' className={s.Form_Register_Link}>
+								Войти
+							</a>
 						</Link>
 					</div>
 				</form>

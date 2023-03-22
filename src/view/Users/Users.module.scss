@@ -52,11 +52,11 @@
 				border-bottom-right-radius: 0;
 
 				&:hover {
-					border-color: #8c97d9;
+					border-color: #91c3fd;
 				}
 
 				&:focus {
-					border-color: #6575cd;
+					border-color: #61a6fa;
 				}
 				@include ifmobile {
 					width: em(155px);
@@ -71,16 +71,6 @@
 				& > div {
 					height: em(44px);
 					border-radius: 0;
-					border-left: none;
-					border-right: none;
-
-					// &:hover {
-					// 	border-color: #d1d5db !important;
-					// 	border: none;
-					// 	border-top: 1px solid #d1d5db !important;
-					// 	border: 1px solid #d1d5db !important;
-					// 	border-bottom: 1px solid #d1d5db !important;
-					// }
 				}
 				ul {
 					top: em(47px);

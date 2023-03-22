@@ -56,15 +56,19 @@ const Authorization: React.FC = () => {
 						autocomplete='new-password'
 					/>
 
-					<Link href='/password-recovery' className={s.Form_PasswordRecovery}>
-						Забыли пароль?
+					<Link href='/password-recovery'>
+						<a href='' className={s.Form_PasswordRecovery}>
+							Забыли пароль?
+						</a>
 					</Link>
 
 					<div className={s.Form_Register}>
 						<div className={s.Form_Register_Question}>Ещё нет аккаунта?</div>
 
-						<Link href='/registration' className={s.Form_Register_Link}>
-							Зарегистрироваться
+						<Link href='/registration'>
+							<a href='' className={s.Form_Register_Link}>
+								Зарегистрироваться
+							</a>
 						</Link>
 					</div>
 

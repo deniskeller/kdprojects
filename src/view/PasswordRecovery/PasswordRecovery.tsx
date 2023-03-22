@@ -52,14 +52,18 @@ const PasswordRecovery: React.FC = () => {
 							/>
 
 							<div className={s.Form_Register}>
-								<Link href='/authorization' className={s.Form_Register_Link}>
-									Войти
+								<Link href='/authorization'>
+									<a href='' className={s.Form_Register_Link}>
+										Войти
+									</a>
 								</Link>
 
 								<div className={s.Form_Register_Question}>или</div>
 
-								<Link href='/registration' className={s.Form_Register_Link}>
-									Зарегистрироваться
+								<Link href='/registration'>
+									<a href='' className={s.Form_Register_Link}>
+										Зарегистрироваться
+									</a>
 								</Link>
 							</div>
 
@@ -216,11 +220,10 @@ const PasswordRecovery: React.FC = () => {
 								onClick={() => router.push('/')}
 							/>
 
-							<Link
-								href='/password-recovery-confirmation'
-								className={s.Form_Register_Link}
-							>
-								Якобы переходим с почты(удалить)
+							<Link href='/password-recovery-confirmation'>
+								<a href='' className={s.Form_Register_Link}>
+									Якобы переходим с почты(удалить)
+								</a>
 							</Link>
 						</div>
 					</>
